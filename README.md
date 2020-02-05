@@ -18,4 +18,12 @@ This project is of interest to me because I am heavily involved in the fitness c
 a strong background in the field of kinesiology. It is my intentions to expand on this application
 after the course of the term by making it more personalized to exercise professionals. For example,
  it would be ideal to have a database of workouts available to each client, accessible by both the client
- and trainer to enhance communication between the two individuals. Furthermore, such a tool would be useful in expanding my own personal training ventures.
+ and trainer to enhance communication between the two individuals. Furthermore, such a tool would be useful 
+ in expanding my own personal training ventures.
+ 
+ ## User Stories
+ 
+ - As a user, I want to be able to add exercises to a workout I am creating
+ - As a user, I want to be able to modify sets and repetitions assigned to each exercise within a workout
+ - As a user, I want to be able to view the exercises within the workout I created
+ - As a user, I want to be able to delete exercises from a workout
