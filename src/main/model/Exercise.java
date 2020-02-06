@@ -9,31 +9,41 @@ public class Exercise {
     ArrayList<String> listOfNotes;
 
     public Exercise(String name, int sets, int reps){  //Should I add a description of the exercise?
-
+        this.name = name;
+        this.sets = sets;
+        this.reps = reps;
+        listOfNotes = new ArrayList<>();
     }
 
     // EFFECTS: returns the number of sets for the given exercise
 
     public int getSets() {
-        return 0;
+        return this.sets;
     }
 
     //EFFECTS: returns the number of reps for the given exercise
 
     public int getReps() {
-        return 0;
+        return this.reps;
     }
 
     // EFFECTS: returns the name of the exercise
 
     public String getName() {
-        return "";
+        return this.name;
     }
 
     // EFFECTS: returns all the elements in listOfNote
 
     public String getNotes() {
-        return "";
+        if (listOfNotes.size() == 0) {
+            return "There are no notes for this exercise.";
+        }
+        String notes = "";
+        for (String next : listOfNotes) {
+            notes += next + "\n";
+        }
+        return notes;
     }
 
     // SHould i have a get note getter?
@@ -42,6 +52,7 @@ public class Exercise {
     // EFFECTS: adds given String to listOfNote
 
     public void addNote(String note) {
+        listOfNotes.add(note);
 
     }
 
@@ -50,7 +61,16 @@ public class Exercise {
     //          otherwise return false
 
     public boolean removeNote(String note) {
-        return false;
+        if (!listOfNotes.contains(note)) {
+            return false;
+        } else {
+            for (String next: listOfNotes) {
+                if (next.equals(note)) {
+                    listOfNotes.remove(next);
+                }
+            }
+        }
+        return true;
     }
 
     // MODIFIES: this
@@ -58,6 +78,11 @@ public class Exercise {
     //          if r <= 0, change value of reps to 0
 
     public void changeReps(int r) {
+        if (r <= 0) {
+            reps = 0;
+        } else {
+            reps = r;
+        }
 
     }
 
@@ -66,6 +91,10 @@ public class Exercise {
     //          if s <= 0, change value of sets to 0
 
     public void changeSets(int s) {
-
+        if (s <= 0) {
+            sets = 0;
+        } else {
+            sets = s;
+        }
     }
 }
