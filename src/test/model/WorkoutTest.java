@@ -26,7 +26,7 @@ public class WorkoutTest {
     @Test
 
     public void testRemoveExercise() {
-        
+
     }
 
     @Test
