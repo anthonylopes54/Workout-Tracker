@@ -1,9 +1,12 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Exercise {
     String name;
     int sets;
     int reps;
+    ArrayList<String> listOfNotes;
 
     public Exercise(String name, int sets, int reps){  //Should I add a description of the exercise?
 
@@ -25,6 +28,28 @@ public class Exercise {
 
     public String getName() {
         return "";
+    }
+
+    // EFFECTS: returns all the elements in listOfNote
+
+    public String getNotes() {
+        return "";
+    }
+
+    // SHould i have a get note getter?
+
+    // MODIFIES: this
+    // EFFECTS: adds given String to listOfNote
+
+    public void addNote(String note) {
+
+    }
+
+    // MODIFIES: this
+    // EFFECTS: removes given string from listOfNote
+
+    public void removeNote(String note) {
+
     }
 
     // MODIFIES: this

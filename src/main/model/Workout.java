@@ -9,7 +9,7 @@ public class Workout {
     String description;
     ArrayList<Exercise> listOfExercise;
 
-    public Workout() {
+    public Workout(String name, String description) {
 
     }
 

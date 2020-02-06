@@ -15,6 +15,12 @@ public class WorkoutList {
         return "";
     }
 
+    // EFFECTS: returns the number of elements in WorkoutList
+
+    public int getSize() {
+        return 0;
+    }
+
     // MODIFIES: this
     // EFFECTS: adds workout to listOfWorkouts
 

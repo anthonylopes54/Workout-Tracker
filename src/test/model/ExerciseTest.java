@@ -38,4 +38,24 @@ class ExerciseTest {
         testExercise.changeSets(1);
         assertEquals(1, testExercise.getSets());
     }
+
+    @Test
+    public void testGetNotes() {
+
+    }
+
+    @Test
+    public void testAddNote() {
+
+    }
+
+    @Test
+    public void testAddMultipleNotes() {
+        
+    }
+
+    @Test
+    public void testRemoveNote() {
+
+    }
 }
