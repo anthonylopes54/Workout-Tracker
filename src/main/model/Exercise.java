@@ -46,10 +46,11 @@ public class Exercise {
     }
 
     // MODIFIES: this
-    // EFFECTS: removes given string from listOfNote
+    // EFFECTS: removes given string from listOfNote and returns true;
+    //          otherwise return false
 
-    public void removeNote(String note) {
-
+    public boolean removeNote(String note) {
+        return false;
     }
 
     // MODIFIES: this
