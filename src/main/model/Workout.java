@@ -26,11 +26,10 @@ public class Workout {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds given exercise to listOfExercise and returns true if added successfully;
-    //          false otherwise
+    // EFFECTS: adds given exercise to listOfExercise
 
-    public boolean addExercise(Exercise exercise) {
-        return false;
+    public void addExercise(Exercise exercise){
+
     }
 
     // EFFECTS: returns a string of exercises within the workout with each exercises associated
