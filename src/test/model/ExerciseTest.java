@@ -9,7 +9,6 @@ class ExerciseTest {
     Exercise testExercise;
 
     @BeforeEach
-
     public void runBefore(){
         testExercise = new Exercise("OHP", 4, 10);
     }
