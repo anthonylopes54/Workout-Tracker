@@ -28,7 +28,7 @@ public class WorkoutListTest {
     @Test
     public void testPrintListOfWorkoutsSingleWorkout() {
         testWorkoutList.addWorkout(testWorkout1);
-        String workout = "Workout: " + testWorkout1.getName() + "\n      Description: " + testWorkout1.getDescription()
+        String workout = "Workout: " + testWorkout1.getName() + "\n         Description: " + testWorkout1.getDescription()
                 + "\n";
         assertTrue(testWorkoutList.printListOfWorkouts().equals(workout));
     }
@@ -36,9 +36,9 @@ public class WorkoutListTest {
     @Test
     public void testPrintListOfWorkoutsMultipleWorkout() {
         addWorkouts();
-        String workout = "Workout: " + testWorkout1.getName() + "\n      Description: " + testWorkout1.getDescription() + "\n"
-               + "Workout: " + testWorkout2.getName() + "\n      Description: " + testWorkout2.getDescription() + "\u066D\n"
-                + "Workout: " + testWorkout3.getName() + "\n      Description: " + testWorkout3.getDescription() + "\n";
+        String workout = "Workout: " + testWorkout1.getName() + "\n         Description: " + testWorkout1.getDescription() + "\n"
+               + "Workout: " + testWorkout2.getName() + "\n         Description: " + testWorkout2.getDescription() + "\u066D\n"
+                + "Workout: " + testWorkout3.getName() + "\n         Description: " + testWorkout3.getDescription() + "\n";
 
         assertTrue(workout.equals(testWorkoutList.printListOfWorkouts()));
 
@@ -74,13 +74,13 @@ public class WorkoutListTest {
     @Test
     public void testRemoveWorkoutThatIsNotPresent() {
         testWorkoutList.addWorkout(testWorkout1);
-        assertFalse(testWorkoutList.removeWorkout(testWorkout2));
+        assertFalse(testWorkoutList.removeWorkout(testWorkout2.getName()));
     }
 
     @Test
     public void testRemoveSingleWorkout() {
         testWorkoutList.addWorkout(testWorkout1);
-        testWorkoutList.removeWorkout(testWorkout1);
+        testWorkoutList.removeWorkout(testWorkout1.getName());
         assertEquals(0,testWorkoutList.getSize());
     }
 
@@ -88,15 +88,15 @@ public class WorkoutListTest {
     public void testRemoveMultipleWorkouts() {
         addWorkouts();
 
-        assertTrue(testWorkoutList.removeWorkout(testWorkout2));
+        assertTrue(testWorkoutList.removeWorkout(testWorkout2.getName()));
         assertFalse(testWorkoutList.contains(testWorkout2));
         assertEquals(2, testWorkoutList.getSize());
 
-        assertTrue(testWorkoutList.removeWorkout(testWorkout1));
+        assertTrue(testWorkoutList.removeWorkout(testWorkout1.getName()));
         assertFalse(testWorkoutList.contains(testWorkout1));
         assertEquals(1, testWorkoutList.getSize());
 
-        assertTrue(testWorkoutList.removeWorkout(testWorkout3));
+        assertTrue(testWorkoutList.removeWorkout(testWorkout3.getName()));
         assertFalse(testWorkoutList.contains(testWorkout3));
         assertEquals(0, testWorkoutList.getSize());
     }
@@ -107,6 +107,9 @@ public class WorkoutListTest {
         addWorkouts();
 
         assertEquals(testWorkout2, testWorkoutList.getWorkout(testWorkout2.getName()));
+
+
+
 
     }
 

@@ -1,5 +1,6 @@
 package model;
 
+
 import java.util.ArrayList;
 
 public class WorkoutList {
@@ -11,16 +12,17 @@ public class WorkoutList {
 
     // REQUIRES: listOfWorkouts must have >0 elements
     // EFFECTS: returns a list of workouts currently in listOfWorkouts
-
+    // TODO: fix checkstyle
     public String printListOfWorkouts() {
         String workout = "";
         for (Workout next : listOfWorkout) {
             if (next.getFavourite()) {
-                workout += "Workout: " + next.getName() + "\n      Description: " + next.getDescription() + "\u066D\n";
+                workout += "Workout: " + next.getName() + "\n         Description: " + next.getDescription() + "\u066D\n";
             } else {
-                workout += "Workout: " + next.getName() + "\n      Description: " + next.getDescription() + "\n";
+                workout += "Workout: " + next.getName() + "\n         Description: " + next.getDescription() + "\n";
             }
         }
+        System.out.println(workout);
         return workout;
     }
 
@@ -41,19 +43,20 @@ public class WorkoutList {
     // EFFECTS: removes given workout from listOfWorkout if it's present and returns true,
     //          otherwise return false
 
-    public boolean removeWorkout(Workout workout) {
-        if (!listOfWorkout.contains(workout)) {
-            return false;
-        } else {
-            listOfWorkout.remove(workout);
-            return true;
+    public boolean removeWorkout(String workout) {
+        for (Workout next : listOfWorkout) {
+            if (next.getName().equals(workout)) {
+                listOfWorkout.remove(next);
+                return true;
+            }
         }
+        return false;
     }
 
 
     // REQUIRES: given name of workout must be in listOfWorkout
     // EFFECTS: returns given workout
-
+    // TODO: fix code coverage
     public Workout getWorkout(String workout) {
         Workout returnValue = null;
         for (Workout next : listOfWorkout) {

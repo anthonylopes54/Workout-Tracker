@@ -1,19 +1,14 @@
 package ui;
 
-import com.sun.corba.se.spi.orbutil.threadpool.Work;
 import model.WorkoutList;
 
-import java.util.Scanner;
-
-import static ui.ConsoleInterface.dealUserInput;
-
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         WorkoutList workoutList = new WorkoutList();
         ConsoleInterface consoleInterface = new ConsoleInterface(workoutList);
-        dealUserInput(workoutList);
+        System.out.println("Welcome to the Lifestyle Tracker!");
 
-
+        consoleInterface.dealUserInput(workoutList, ConsoleInterface.ADD_WORKOUT_COMMAND);
     }
 
 
