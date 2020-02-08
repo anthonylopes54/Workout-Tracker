@@ -28,16 +28,17 @@ public class WorkoutListTest {
     @Test
     public void testPrintListOfWorkoutsSingleWorkout() {
         testWorkoutList.addWorkout(testWorkout1);
-        String workout = "Workout: " + testWorkout1.name + "\n      Description: " + testWorkout1.description + "\n";
+        String workout = "Workout: " + testWorkout1.getName() + "\n      Description: " + testWorkout1.getDescription()
+                + "\n";
         assertTrue(testWorkoutList.printListOfWorkouts().equals(workout));
     }
 
     @Test
     public void testPrintListOfWorkoutsMultipleWorkout() {
         addWorkouts();
-        String workout = "Workout: " + testWorkout1.name + "\n      Description: " + testWorkout1.description + "\n"
-               + "Workout: " + testWorkout2.name + "\n      Description: " + testWorkout2.description + "\u066D\n"
-                + "Workout: " + testWorkout3.name + "\n      Description: " + testWorkout3.description + "\n";
+        String workout = "Workout: " + testWorkout1.getName() + "\n      Description: " + testWorkout1.getDescription() + "\n"
+               + "Workout: " + testWorkout2.getName() + "\n      Description: " + testWorkout2.getDescription() + "\u066D\n"
+                + "Workout: " + testWorkout3.getName() + "\n      Description: " + testWorkout3.getDescription() + "\n";
 
         assertTrue(workout.equals(testWorkoutList.printListOfWorkouts()));
 
@@ -47,8 +48,8 @@ public class WorkoutListTest {
     @Test
     public void testAddSingleWorkout() {
         testWorkoutList.addWorkout(testWorkout1);
-        assertEquals(1, testWorkoutList.listOfWorkouts.size());
-        assertTrue(testWorkoutList.listOfWorkouts.contains(testWorkout1));
+        assertEquals(1, testWorkoutList.getListOfWorkout().size());
+        assertTrue(testWorkoutList.getListOfWorkout().contains(testWorkout1));
     }
 
     @Test
@@ -58,16 +59,16 @@ public class WorkoutListTest {
         }
 
         assertEquals(5, testWorkoutList.getSize());
-        assertEquals(testWorkout1, testWorkoutList.listOfWorkouts.get(0));
-        assertEquals(testWorkout1, testWorkoutList.listOfWorkouts.get(4));
+        assertEquals(testWorkout1, testWorkoutList.getListOfWorkout().get(0));
+        assertEquals(testWorkout1, testWorkoutList.getListOfWorkout().get(4));
 
         for (int i=0 ; i<5 ; i++) {
             testWorkoutList.addWorkout(testWorkout2);
         }
 
         assertEquals(10, testWorkoutList.getSize());
-        assertEquals(testWorkout2, testWorkoutList.listOfWorkouts.get(5));
-        assertEquals(testWorkout2, testWorkoutList.listOfWorkouts.get(9));
+        assertEquals(testWorkout2, testWorkoutList.getListOfWorkout().get(5));
+        assertEquals(testWorkout2, testWorkoutList.getListOfWorkout().get(9));
     }
 
     @Test
@@ -99,7 +100,7 @@ public class WorkoutListTest {
     public void testGetWorkout() {
         addWorkouts();
 
-        assertEquals(testWorkout2, testWorkoutList.getWorkout(testWorkout2.name));
+        assertEquals(testWorkout2, testWorkoutList.getWorkout(testWorkout2.getName()));
 
     }
 

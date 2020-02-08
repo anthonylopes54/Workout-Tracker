@@ -26,14 +26,14 @@ public class WorkoutTest {
     public void testConstructor() {
         assertTrue(testWorkout.getDescription().equals("Lots of back with a hypertrophy focus!"));
         assertTrue(testWorkout.getName().equals("Back Blast"));
-        assertEquals(0, testWorkout.listOfExercise.size());
+        assertEquals(0, testWorkout.getListOfExercise().size());
     }
 
     @Test
     public void testAddExercise() {
         testWorkout.addExercise(exercise1);
-        assertEquals(1, testWorkout.listOfExercise.size());
-        assertTrue(testWorkout.listOfExercise.contains(exercise1));
+        assertEquals(1, testWorkout.getListOfExercise().size());
+        assertTrue(testWorkout.getListOfExercise().contains(exercise1));
     }
 
     @Test
@@ -41,18 +41,18 @@ public class WorkoutTest {
         for (int i=0; i<5; i++) {
             testWorkout.addExercise(exercise1);
         }
-        assertEquals(5, testWorkout.listOfExercise.size());
-        assertEquals(exercise1, testWorkout.listOfExercise.get(0));
-        assertEquals(exercise1, testWorkout.listOfExercise.get(4));
+        assertEquals(5, testWorkout.getListOfExercise().size());
+        assertEquals(exercise1, testWorkout.getListOfExercise().get(0));
+        assertEquals(exercise1, testWorkout.getListOfExercise().get(4));
 
         for (int i=0; i<5; i++) {
             testWorkout.addExercise(exercise2);
 
         }
-        assertEquals(10, testWorkout.listOfExercise.size());
-        assertEquals(exercise1, testWorkout.listOfExercise.get(4));
-        assertEquals(exercise2, testWorkout.listOfExercise.get(5));
-        assertEquals(exercise2, testWorkout.listOfExercise.get(9));
+        assertEquals(10, testWorkout.getListOfExercise().size());
+        assertEquals(exercise1, testWorkout.getListOfExercise().get(4));
+        assertEquals(exercise2, testWorkout.getListOfExercise().get(5));
+        assertEquals(exercise2, testWorkout.getListOfExercise().get(9));
     }
 
     @Test
@@ -66,14 +66,14 @@ public class WorkoutTest {
         testWorkout.addExercise(exercise2);
 
         assertTrue(testWorkout.removeExercise(exercise1));
-        assertEquals(1, testWorkout.listOfExercise.size());
-        assertEquals(exercise2, testWorkout.listOfExercise.get(0));
+        assertEquals(1, testWorkout.getListOfExercise().size());
+        assertEquals(exercise2, testWorkout.getListOfExercise().get(0));
 
         testWorkout.addExercise(exercise3);
         testWorkout.addExercise(exercise4);
-        assertEquals(3, testWorkout.listOfExercise.size());
+        assertEquals(3, testWorkout.getListOfExercise().size());
         assertTrue(testWorkout.removeExercise(exercise3));
-        assertFalse(testWorkout.listOfExercise.contains(exercise3));
+        assertFalse(testWorkout.getListOfExercise().contains(exercise3));
     }
 
     @Test
@@ -84,10 +84,10 @@ public class WorkoutTest {
         assertTrue(testWorkout.removeExercise(exercise2));
         assertTrue(testWorkout.removeExercise(exercise1));
 
-        assertFalse(testWorkout.listOfExercise.contains(exercise3));
-        assertFalse(testWorkout.listOfExercise.contains(exercise2));
-        assertFalse(testWorkout.listOfExercise.contains(exercise1));
-        assertEquals(1, testWorkout.listOfExercise.size());
+        assertFalse(testWorkout.getListOfExercise().contains(exercise3));
+        assertFalse(testWorkout.getListOfExercise().contains(exercise2));
+        assertFalse(testWorkout.getListOfExercise().contains(exercise1));
+        assertEquals(1, testWorkout.getListOfExercise().size());
     }
 
     @Test
@@ -99,7 +99,8 @@ public class WorkoutTest {
     public void testPrintWorkoutSingleExercise() {
         testWorkout.addExercise(exercise1);
 
-        String workout = "Exercise: " + exercise1.name + " Sets: " + exercise1.sets + " Reps: " + exercise1.reps + "\n";
+        String workout = "Exercise: " + exercise1.getName() + " Sets: " + exercise1.getSets() + " Reps: "
+                + exercise1.getReps() + "\n";
 
         assertTrue(workout.equals(testWorkout.printWorkout()));
     }
@@ -109,10 +110,14 @@ public class WorkoutTest {
     public void testPrintWorkoutMultipleExercises() {
         addExercises();
 
-        String workout = "Exercise: " + exercise4.name + " Sets: " + exercise4.sets + " Reps: " + exercise4.reps + "\n"
-                + "Exercise: " + exercise3.name + " Sets: " + exercise3.sets + " Reps: " + exercise3.reps + "\n"
-                + "Exercise: " + exercise2.name + " Sets: " + exercise2.sets + " Reps: " + exercise2.reps + "\n"
-                + "Exercise: " + exercise1.name + " Sets: " + exercise1.sets + " Reps: " + exercise1.reps + "\n";
+        String workout = "Exercise: " + exercise4.getName() + " Sets: " + exercise4.getSets()
+                + " Reps: " + exercise4.getReps() + "\n"
+                + "Exercise: " + exercise3.getName() + " Sets: " + exercise3.getSets()
+                + " Reps: " + exercise3.getReps() + "\n"
+                + "Exercise: " + exercise2.getName() + " Sets: " + exercise2.getSets()
+                + " Reps: " + exercise2.getReps() + "\n"
+                + "Exercise: " + exercise1.getName() + " Sets: " + exercise1.getSets()
+                + " Reps: " + exercise1.getReps() + "\n";
 
         assertTrue(testWorkout.printWorkout().equals(workout));
     }
@@ -120,14 +125,14 @@ public class WorkoutTest {
     @Test
     public void testAddToFavourites() {
         testWorkout.addToFavourites();
-        assertTrue(testWorkout.favourite);
+        assertTrue(testWorkout.getFavourite());
     }
 
     @Test
     public void testRemoveFromFavourites() {
         testWorkout.addToFavourites();
         testWorkout.removeFromFavourites();
-        assertFalse(testWorkout.favourite);
+        assertFalse(testWorkout.getFavourite());
     }
 
 

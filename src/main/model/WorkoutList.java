@@ -3,10 +3,10 @@ package model;
 import java.util.ArrayList;
 
 public class WorkoutList {
-    ArrayList<Workout> listOfWorkouts;
+    private ArrayList<Workout> listOfWorkout;
 
     public WorkoutList() {
-        listOfWorkouts = new ArrayList<>();
+        listOfWorkout = new ArrayList<>();
     }
 
     // REQUIRES: listOfWorkouts must have >0 elements
@@ -14,11 +14,11 @@ public class WorkoutList {
 
     public String printListOfWorkouts() {
         String workout = "";
-        for (Workout next : listOfWorkouts) {
-            if (next.favourite) {
-                workout += "Workout: " + next.name + "\n      Description: " + next.description + "\u066D\n";
+        for (Workout next : listOfWorkout) {
+            if (next.getFavourite()) {
+                workout += "Workout: " + next.getName() + "\n      Description: " + next.getDescription() + "\u066D\n";
             } else {
-                workout += "Workout: " + next.name + "\n      Description: " + next.description + "\n";
+                workout += "Workout: " + next.getName() + "\n      Description: " + next.getDescription() + "\n";
             }
         }
         return workout;
@@ -27,14 +27,14 @@ public class WorkoutList {
     // EFFECTS: returns the number of elements in WorkoutList
 
     public int getSize() {
-        return listOfWorkouts.size();
+        return listOfWorkout.size();
     }
 
     // MODIFIES: this
     // EFFECTS: adds workout to listOfWorkouts
 
     public void addWorkout(Workout workout) {
-        listOfWorkouts.add(workout);
+        listOfWorkout.add(workout);
     }
 
     // MODIFIES: this
@@ -42,10 +42,10 @@ public class WorkoutList {
     //          otherwise return false
 
     public boolean removeWorkout(Workout workout) {
-        if (!listOfWorkouts.contains(workout)) {
+        if (!listOfWorkout.contains(workout)) {
             return false;
         } else {
-            listOfWorkouts.remove(workout);
+            listOfWorkout.remove(workout);
             return true;
         }
     }
@@ -55,8 +55,8 @@ public class WorkoutList {
     // EFFECTS: returns given workout
 
     public Workout getWorkout(String workout) {
-        for (Workout next : listOfWorkouts) {
-            if (next.name == workout) {
+        for (Workout next : listOfWorkout) {
+            if (next.getName() == workout) {
                 return next;
             }
         }
@@ -67,6 +67,12 @@ public class WorkoutList {
     //          false otherwise
 
     public boolean contains(Workout workout) {
-        return listOfWorkouts.contains(workout);
+        return listOfWorkout.contains(workout);
+    }
+
+    // EFFECTS: returns listOfWorkout
+
+    public ArrayList<Workout> getListOfWorkout() {
+        return listOfWorkout;
     }
 }

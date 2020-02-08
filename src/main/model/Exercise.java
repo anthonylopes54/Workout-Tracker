@@ -3,16 +3,16 @@ package model;
 import java.util.ArrayList;
 
 public class Exercise {
-    String name;
-    int sets;
-    int reps;
-    ArrayList<String> listOfNotes;
+    private String name;
+    private int sets;
+    private int reps;
+    private ArrayList<String> listOfNote;
 
     public Exercise(String name, int sets, int reps){  //Should I add a description of the exercise?
         this.name = name;
         this.sets = sets;
         this.reps = reps;
-        listOfNotes = new ArrayList<>();
+        listOfNote = new ArrayList<>();
     }
 
     // EFFECTS: returns the number of sets for the given exercise
@@ -36,11 +36,11 @@ public class Exercise {
     // EFFECTS: returns all the elements in listOfNote
 
     public String getNotes() {
-        if (listOfNotes.size() == 0) {
+        if (listOfNote.size() == 0) {
             return "There are no notes for this exercise.";
         }
         String notes = "";
-        for (String next : listOfNotes) {
+        for (String next : listOfNote) {
             notes += next + "\n";
         }
         return notes;
@@ -52,7 +52,7 @@ public class Exercise {
     // EFFECTS: adds given String to listOfNote
 
     public void addNote(String note) {
-        listOfNotes.add(note);
+        listOfNote.add(note);
 
     }
 
@@ -61,12 +61,12 @@ public class Exercise {
     //          otherwise return false
 
     public boolean removeNote(String note) {
-        if (!listOfNotes.contains(note)) {
+        if (!listOfNote.contains(note)) {
             return false;
         } else {
-            for (String next: listOfNotes) {
+            for (String next: listOfNote) {
                 if (next.equals(note)) {
-                    listOfNotes.remove(next);
+                    listOfNote.remove(next);
                 }
             }
         }
@@ -96,5 +96,11 @@ public class Exercise {
         } else {
             sets = s;
         }
+    }
+
+    // EFFECTS: returns listOfNote
+
+    public ArrayList<String> getListOfNote() {
+        return listOfNote;
     }
 }

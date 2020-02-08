@@ -5,10 +5,10 @@ import com.sun.corba.se.spi.orbutil.threadpool.Work;
 import java.util.ArrayList;
 
 public class Workout {
-    String name;
-    String description;
-    ArrayList<Exercise> listOfExercise;
-    boolean favourite;
+    private String name;
+    private String description;
+    private ArrayList<Exercise> listOfExercise;
+    private boolean favourite;
 
     public Workout(String name, String description, boolean fav) {
         this.name = name;
@@ -45,7 +45,10 @@ public class Workout {
         } else {
             String workout = "";
             for (Exercise next : listOfExercise) {
-                workout += "Exercise: " + next.name + " Sets: " + next.sets + " Reps: " + next.reps + "\n";
+                workout += "Exercise: " + next.getName()
+                        + " Sets: " + next.getSets()
+                        + " Reps: " + next.getReps()
+                        + "\n";
             }
             return workout;
         }
@@ -76,6 +79,18 @@ public class Workout {
 
     public void removeFromFavourites() {
         favourite = false;
+    }
+
+    // EFFECTS: return value of this.favourite
+
+    public boolean getFavourite() {
+        return favourite;
+    }
+
+    // EFFECTS: return listOfExercise
+
+    public ArrayList<Exercise> getListOfExercise() {
+        return listOfExercise;
     }
 
 //    // REQUIRES: exercise must already be in listOfExercise

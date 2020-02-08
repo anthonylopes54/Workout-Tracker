@@ -43,7 +43,7 @@ class ExerciseTest {
         testExercise.addNote("slow-eccentric");
         String notes = testExercise.getNotes();
         assertTrue(notes.equals("slow-eccentric" + "\n"));
-        assertEquals(1, testExercise.listOfNotes.size());
+        assertEquals(1, testExercise.getListOfNote().size());
 
     }
 
@@ -59,11 +59,11 @@ class ExerciseTest {
         }
         String notes = "";
 
-        for (String next : testExercise.listOfNotes) {
+        for (String next : testExercise.getListOfNote()) {
             notes += next + "\n";
         }
 
-        assertEquals(10, testExercise.listOfNotes.size());
+        assertEquals(10, testExercise.getListOfNote().size());
         String comparisonTest = testExercise.getNotes();
         assertTrue(notes.equals(comparisonTest));
 
@@ -74,17 +74,17 @@ class ExerciseTest {
         testExercise.addNote("slow-eccentric");
         String notes = testExercise.getNotes();
         assertTrue(notes.equals("slow-eccentric" + "\n"));
-        assertEquals(1, testExercise.listOfNotes.size());
+        assertEquals(1, testExercise.getListOfNote().size());
 
         testExercise.addNote("tempo");
         testExercise.addNote("another note");
-        assertEquals(3, testExercise.listOfNotes.size());
+        assertEquals(3, testExercise.getListOfNote().size());
 
         assertTrue(testExercise.removeNote("tempo"));
-        assertEquals(2, testExercise.listOfNotes.size());
+        assertEquals(2, testExercise.getListOfNote().size());
 
         assertTrue(testExercise.removeNote("slow-eccentric"));
-        assertEquals(1,testExercise.listOfNotes.size());
+        assertEquals(1,testExercise.getListOfNote().size());
         assertTrue(testExercise.getNotes().equals("another note" + "\n"));
     }
 }
