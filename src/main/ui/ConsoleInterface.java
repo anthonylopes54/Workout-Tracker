@@ -16,6 +16,8 @@ public class ConsoleInterface {
     private static final String REMOVE_EXERCISE_COMMAND = "remove exercise";
     private static final String MODIFY_EXERCISE_COMMAND = "modify exercise";
     private static final String BACK_COMMAND = "back";
+    private static final String ADD_TO_FAVOURITE = "fav";
+    private static final String REMOVE_FROM_FAVOURITE = "remove fav";
 
     public boolean runProgram;
     private WorkoutList workoutList;
@@ -34,6 +36,7 @@ public class ConsoleInterface {
         checkInputForWorkoutList();
     }
 
+    // EFFECTS: helps parse user input and direct user to correct methods required for their intentions
 
     private void parseStringForWorkoutList(String s) throws InterruptedException {
         if (s.length() > 0) {
@@ -52,6 +55,12 @@ public class ConsoleInterface {
                 case BACK_COMMAND:
                     dealUserInput(workoutList);
                     break;
+                case ADD_TO_FAVOURITE:
+                    addWorkoutToFavourite();
+                    break;
+                case REMOVE_FROM_FAVOURITE:
+                    removeWorkoutFromFavourite();
+                    break;
                 default:
                     for (Workout next : workoutList.getListOfWorkout()) {
                         if (s.equalsIgnoreCase(next.getName())) {
@@ -63,6 +72,49 @@ public class ConsoleInterface {
                     checkInputForWorkoutList();
                     break;
             }
+        }
+    }
+
+    private void removeWorkoutFromFavourite() throws InterruptedException {
+        System.out.println("What is the name of the workout you would like to remove from your favourites");
+        String name = input.nextLine();
+        if (name.equals(BACK_COMMAND)) {
+            dealUserInput(workoutList);
+            dealUserInput(workoutList);
+        }
+        if (workoutList.containsName(name)) {
+            for (Workout next : workoutList.getListOfWorkout()) {
+                if (next.getName().equals(name)) {
+                    next.removeFromFavourites();
+                    System.out.println(name + "was removed from your favourites!");
+                    dealUserInput(workoutList);
+                    return;
+                }
+            }
+        } else {
+            System.out.println("Sorry, I did not get that. Can you please try again...");
+            removeWorkoutFromFavourite();
+        }
+    }
+
+    private void addWorkoutToFavourite() throws InterruptedException {
+        System.out.println("What is the name of the workout you would like to make a favourite?");
+        String name = input.nextLine();
+        if (name.equals(BACK_COMMAND)) {
+            dealUserInput(workoutList);
+        }
+        if (workoutList.containsName(name)) {
+            for (Workout next : workoutList.getListOfWorkout()) {
+                if (next.getName().equals(name)) {
+                    next.addToFavourites();
+                    System.out.println(name + "was added to your favourites!");
+                    dealUserInput(workoutList);
+                    return;
+                }
+            }
+        } else {
+            System.out.println("Sorry, I did not get that. Can you please try again...");
+            addWorkoutToFavourite();
         }
     }
 
@@ -82,6 +134,8 @@ public class ConsoleInterface {
             }
         }
     }
+
+    // EFFECTS: helps parse user input and direct user to correct methods required for their intentions
 
     private void parseStringForWorkout(String s, Workout workout) throws InterruptedException {
         if (s.length() > 0) {
@@ -133,7 +187,6 @@ public class ConsoleInterface {
         } else {
             System.out.println("Sorry, I did not get that. Can you please try again...");
             modifyExercise(workout);
-            return;
         }
 
     }
@@ -142,7 +195,6 @@ public class ConsoleInterface {
         if (workout.getListOfExercise().size() <= 0) {
             System.out.println("This workout does not have any exercises in it");
             openWorkout(workout);
-            return;
         }
     }
 
@@ -167,7 +219,6 @@ public class ConsoleInterface {
         } else {
             System.out.println("Sorry, I did not get that. Can you please try again...");
             removeExercise(workout);
-            return;
         }
     }
 
@@ -218,16 +269,17 @@ public class ConsoleInterface {
         if (name.equals(BACK_COMMAND)) {
             dealUserInput(workoutList);
             return;
-            if (workoutList.containsName(name)) {
-                workoutList.removeWorkout(name);
-                System.out.println(name + " was removed!");
-                dealUserInput(workoutList);
-            } else {
-                System.out.println("Sorry, I did not get that. Can you please try again...");
-                dealUserInput(workoutList);
-            }
+        }
+        if (workoutList.containsName(name)) {
+            workoutList.removeWorkout(name);
+            System.out.println(name + " was removed!");
+            dealUserInput(workoutList);
+        } else {
+            System.out.println("Sorry, I did not get that. Can you please try again...");
+            dealUserInput(workoutList);
         }
     }
+
 
     private void addWorkout() throws InterruptedException {
         System.out.println("What would you like to name your new workout?");
@@ -256,6 +308,8 @@ public class ConsoleInterface {
         workoutList.printListOfWorkouts();
         System.out.println("Type '" + ADD_WORKOUT_COMMAND + "' '" + REMOVE_WORKOUT_COMMAND
                 + "' '" + QUIT_COMMAND + "' or the name of the workout you would like to view!");
+        System.out.println("You can also type '" + ADD_TO_FAVOURITE + "' or '" + REMOVE_FROM_FAVOURITE + "' to add or"
+                + " remove workouts to or from your favourites.");
     }
 
     private void checkInputForWorkoutList() throws InterruptedException {
