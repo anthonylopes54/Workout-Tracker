@@ -78,13 +78,13 @@ public class ConsoleInterface {
     private void removeWorkoutFromFavourite() throws InterruptedException {
         System.out.println("What is the name of the workout you would like to remove from your favourites");
         String name = input.nextLine();
-        if (name.equals(BACK_COMMAND)) {
+        if (name.equalsIgnoreCase(BACK_COMMAND)) {
             dealUserInput(workoutList);
             dealUserInput(workoutList);
         }
         if (workoutList.containsName(name)) {
             for (Workout next : workoutList.getListOfWorkout()) {
-                if (next.getName().equals(name)) {
+                if (next.getName().equalsIgnoreCase(name)) {
                     next.removeFromFavourites();
                     System.out.println(name + "was removed from your favourites!");
                     dealUserInput(workoutList);
@@ -100,12 +100,12 @@ public class ConsoleInterface {
     private void addWorkoutToFavourite() throws InterruptedException {
         System.out.println("What is the name of the workout you would like to make a favourite?");
         String name = input.nextLine();
-        if (name.equals(BACK_COMMAND)) {
+        if (name.equalsIgnoreCase(BACK_COMMAND)) {
             dealUserInput(workoutList);
         }
         if (workoutList.containsName(name)) {
             for (Workout next : workoutList.getListOfWorkout()) {
-                if (next.getName().equals(name)) {
+                if (next.getName().equalsIgnoreCase(name)) {
                     next.addToFavourites();
                     System.out.println(name + "was added to your favourites!");
                     dealUserInput(workoutList);
@@ -129,6 +129,7 @@ public class ConsoleInterface {
         while (runProgram) {
             if (input.hasNext()) {
                 s = input.nextLine();
+                s = s.toLowerCase();
                 s = s.trim();
                 parseStringForWorkout(s, workout);
             }
@@ -171,14 +172,14 @@ public class ConsoleInterface {
         areThereAnyExercisesInWorkout(workout);
         System.out.println("What is the name of the exercise you would like to modify?");
         String name = input.nextLine();
-        if (name.equals(BACK_COMMAND)) {
+        if (name.equalsIgnoreCase(BACK_COMMAND)) {
             openWorkout(workout);
             return;
         }
         if (workout.containsName(name)) {
             Exercise newExercise = buildExerciseWithUser(workout);
             for (Exercise next : workout.getListOfExercise()) {
-                if (next.getName().equals(name)) {
+                if (next.getName().equalsIgnoreCase(name)) {
                     int indexToPlace = workout.getListOfExercise().indexOf(next);
                     workout.getListOfExercise().remove(next);
                     workout.getListOfExercise().add(indexToPlace, newExercise);
@@ -202,13 +203,13 @@ public class ConsoleInterface {
         areThereAnyExercisesInWorkout(workout);
         System.out.println("What  is the name of the exercise you would like to remove?");
         String name = input.nextLine();
-        if (name.equals(BACK_COMMAND)) {
+        if (name.equalsIgnoreCase(BACK_COMMAND)) {
             openWorkout(workout);
             return;
         }
         if (workout.containsName(name)) {
             for (Exercise next : workout.getListOfExercise()) {
-                if (next.getName().equals(name)) {
+                if (next.getName().equalsIgnoreCase(name)) {
                     workout.removeExercise(next);
                     System.out.println("Successfully removed");
                     openWorkout(workout);
@@ -232,19 +233,19 @@ public class ConsoleInterface {
     private Exercise buildExerciseWithUser(Workout workout) throws InterruptedException {
         System.out.println("What is the name of the exercise you would like to add?");
         String name = input.nextLine();
-        if (name.equals(BACK_COMMAND)) {
+        if (name.equalsIgnoreCase(BACK_COMMAND)) {
             openWorkout(workout);
             return null;
         }
         System.out.println("How many sets?");
         String sets = input.nextLine();
-        if (sets.equals(BACK_COMMAND)) {
+        if (sets.equalsIgnoreCase(BACK_COMMAND)) {
             openWorkout(workout);
             return null;
         }
         System.out.println("How many reps?");
         String reps = input.nextLine();
-        if (reps.equals(BACK_COMMAND)) {
+        if (reps.equalsIgnoreCase(BACK_COMMAND)) {
             openWorkout(workout);
             return null;
         }
@@ -266,7 +267,7 @@ public class ConsoleInterface {
         }
         System.out.println("What is the name of the workout you would like to remove?");
         String name = input.nextLine();
-        if (name.equals(BACK_COMMAND)) {
+        if (name.equalsIgnoreCase(BACK_COMMAND)) {
             dealUserInput(workoutList);
             return;
         }
@@ -284,13 +285,13 @@ public class ConsoleInterface {
     private void addWorkout() throws InterruptedException {
         System.out.println("What would you like to name your new workout?");
         String name = input.nextLine();
-        if (name.equals(BACK_COMMAND)) {
+        if (name.equalsIgnoreCase(BACK_COMMAND)) {
             dealUserInput(workoutList);
             return;
         }
         System.out.println("How would you describe this workout?");
         String description = input.nextLine();
-        if (description.equals(BACK_COMMAND)) {
+        if (description.equalsIgnoreCase(BACK_COMMAND)) {
             dealUserInput(workoutList);
             return;
         }
@@ -318,6 +319,7 @@ public class ConsoleInterface {
         while (runProgram) {
             if (input.hasNext()) {
                 s = input.nextLine();
+                s = s.toLowerCase();
                 s = s.trim();
                 parseStringForWorkoutList(s);
             }
