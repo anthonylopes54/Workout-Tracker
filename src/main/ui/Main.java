@@ -8,7 +8,7 @@ public class Main {
         ConsoleInterface consoleInterface = new ConsoleInterface(workoutList);
         System.out.println("Welcome to the Lifestyle Tracker!");
 
-        consoleInterface.dealUserInput(workoutList, ConsoleInterface.ADD_WORKOUT_COMMAND);
+        consoleInterface.dealUserInput(workoutList);
     }
 
 

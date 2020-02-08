@@ -80,4 +80,13 @@ public class WorkoutList {
     public ArrayList<Workout> getListOfWorkout() {
         return listOfWorkout;
     }
+
+    public boolean containsName(String name) {
+        for (Workout next : listOfWorkout) {
+            if (next.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

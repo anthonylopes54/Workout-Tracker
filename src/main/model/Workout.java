@@ -50,6 +50,7 @@ public class Workout {
                         + " Reps: " + next.getReps()
                         + "\n";
             }
+            System.out.println(workout);
             return workout;
         }
     }
@@ -91,6 +92,15 @@ public class Workout {
 
     public ArrayList<Exercise> getListOfExercise() {
         return listOfExercise;
+    }
+
+    public boolean containsName(String name) {
+        for (Exercise next : listOfExercise) {
+            if (next.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 //    // REQUIRES: exercise must already be in listOfExercise
