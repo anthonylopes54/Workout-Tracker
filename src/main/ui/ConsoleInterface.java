@@ -75,11 +75,18 @@ public class ConsoleInterface {
         }
     }
 
+    // MODIFIES: Workout in this
+    // EFFECTS: removes workout from favourites if given workout exists as a favourite
+    //          else, notify user if there are no workouts in WorkoutList and return
+
     private void removeWorkoutFromFavourite() throws InterruptedException {
+        if (workoutList.getListOfWorkout().isEmpty()) {
+            System.out.println("There are no workouts currently in your workout list");
+            dealUserInput(workoutList);
+        }
         System.out.println("What is the name of the workout you would like to remove from your favourites");
         String name = input.nextLine();
         if (name.equalsIgnoreCase(BACK_COMMAND)) {
-            dealUserInput(workoutList);
             dealUserInput(workoutList);
         }
         if (workoutList.containsName(name)) {
@@ -96,6 +103,11 @@ public class ConsoleInterface {
             removeWorkoutFromFavourite();
         }
     }
+
+    // MODIFIES: Workout in this
+    // EFFECTS: adds a currently existing workout to favourites;
+    //          if workout, is already a favourite do nothing;
+    //          else, notify user if there are no Workouts in WorkoutList and return
 
     private void addWorkoutToFavourite() throws InterruptedException {
         System.out.println("What is the name of the workout you would like to make a favourite?");
@@ -118,10 +130,16 @@ public class ConsoleInterface {
         }
     }
 
+    // EFFECTS: displays exercises in given workout and parses user input to help direct user to
+    //          functions they seek
+
     private void openWorkout(Workout workout) throws InterruptedException {
         displayInstructionsForWorkout(workout);
         checkInputForWorkout(workout);
     }
+
+    // EFFECTS: takes user input, trims it and sets it to lowercase before parsing input to determine
+    //          which function user requires
 
     private void checkInputForWorkout(Workout workout) throws InterruptedException {
         String s;
@@ -167,6 +185,9 @@ public class ConsoleInterface {
         }
     }
 
+    // MODIFIES: Given Workout in this
+    // EFFECTS: If workout does not have any exercises, notify user and return to exercise instructions;
+    //          Else, modify fields of exercise
 
     private void modifyExercise(Workout workout) throws InterruptedException {
         areThereAnyExercisesInWorkout(workout);
