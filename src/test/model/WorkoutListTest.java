@@ -72,6 +72,12 @@ public class WorkoutListTest {
     }
 
     @Test
+    public void testRemoveWorkoutThatIsNotPresent() {
+        testWorkoutList.addWorkout(testWorkout1);
+        assertFalse(testWorkoutList.removeWorkout(testWorkout2));
+    }
+
+    @Test
     public void testRemoveSingleWorkout() {
         testWorkoutList.addWorkout(testWorkout1);
         testWorkoutList.removeWorkout(testWorkout1);

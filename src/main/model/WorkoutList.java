@@ -55,12 +55,14 @@ public class WorkoutList {
     // EFFECTS: returns given workout
 
     public Workout getWorkout(String workout) {
+        Workout returnValue = null;
         for (Workout next : listOfWorkout) {
             if (next.getName() == workout) {
-                return next;
+                returnValue = next;
+                break;
             }
         }
-        return null;
+        return returnValue;
     }
 
     // EFFECTS: returns true if given workout is in listOfWorkout;

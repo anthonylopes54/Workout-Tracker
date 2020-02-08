@@ -22,12 +22,27 @@ class ExerciseTest {
 
     @Test
     public void testChangeReps(){
-        testExercise.changeReps(12);
+        changeReps(12);
         assertEquals(12, testExercise.getReps());
 
-        testExercise.changeReps(8);
+
+        changeReps(8);
         assertEquals(8, testExercise.getReps());
+
     }
+
+    @Test
+    public void testChangeRepsLessThanZero() {
+        changeReps(-1);
+        assertEquals(0, testExercise.getReps());
+    }
+
+    @Test
+    public void testChangeRepsEqualToZero() {
+        changeReps(0);
+        assertEquals(0, testExercise.getReps());
+    }
+
 
     @Test
     public void testChangeSets(){
@@ -36,6 +51,18 @@ class ExerciseTest {
 
         testExercise.changeSets(1);
         assertEquals(1, testExercise.getSets());
+    }
+
+    @Test
+    public void testChangeSetsLessThanZeroInput() {
+        testExercise.changeSets(-1);
+        assertEquals(0,testExercise.getSets());
+    }
+
+    @Test
+    public void testChangeSetsEqualToZeroInput() {
+        testExercise.changeSets(0);
+        assertEquals(0, testExercise.getSets());
     }
 
     @Test
@@ -86,5 +113,20 @@ class ExerciseTest {
         assertTrue(testExercise.removeNote("slow-eccentric"));
         assertEquals(1,testExercise.getListOfNote().size());
         assertTrue(testExercise.getNotes().equals("another note" + "\n"));
+    }
+
+    @Test
+    public void testRemoveNoteWithNoteNotInList() {
+        testExercise.addNote("another note");
+        assertFalse(testExercise.removeNote("hello"));
+    }
+
+    // HELPERS
+
+    // MODIFIES: this
+    // EFFECTS: calls Exercise.changeSets with given int
+
+    private void changeReps(int i) {
+        testExercise.changeReps(i);
     }
 }
