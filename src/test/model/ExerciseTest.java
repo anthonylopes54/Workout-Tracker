@@ -112,7 +112,7 @@ class ExerciseTest {
 
         assertTrue(testExercise.removeNote("slow-eccentric"));
         assertEquals(1,testExercise.getListOfNote().size());
-        assertTrue(testExercise.getNotes().equals("another note" + "\n"));
+        assertTrue(testExercise.getNotes().equals("The notes are as follows:\n\u2022 another note" + "\n"));
     }
 
     @Test
