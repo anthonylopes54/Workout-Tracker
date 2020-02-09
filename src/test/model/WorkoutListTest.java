@@ -101,16 +101,19 @@ public class WorkoutListTest {
         assertEquals(0, testWorkoutList.getSize());
     }
 
-
+    //TODO: check why we have to test assertNull for checkstyle
     @Test
     public void testGetWorkout() {
         addWorkouts();
-
         assertEquals(testWorkout2, testWorkoutList.getWorkout(testWorkout2.getName()));
+        assertNull(testWorkoutList.getWorkout("hello"));
+    }
 
-
-
-
+    @Test
+    public void testContainsName() {
+        addWorkouts();
+        assertTrue(testWorkoutList.containsName(testWorkout2.getName()));
+        assertFalse(testWorkoutList.containsName("hello"));
     }
 
     // HELPERS

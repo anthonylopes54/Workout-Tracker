@@ -18,6 +18,7 @@ public class ConsoleInterface {
     private static final String BACK_COMMAND = "back";
     private static final String ADD_TO_FAVOURITE = "fav";
     private static final String REMOVE_FROM_FAVOURITE = "remove fav";
+    private static final String ADD_NOTE = "note";
 
     public boolean runProgram;
     private WorkoutList workoutList;
@@ -176,12 +177,46 @@ public class ConsoleInterface {
                 case BACK_COMMAND:
                     dealUserInput(workoutList);
                     break;
+                case ADD_NOTE:
+                    addNote(workout);
+                    break;
                 default:
                     System.out.println("Sorry, can you please try typing that in again?");
                     checkInputForWorkout(workout);
                     break;
             }
 
+        }
+    }
+
+    // MODIFIES: Exercise within Workout within this
+    // EFFECTS: If workout does not have any exercises, notify user and return to exercise instructions;
+    //          else, ask user which exercise they would like to add a note to and add the input user proides
+    //          for note to listOfNote
+
+    private void addNote(Workout workout) throws InterruptedException {
+        areThereAnyExercisesInWorkout(workout);
+        System.out.println("What is the name of the exercise you would like to add a note to?");
+        String name = input.nextLine();
+        if (name.equalsIgnoreCase(BACK_COMMAND)) {
+            openWorkout(workout);
+            return;
+        }
+        if (workout.containsName(name)) {
+            System.out.println("Please type the note you would like to add");
+            String note = input.nextLine();
+            if (note.equalsIgnoreCase(BACK_COMMAND)) {
+                openWorkout(workout);
+                return;
+            }
+            for (Exercise next : workout.getListOfExercise()) {
+                if (next.getName().equalsIgnoreCase(name)) {
+                    next.addNote(note);
+                }
+            }
+        } else {
+            System.out.println("Sorry, I could not find that exercise. Can you please try again...");
+            addNote(workout);
         }
     }
 
@@ -213,12 +248,19 @@ public class ConsoleInterface {
 
     }
 
+    // EFFECTS: if workout does not have any exercises in it, it will take user back to overview of given
+    //          workout
+
     private void areThereAnyExercisesInWorkout(Workout workout) throws InterruptedException {
         if (workout.getListOfExercise().size() <= 0) {
             System.out.println("This workout does not have any exercises in it");
             openWorkout(workout);
         }
     }
+
+    // MODIFIES: Workout within this
+    // EFFECTS: if there are exercises within given workout, remove exercise given by user
+    //          if no exercise is within given workout, take user back to overview of given workout
 
     private void removeExercise(Workout workout) throws InterruptedException {
         areThereAnyExercisesInWorkout(workout);
@@ -244,12 +286,18 @@ public class ConsoleInterface {
         }
     }
 
+    // MODIFIES: Workout within this
+    // EFFECTS: Create and add exercise to listOfExercise within given workout
+
     private void addExercise(Workout workout) throws InterruptedException {
         Exercise newExercise = buildExerciseWithUser(workout);
         workout.addExercise(newExercise);
         System.out.println("Successfully added exercise");
         openWorkout(workout);
     }
+    // TODO: do I need to state that this modifies exercise?
+    // MODIFIES: Exercise
+    // EFFECTS: prompts user to provide name, sets and reps of a new exercise and then instantiates new exercise
 
     private Exercise buildExerciseWithUser(Workout workout) throws InterruptedException {
         System.out.println("What is the name of the exercise you would like to add?");
@@ -273,6 +321,8 @@ public class ConsoleInterface {
         return new Exercise(name, Integer.parseInt(sets), Integer.parseInt(reps));
     }
 
+    // EFFECTS: Displays list of exercises in given workout with their respective reps and sets
+
     private void displayInstructionsForWorkout(Workout workout) {
         System.out.println("Your current list of exercises are as follows:");
         workout.printWorkout();
@@ -280,6 +330,10 @@ public class ConsoleInterface {
                 + "' '" + QUIT_COMMAND + "' or the name of the exercise you would like to modify!");
         System.out.println("If you would ever like to go back, type '" + BACK_COMMAND + "'");
     }
+
+    // MODIFIES: this
+    // EFFECTS: asks user for the workout they would like to remove if listOfWorkouts is not empty
+    //          and then removes workout; If no workout is present, will only notify the user
 
     private void removeWorkout() throws InterruptedException {
         if (workoutList.getSize() <= 0) {
@@ -302,6 +356,9 @@ public class ConsoleInterface {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: prompts user to provide workout details, instantiates a new workout with the given details,
+    //          and adds it to the listOfWorkout
 
     private void addWorkout() throws InterruptedException {
         System.out.println("What would you like to name your new workout?");
@@ -323,7 +380,7 @@ public class ConsoleInterface {
     }
 
 
-    // EFFECTS: Prints instructions for using the interface
+    // EFFECTS: Prints instructions for using the navigating and using the list of workouts
 
     private static void displayInstructionsForWorkoutList(WorkoutList workoutList) {
         System.out.println("Your current list of workouts are as follows:");
@@ -333,6 +390,8 @@ public class ConsoleInterface {
         System.out.println("You can also type '" + ADD_TO_FAVOURITE + "' or '" + REMOVE_FROM_FAVOURITE + "' to add or"
                 + " remove workouts to or from your favourites.");
     }
+
+    // EFFECTS: Trims and makes user input all lowercase before parsing input
 
     private void checkInputForWorkoutList() throws InterruptedException {
         String s;

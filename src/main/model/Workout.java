@@ -38,7 +38,6 @@ public class Workout {
 
     // EFFECTS: returns a string of exercises within the workout with each exercises associated
     //          sets and reps. If list is empty, return "There are no exercises in this workout!"
-
     public String printWorkout() {
         if (listOfExercise.size() == 0) {
             return "There are no exercises in this workout!";
@@ -48,6 +47,7 @@ public class Workout {
                 workout += "Exercise: " + next.getName()
                         + " Sets: " + next.getSets()
                         + " Reps: " + next.getReps()
+                        + next.getNotes()
                         + "\n";
             }
             System.out.println(workout);
@@ -93,6 +93,8 @@ public class Workout {
     public ArrayList<Exercise> getListOfExercise() {
         return listOfExercise;
     }
+
+    // EFFECTS: produces true if given string is in lisOfExercise
 
     public boolean containsName(String name) {
         for (Exercise next : listOfExercise) {
