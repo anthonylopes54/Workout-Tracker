@@ -34,14 +34,14 @@ public class Exercise {
     }
 
     // EFFECTS: returns all the elements in listOfNote
-
+    //TODO: add bullet point in front of note
     public String getNotes() {
         if (listOfNote.size() == 0) {
             return "There are no notes for this exercise.";
         }
-        String notes = "";
+        String notes = "The notes are as follows:\n";
         for (String next : listOfNote) {
-            notes += next + "\n";
+            notes += "\u2022 " + next + "\n";
         }
         return notes;
     }

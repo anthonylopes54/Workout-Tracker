@@ -46,7 +46,7 @@ public class Workout {
             for (Exercise next : listOfExercise) {
                 workout += "Exercise: " + next.getName()
                         + " Sets: " + next.getSets()
-                        + " Reps: " + next.getReps()
+                        + " Reps: " + next.getReps() + "\n"
                         + next.getNotes()
                         + "\n";
             }
@@ -98,7 +98,7 @@ public class Workout {
 
     public boolean containsName(String name) {
         for (Exercise next : listOfExercise) {
-            if (next.getName().equals(name)) {
+            if (next.getName().equalsIgnoreCase(name)) {
                 return true;
             }
         }

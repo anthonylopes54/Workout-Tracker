@@ -81,10 +81,7 @@ public class ConsoleInterface {
     //          else, notify user if there are no workouts in WorkoutList and return
 
     private void removeWorkoutFromFavourite() throws InterruptedException {
-        if (workoutList.getListOfWorkout().isEmpty()) {
-            System.out.println("There are no workouts currently in your workout list");
-            dealUserInput(workoutList);
-        }
+        areThereAnyExercisesInWorkoutList();
         System.out.println("What is the name of the workout you would like to remove from your favourites");
         String name = input.nextLine();
         if (name.equalsIgnoreCase(BACK_COMMAND)) {
@@ -111,6 +108,7 @@ public class ConsoleInterface {
     //          else, notify user if there are no Workouts in WorkoutList and return
 
     private void addWorkoutToFavourite() throws InterruptedException {
+        areThereAnyExercisesInWorkoutList();
         System.out.println("What is the name of the workout you would like to make a favourite?");
         String name = input.nextLine();
         if (name.equalsIgnoreCase(BACK_COMMAND)) {
@@ -205,13 +203,14 @@ public class ConsoleInterface {
         if (workout.containsName(name)) {
             System.out.println("Please type the note you would like to add");
             String note = input.nextLine();
-            if (note.equalsIgnoreCase(BACK_COMMAND)) {
+            if (note.equalsIgnoreCase(BACK_COMMAND)) { // take back to a printing of the workout if they type back
                 openWorkout(workout);
                 return;
             }
             for (Exercise next : workout.getListOfExercise()) {
                 if (next.getName().equalsIgnoreCase(name)) {
                     next.addNote(note);
+                    openWorkout(workout);
                 }
             }
         } else {
@@ -253,8 +252,15 @@ public class ConsoleInterface {
 
     private void areThereAnyExercisesInWorkout(Workout workout) throws InterruptedException {
         if (workout.getListOfExercise().size() <= 0) {
-            System.out.println("This workout does not have any exercises in it");
+            System.out.println("This workout does not have any exercises in it!\n");
             openWorkout(workout);
+        }
+    }
+
+    private void areThereAnyExercisesInWorkoutList() throws InterruptedException {
+        if (workoutList.getListOfWorkout().size() <= 0) {
+            System.out.println("There are no workouts made!");
+            dealUserInput(workoutList);
         }
     }
 
@@ -324,11 +330,11 @@ public class ConsoleInterface {
     // EFFECTS: Displays list of exercises in given workout with their respective reps and sets
 
     private void displayInstructionsForWorkout(Workout workout) {
-        System.out.println("Your current list of exercises are as follows:");
+        System.out.println("Your current list of exercises are as follows:\n");
         workout.printWorkout();
-        System.out.println("Type '" + ADD_EXERCISE_COMMAND + "' '" + REMOVE_EXERCISE_COMMAND
-                + "' '" + QUIT_COMMAND + "' or the name of the exercise you would like to modify!");
-        System.out.println("If you would ever like to go back, type '" + BACK_COMMAND + "'");
+        System.out.println("Type '" + ADD_EXERCISE_COMMAND + ",' '" + REMOVE_EXERCISE_COMMAND
+                + ",' '" + QUIT_COMMAND + ",' '" + ADD_NOTE
+                + "' to add a note to an exercise, or the name of the exercise you would like to modify!");
     }
 
     // MODIFIES: this
@@ -389,6 +395,7 @@ public class ConsoleInterface {
                 + "' '" + QUIT_COMMAND + "' or the name of the workout you would like to view!");
         System.out.println("You can also type '" + ADD_TO_FAVOURITE + "' or '" + REMOVE_FROM_FAVOURITE + "' to add or"
                 + " remove workouts to or from your favourites.");
+        System.out.println("If you would ever like to go back, type '" + BACK_COMMAND + "'");
     }
 
     // EFFECTS: Trims and makes user input all lowercase before parsing input

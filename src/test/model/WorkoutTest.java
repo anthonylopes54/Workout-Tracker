@@ -100,7 +100,7 @@ public class WorkoutTest {
         testWorkout.addExercise(exercise1);
 
         String workout = "Exercise: " + exercise1.getName() + " Sets: " + exercise1.getSets() + " Reps: "
-                + exercise1.getReps() + exercise1.getNotes() + "\n";
+                + exercise1.getReps() + "\n" + exercise1.getNotes() + "\n";
 
         assertTrue(workout.equals(testWorkout.printWorkout()));
     }
@@ -111,13 +111,13 @@ public class WorkoutTest {
         addExercises();
 
         String workout = "Exercise: " + exercise4.getName() + " Sets: " + exercise4.getSets()
-                + " Reps: " + exercise4.getReps() + exercise4.getNotes() + "\n"
+                + " Reps: " + exercise4.getReps() + "\n" + exercise4.getNotes() + "\n"
                 + "Exercise: " + exercise3.getName() + " Sets: " + exercise3.getSets()
-                + " Reps: " + exercise3.getReps() + exercise3.getNotes() + "\n"
+                + " Reps: " + exercise3.getReps() + "\n" + exercise3.getNotes() + "\n"
                 + "Exercise: " + exercise2.getName() + " Sets: " + exercise2.getSets()
-                + " Reps: " + exercise2.getReps() + exercise2.getNotes() + "\n"
+                + " Reps: " + exercise2.getReps() + "\n" + exercise2.getNotes() + "\n"
                 + "Exercise: " + exercise1.getName() + " Sets: " + exercise1.getSets()
-                + " Reps: " + exercise1.getReps() + exercise1.getNotes() + "\n";
+                + " Reps: " + exercise1.getReps() + "\n" + exercise1.getNotes() + "\n";
 
         assertTrue(testWorkout.printWorkout().equals(workout));
     }

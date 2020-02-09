@@ -87,7 +87,7 @@ class ExerciseTest {
         String notes = "";
 
         for (String next : testExercise.getListOfNote()) {
-            notes += next + "\n";
+            notes += "\u2022 " + next + "\n";
         }
 
         assertEquals(10, testExercise.getListOfNote().size());
