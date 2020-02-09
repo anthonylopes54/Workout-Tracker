@@ -21,7 +21,7 @@ public class WorkoutListTest {
     }
 
     @Test
-    public void testConstructor(){
+    public void testConstructor() {
         assertEquals(0, testWorkoutList.getSize());
     }
 
@@ -36,11 +36,12 @@ public class WorkoutListTest {
     @Test
     public void testPrintListOfWorkoutsMultipleWorkout() {
         addWorkouts();
-        String workout = "Workout: " + testWorkout1.getName() + "\n         Description: " + testWorkout1.getDescription() + "\n"
-               + "Workout: " + testWorkout2.getName() + "\n         Description: " + testWorkout2.getDescription() + "\u066D\n"
+        String workout = "Workout: " + testWorkout2.getName() + "\u066D" + "\n         Description: " + testWorkout2.getDescription()
+               + "\n" + "Workout: " + testWorkout1.getName() + "\n         Description: " + testWorkout1.getDescription() + "\n"
                 + "Workout: " + testWorkout3.getName() + "\n         Description: " + testWorkout3.getDescription() + "\n";
+        String testOutcome = testWorkoutList.printListOfWorkouts();
 
-        assertTrue(workout.equals(testWorkoutList.printListOfWorkouts()));
+        assertTrue(workout.equals(testOutcome));
 
 
     }
@@ -54,7 +55,7 @@ public class WorkoutListTest {
 
     @Test
     public void testAddMultipleWorkout() {
-        for (int i=0 ; i<5 ; i++) {
+        for (int i = 0; i < 5; i++) {
             testWorkoutList.addWorkout(testWorkout1);
         }
 
@@ -62,7 +63,7 @@ public class WorkoutListTest {
         assertEquals(testWorkout1, testWorkoutList.getListOfWorkout().get(0));
         assertEquals(testWorkout1, testWorkoutList.getListOfWorkout().get(4));
 
-        for (int i=0 ; i<5 ; i++) {
+        for (int i = 0; i < 5; i++) {
             testWorkoutList.addWorkout(testWorkout2);
         }
 
@@ -81,7 +82,7 @@ public class WorkoutListTest {
     public void testRemoveSingleWorkout() {
         testWorkoutList.addWorkout(testWorkout1);
         testWorkoutList.removeWorkout(testWorkout1.getName());
-        assertEquals(0,testWorkoutList.getSize());
+        assertEquals(0, testWorkoutList.getSize());
     }
 
     @Test

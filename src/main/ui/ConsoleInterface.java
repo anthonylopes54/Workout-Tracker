@@ -24,10 +24,12 @@ public class ConsoleInterface {
     private WorkoutList workoutList;
     private Scanner input;
 
-    public ConsoleInterface(WorkoutList workoutList) {
-        this.workoutList = workoutList;
+    public ConsoleInterface() throws InterruptedException {
+        System.out.println("Welcome to the Lifestyle Tracker!");
+        this.workoutList = new WorkoutList();
         input = new Scanner(System.in);
         runProgram = true;
+        dealUserInput(workoutList);
     }
 
     // EFFECTS: parses user input until user quits

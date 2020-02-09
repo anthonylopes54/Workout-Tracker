@@ -11,15 +11,18 @@ public class WorkoutList {
     }
 
     // REQUIRES: listOfWorkouts must have >0 elements
-    // EFFECTS: returns a list of workouts currently in listOfWorkouts
+    // EFFECTS: returns and prints a list of workouts currently in listOfWorkouts
     // TODO: fix checkstyle
     public String printListOfWorkouts() {
         String workout = "";
         for (Workout next : listOfWorkout) {
             if (next.getFavourite()) {
-                workout += "Workout: " + next.getName() + "\n         Description: "
-                        + next.getDescription() + "\u066D\n";
-            } else {
+                workout += "Workout: " + next.getName() + "\u066D" + "\n         Description: "
+                        + next.getDescription() + "\n";
+            }
+        }
+        for (Workout next : listOfWorkout) {
+            if (!next.getFavourite()) {
                 workout += "Workout: " + next.getName() + "\n         Description: " + next.getDescription() + "\n";
             }
         }
