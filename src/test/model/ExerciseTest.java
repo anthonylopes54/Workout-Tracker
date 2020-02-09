@@ -69,7 +69,7 @@ class ExerciseTest {
     public void testAddNote() {
         testExercise.addNote("slow-eccentric");
         String notes = testExercise.getNotes();
-        assertTrue(notes.equals("slow-eccentric" + "\n"));
+        assertTrue(notes.equals("The notes are as follows:\n\u2022 slow-eccentric" + "\n"));
         assertEquals(1, testExercise.getListOfNote().size());
 
     }
@@ -84,7 +84,7 @@ class ExerciseTest {
         for (int i=0; i<10; i++) {
             testExercise.addNote("slow-eccentric" + i);
         }
-        String notes = "";
+        String notes = "The notes are as follows:\n";
 
         for (String next : testExercise.getListOfNote()) {
             notes += "\u2022 " + next + "\n";
@@ -100,7 +100,7 @@ class ExerciseTest {
     public void testRemoveNote() {
         testExercise.addNote("slow-eccentric");
         String notes = testExercise.getNotes();
-        assertTrue(notes.equals("slow-eccentric" + "\n"));
+        assertTrue(notes.equals("The notes are as follows:\n\u2022 slow-eccentric" + "\n"));
         assertEquals(1, testExercise.getListOfNote().size());
 
         testExercise.addNote("tempo");
