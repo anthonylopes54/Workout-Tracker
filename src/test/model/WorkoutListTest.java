@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Tests all the methods within the WorkoutList class
+
 public class WorkoutListTest {
 
     WorkoutList testWorkoutList;

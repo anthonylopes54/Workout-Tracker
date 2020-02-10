@@ -1,6 +1,6 @@
 package ui;
 
-import model.WorkoutList;
+// Begins  program with the instantiation of a new ConsoleInterface object
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {

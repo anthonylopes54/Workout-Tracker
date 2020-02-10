@@ -7,6 +7,9 @@ import model.WorkoutList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+// This class contains the methods required to interact with the user. It calls on the model package to carry out
+// the functions of the program to satisfy the user's needs.
+
 public class ConsoleInterface {
 
     private static final String QUIT_COMMAND = "quit";

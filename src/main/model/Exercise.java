@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+// This class holds all the info pertaining to an exercise (name, sets, reps, and a list of notes)
+
 public class Exercise {
     private String name;
     private int sets;

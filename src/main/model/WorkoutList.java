@@ -3,6 +3,8 @@ package model;
 
 import java.util.ArrayList;
 
+// This class holds the list of workouts a user can make. It can also hold preset workouts
+
 public class WorkoutList {
     private ArrayList<Workout> listOfWorkout;
 

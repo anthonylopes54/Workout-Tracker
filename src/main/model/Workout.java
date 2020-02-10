@@ -3,6 +3,9 @@ package model;
 import com.sun.corba.se.spi.orbutil.threadpool.Work;
 
 import java.util.ArrayList;
+// This class represents each workout a user can make and/or access. It is comprised of a list of exercises that
+// comprise the workout as well as the name, description and status of the workout (i.e., is it a favourite workout or
+// not).
 
 public class Workout {
     private String name;
