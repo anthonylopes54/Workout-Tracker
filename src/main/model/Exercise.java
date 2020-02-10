@@ -36,7 +36,6 @@ public class Exercise {
     }
 
     // EFFECTS: returns all the elements in listOfNote
-    //TODO: add bullet point in front of note
     public String getNotes() {
         if (listOfNote.size() == 0) {
             return "There are no notes for this exercise.";

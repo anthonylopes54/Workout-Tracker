@@ -123,7 +123,7 @@ public class ConsoleInterface {
             for (Workout next : workoutList.getListOfWorkout()) {
                 if (next.getName().equalsIgnoreCase(name)) {
                     next.addToFavourites();
-                    System.out.println(name + "was added to your favourites!");
+                    System.out.println(name + " was added to your favourites!");
                     dealUserInput(workoutList);
                     return;
                 }
@@ -306,8 +306,7 @@ public class ConsoleInterface {
         System.out.println("Successfully added exercise");
         openWorkout(workout);
     }
-    // TODO: do I need to state that this modifies exercise?
-    // MODIFIES: Exercise
+    // MODIFIES: Exercise within workout
     // EFFECTS: prompts user to provide name, sets and reps of a new exercise and then instantiates new exercise
 
     private Exercise buildExerciseWithUser(Workout workout) throws InterruptedException {
@@ -323,13 +322,53 @@ public class ConsoleInterface {
             openWorkout(workout);
             return null;
         }
+        sets = checkUserInputNumber(sets);
+        sets = checkLessThanZero(sets);
         System.out.println("How many reps?");
         String reps = input.nextLine();
         if (reps.equalsIgnoreCase(BACK_COMMAND)) {
             openWorkout(workout);
             return null;
         }
+        reps = checkUserInputNumber(reps);
+        reps = checkLessThanZero(reps);
         return new Exercise(name, Integer.parseInt(sets), Integer.parseInt(reps));
+    }
+
+    // EFFECTS: if numeric string is less than zero, set string to "0"
+
+    private String checkLessThanZero(String sets) {
+        if (Integer.parseInt(sets) < 0) {
+            sets = "0";
+        }
+        return sets;
+    }
+
+    // EFFECTS: prompts user to enter new input repeatedly if string is not numeric
+
+    public String checkUserInputNumber(String str) {
+        if (!isNumeric(str)) {
+            for (int i = 0; !isNumeric(str); i++) {
+                System.out.println("Please try again");
+                str = input.nextLine();
+            }
+        }
+        return str;
+    }
+
+
+    // EFFECTS: returns true if given string is numeric; otherwise false
+
+    private boolean isNumeric(String str) {
+        if (str == null) {
+            return false;
+        }
+        try {
+            int i = Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     // EFFECTS: Displays list of exercises in given workout with their respective reps and sets
@@ -409,11 +448,16 @@ public class ConsoleInterface {
         String s;
 
         while (runProgram) {
-            if (input.hasNext()) {
-                s = input.nextLine();
-                s = s.toLowerCase();
-                s = s.trim();
-                parseStringForWorkoutList(s);
+            try {
+                if (input.hasNext()) {
+                    s = input.nextLine();
+                    s = s.toLowerCase();
+                    s = s.trim();
+                    parseStringForWorkoutList(s);
+                }
+            } catch (Exception e) {
+                System.out.println("error thrown :" + e);
+                System.out.println("Please try again!");
             }
         }
     }

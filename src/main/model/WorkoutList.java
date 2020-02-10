@@ -17,6 +17,7 @@ public class WorkoutList {
     // TODO: fix checkstyle
     public String printListOfWorkouts() {
         String workout = "";
+        char star = '*';
         for (Workout next : listOfWorkout) {
             if (next.getFavourite()) {
                 workout += "Workout: " + next.getName() + "\u066D" + "\n         Description: "
@@ -66,7 +67,7 @@ public class WorkoutList {
     public Workout getWorkout(String workout) {
         Workout returnValue = null;
         for (Workout next : listOfWorkout) {
-            if (next.getName() == workout) {
+            if (next.getName().equals(workout)) {
                 returnValue = next;
                 break;
             }
@@ -89,7 +90,7 @@ public class WorkoutList {
 
     public boolean containsName(String name) {
         for (Workout next : listOfWorkout) {
-            if (next.getName().equals(name)) {
+            if (next.getName().equalsIgnoreCase(name)) {
                 return true;
             }
         }
