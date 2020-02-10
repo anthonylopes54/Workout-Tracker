@@ -10,7 +10,7 @@ public class Exercise {
     private int reps;
     private ArrayList<String> listOfNote;
 
-    public Exercise(String name, int sets, int reps){  //Should I add a description of the exercise?
+    public Exercise(String name, int sets, int reps) {
         this.name = name;
         this.sets = sets;
         this.reps = reps;
@@ -46,8 +46,6 @@ public class Exercise {
         }
         return notes;
     }
-
-    // SHould i have a get note getter?
 
     // MODIFIES: this
     // EFFECTS: adds given String to listOfNote

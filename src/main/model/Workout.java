@@ -1,6 +1,5 @@
 package model;
 
-import com.sun.corba.se.spi.orbutil.threadpool.Work;
 
 import java.util.ArrayList;
 // This class represents each workout a user can make and/or access. It is comprised of a list of exercises that

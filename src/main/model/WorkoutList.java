@@ -17,7 +17,6 @@ public class WorkoutList {
     // TODO: fix checkstyle
     public String printListOfWorkouts() {
         String workout = "";
-        char star = '*';
         for (Workout next : listOfWorkout) {
             if (next.getFavourite()) {
                 workout += "Workout: " + next.getName() + "\u066D" + "\n         Description: "
@@ -63,7 +62,6 @@ public class WorkoutList {
 
     // REQUIRES: given name of workout must be in listOfWorkout
     // EFFECTS: returns given workout
-    // TODO: fix code coverage
     public Workout getWorkout(String workout) {
         Workout returnValue = null;
         for (Workout next : listOfWorkout) {
