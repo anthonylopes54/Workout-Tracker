@@ -19,7 +19,7 @@ public class WorkoutList {
         String workout = "";
         for (Workout next : listOfWorkout) {
             if (next.getFavourite()) {
-                workout += "Workout: " + next.getName() + "\u066D" + "\n         Description: "
+                workout += "Workout: " + next.getName() + "*" + "\n         Description: "
                         + next.getDescription() + "\n";
             }
         }

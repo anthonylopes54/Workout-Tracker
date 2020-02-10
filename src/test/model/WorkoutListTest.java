@@ -38,7 +38,7 @@ public class WorkoutListTest {
     @Test
     public void testPrintListOfWorkoutsMultipleWorkout() {
         addWorkouts();
-        String workout = "Workout: " + testWorkout2.getName() + "\u066D" + "\n         Description: " + testWorkout2.getDescription()
+        String workout = "Workout: " + testWorkout2.getName() + "*" + "\n         Description: " + testWorkout2.getDescription()
                + "\n" + "Workout: " + testWorkout1.getName() + "\n         Description: " + testWorkout1.getDescription() + "\n"
                 + "Workout: " + testWorkout3.getName() + "\n         Description: " + testWorkout3.getDescription() + "\n";
         String testOutcome = testWorkoutList.printListOfWorkouts();

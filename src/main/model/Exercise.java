@@ -42,7 +42,7 @@ public class Exercise {
         }
         String notes = "The notes are as follows:\n";
         for (String next : listOfNote) {
-            notes += "\u2022 " + next + "\n";
+            notes += "- " + next + "\n";
         }
         return notes;
     }
