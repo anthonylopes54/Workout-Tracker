@@ -27,7 +27,7 @@ public class ConsoleInterface {
     private WorkoutList workoutList;
     private Scanner input;
 
-    public ConsoleInterface() throws InterruptedException {
+    public ConsoleInterface() {
         System.out.println("Welcome to the Lifestyle Tracker!");
         this.workoutList = new WorkoutList();
         input = new Scanner(System.in);
@@ -37,7 +37,7 @@ public class ConsoleInterface {
 
     // EFFECTS: parses user input until user quits
 
-    public void dealUserInput(WorkoutList workoutList) throws InterruptedException {
+    public void dealUserInput(WorkoutList workoutList) {
         displayInstructionsForWorkoutList(workoutList);
         checkInputForWorkoutList();
     }
@@ -47,32 +47,20 @@ public class ConsoleInterface {
     private void parseStringForWorkoutList(String s) throws InterruptedException {
         if (s.length() > 0) {
             switch (s) {
-                case QUIT_COMMAND:
-                    System.out.println("Have a great day! Goodbye!");
-                    TimeUnit.SECONDS.sleep(3);
-                    runProgram = false;
+                case QUIT_COMMAND: quitProgram();
+                case ADD_WORKOUT_COMMAND: addWorkout();
                     break;
-                case ADD_WORKOUT_COMMAND:
-                    addWorkout();
+                case REMOVE_WORKOUT_COMMAND: removeWorkout();
                     break;
-                case REMOVE_WORKOUT_COMMAND:
-                    removeWorkout();
+                case BACK_COMMAND: dealUserInput(workoutList);
                     break;
-                case BACK_COMMAND:
-                    dealUserInput(workoutList);
+                case ADD_TO_FAVOURITE: addWorkoutToFavourite();
                     break;
-                case ADD_TO_FAVOURITE:
-                    addWorkoutToFavourite();
-                    break;
-                case REMOVE_FROM_FAVOURITE:
-                    removeWorkoutFromFavourite();
+                case REMOVE_FROM_FAVOURITE: removeWorkoutFromFavourite();
                     break;
                 default:
-                    for (Workout next : workoutList.getListOfWorkout()) {
-                        if (s.equalsIgnoreCase(next.getName())) {
-                            openWorkout(next);
-                            return;
-                        }
+                    if (checkStringMatchesAWorkout(s)) {
+                        return;
                     }
                     System.out.println("Sorry, can you please try typing that in again?");
                     checkInputForWorkoutList();
@@ -81,11 +69,23 @@ public class ConsoleInterface {
         }
     }
 
+    // EFFECTS: if string matches a workout name, open up the contents of the workout
+
+    private boolean checkStringMatchesAWorkout(String s) throws InterruptedException {
+        for (Workout next : workoutList.getListOfWorkout()) {
+            if (s.equalsIgnoreCase(next.getName())) {
+                openWorkout(next);
+                return true;
+            }
+        }
+        return false;
+    }
+
     // MODIFIES: Workout in this
     // EFFECTS: removes workout from favourites if given workout exists as a favourite
     //          else, notify user if there are no workouts in WorkoutList and return
 
-    private void removeWorkoutFromFavourite() throws InterruptedException {
+    private void removeWorkoutFromFavourite() {
         areThereAnyExercisesInWorkoutList();
         System.out.println("What is the name of the workout you would like to remove from your favourites");
         String name = input.nextLine();
@@ -112,7 +112,7 @@ public class ConsoleInterface {
     //          if workout, is already a favourite do nothing;
     //          else, notify user if there are no Workouts in WorkoutList and return
 
-    private void addWorkoutToFavourite() throws InterruptedException {
+    private void addWorkoutToFavourite() {
         areThereAnyExercisesInWorkoutList();
         System.out.println("What is the name of the workout you would like to make a favourite?");
         String name = input.nextLine();
@@ -163,33 +163,38 @@ public class ConsoleInterface {
     private void parseStringForWorkout(String s, Workout workout) throws InterruptedException {
         if (s.length() > 0) {
             switch (s) {
-                case ADD_EXERCISE_COMMAND:
-                    addExercise(workout);
+                case ADD_EXERCISE_COMMAND: addExercise(workout);
                     break;
-                case REMOVE_EXERCISE_COMMAND:
-                    removeExercise(workout);
+                case REMOVE_EXERCISE_COMMAND: removeExercise(workout);
                     break;
-                case MODIFY_EXERCISE_COMMAND:
-                    modifyExercise(workout);
+                case MODIFY_EXERCISE_COMMAND: modifyExercise(workout);
                     break;
-                case QUIT_COMMAND:
-                    System.out.println("Have a great day! Goodbye!");
-                    TimeUnit.SECONDS.sleep(3);
-                    runProgram = false;
+                case QUIT_COMMAND: quitProgram();
                     break;
-                case BACK_COMMAND:
-                    dealUserInput(workoutList);
+                case BACK_COMMAND: dealUserInput(workoutList);
                     break;
-                case ADD_NOTE:
-                    addNote(workout);
+                case ADD_NOTE: addNote(workout);
                     break;
                 default:
-                    System.out.println("Sorry, can you please try typing that in again?");
-                    checkInputForWorkout(workout);
+                    invalidInputForWorkout(workout);
                     break;
             }
-
         }
+    }
+
+    // EFFECTS: prompts use to try inputting another string to chose what to do with workout
+
+    private void invalidInputForWorkout(Workout workout) throws InterruptedException {
+        System.out.println("Sorry, can you please try typing that in again?");
+        checkInputForWorkout(workout);
+    }
+
+    // EFFECTS: prints a goodbye message before ending program
+
+    private void quitProgram() throws InterruptedException {
+        System.out.println("Have a great day! Goodbye!");
+        TimeUnit.SECONDS.sleep(3);
+        runProgram = false;
     }
 
     // MODIFIES: Exercise within Workout within this
@@ -201,15 +206,13 @@ public class ConsoleInterface {
         areThereAnyExercisesInWorkout(workout);
         System.out.println("What is the name of the exercise you would like to add a note to?");
         String name = input.nextLine();
-        if (name.equalsIgnoreCase(BACK_COMMAND)) {
-            openWorkout(workout);
+        if (ifBackThenOpenWorkout(workout, name)) {
             return;
         }
         if (workout.containsName(name)) {
             System.out.println("Please type the note you would like to add");
             String note = input.nextLine();
-            if (note.equalsIgnoreCase(BACK_COMMAND)) { // take back to a printing of the workout if they type back
-                openWorkout(workout);
+            if (ifBackThenOpenWorkout(workout, name)) {
                 return;
             }
             for (Exercise next : workout.getListOfExercise()) {
@@ -222,6 +225,16 @@ public class ConsoleInterface {
             System.out.println("Sorry, I could not find that exercise. Can you please try again...");
             addNote(workout);
         }
+    }
+
+    // EFFECTS: if string.equals BACK_COMMAND, open workout and return true
+
+    private boolean ifBackThenOpenWorkout(Workout workout, String name) throws InterruptedException {
+        if (name.equalsIgnoreCase(BACK_COMMAND)) {
+            openWorkout(workout);
+            return true;
+        }
+        return false;
     }
 
     // MODIFIES: Given Workout in this
@@ -262,7 +275,7 @@ public class ConsoleInterface {
         }
     }
 
-    private void areThereAnyExercisesInWorkoutList() throws InterruptedException {
+    private void areThereAnyExercisesInWorkoutList() {
         if (workoutList.getListOfWorkout().size() <= 0) {
             System.out.println("There are no workouts made!");
             dealUserInput(workoutList);
@@ -348,7 +361,7 @@ public class ConsoleInterface {
 
     public String checkUserInputNumber(String str) {
         if (!isNumeric(str)) {
-            for (int i = 0; !isNumeric(str); i++) {
+            while (!isNumeric(str)) {
                 System.out.println("Please try again");
                 str = input.nextLine();
             }
@@ -385,7 +398,7 @@ public class ConsoleInterface {
     // EFFECTS: asks user for the workout they would like to remove if listOfWorkouts is not empty
     //          and then removes workout; If no workout is present, will only notify the user
 
-    private void removeWorkout() throws InterruptedException {
+    private void removeWorkout() {
         if (workoutList.getSize() <= 0) {
             System.out.println("There are no workouts to remove");
             dealUserInput(workoutList);
@@ -399,18 +412,17 @@ public class ConsoleInterface {
         if (workoutList.containsName(name)) {
             workoutList.removeWorkout(name);
             System.out.println(name + " was removed!");
-            dealUserInput(workoutList);
         } else {
             System.out.println("Sorry, I did not get that. Can you please try again...");
-            dealUserInput(workoutList);
         }
+        dealUserInput(workoutList);
     }
 
     // MODIFIES: this
     // EFFECTS: prompts user to provide workout details, instantiates a new workout with the given details,
     //          and adds it to the listOfWorkout
 
-    private void addWorkout() throws InterruptedException {
+    private void addWorkout() {
         System.out.println("What would you like to name your new workout?");
         String name = input.nextLine();
         if (name.equalsIgnoreCase(BACK_COMMAND)) {
@@ -444,7 +456,7 @@ public class ConsoleInterface {
 
     // EFFECTS: Trims and makes user input all lowercase before parsing input
 
-    private void checkInputForWorkoutList() throws InterruptedException {
+    private void checkInputForWorkoutList() {
         String s;
 
         while (runProgram) {
