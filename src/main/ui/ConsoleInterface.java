@@ -262,7 +262,6 @@ public class ConsoleInterface {
             System.out.println("Sorry, I did not get that. Can you please try again...");
             modifyExercise(workout);
         }
-
     }
 
     // EFFECTS: if workout does not have any exercises in it, it will take user back to overview of given
