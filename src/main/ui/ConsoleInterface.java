@@ -47,16 +47,22 @@ public class ConsoleInterface {
     private void parseStringForWorkoutList(String s) throws InterruptedException {
         if (s.length() > 0) {
             switch (s) {
-                case QUIT_COMMAND: quitProgram();
-                case ADD_WORKOUT_COMMAND: addWorkout();
+                case QUIT_COMMAND:
+                    quitProgram();
+                case ADD_WORKOUT_COMMAND:
+                    addWorkout();
                     break;
-                case REMOVE_WORKOUT_COMMAND: removeWorkout();
+                case REMOVE_WORKOUT_COMMAND:
+                    removeWorkout();
                     break;
-                case BACK_COMMAND: dealUserInput(workoutList);
+                case BACK_COMMAND:
+                    dealUserInput(workoutList);
                     break;
-                case ADD_TO_FAVOURITE: addWorkoutToFavourite();
+                case ADD_TO_FAVOURITE:
+                    addWorkoutToFavourite();
                     break;
-                case REMOVE_FROM_FAVOURITE: removeWorkoutFromFavourite();
+                case REMOVE_FROM_FAVOURITE:
+                    removeWorkoutFromFavourite();
                     break;
                 default:
                     if (checkStringMatchesAWorkout(s)) {
@@ -137,7 +143,7 @@ public class ConsoleInterface {
     // EFFECTS: displays exercises in given workout and parses user input to help direct user to
     //          functions they seek
 
-    private void openWorkout(Workout workout) throws InterruptedException {
+    private void openWorkout(Workout workout) {
         displayInstructionsForWorkout(workout);
         checkInputForWorkout(workout);
     }
@@ -145,18 +151,25 @@ public class ConsoleInterface {
     // EFFECTS: takes user input, trims it and sets it to lowercase before parsing input to determine
     //          which function user requires
 
-    private void checkInputForWorkout(Workout workout) throws InterruptedException {
+    private void checkInputForWorkout(Workout workout) {
         String s;
 
-        while (runProgram) {
-            if (input.hasNext()) {
-                s = input.nextLine();
-                s = s.toLowerCase();
-                s = s.trim();
-                parseStringForWorkout(s, workout);
+        try {
+            while (runProgram) {
+                if (input.hasNext()) {
+                    s = input.nextLine();
+                    s = s.toLowerCase();
+                    s = s.trim();
+                    parseStringForWorkout(s, workout);
+                }
             }
+        } catch (Exception e) {
+            System.out.println("Please try again!");
+            openWorkout(workout);
+            return;
         }
     }
+
 
     // EFFECTS: helps parse user input and direct user to correct methods required for their intentions
 
@@ -175,8 +188,7 @@ public class ConsoleInterface {
                     break;
                 case ADD_NOTE: addNote(workout);
                     break;
-                default:
-                    invalidInputForWorkout(workout);
+                default: invalidInputForWorkout(workout);
                     break;
             }
         }
@@ -469,6 +481,8 @@ public class ConsoleInterface {
             } catch (Exception e) {
                 System.out.println("error thrown :" + e);
                 System.out.println("Please try again!");
+                dealUserInput(workoutList);
+                return;
             }
         }
     }
