@@ -47,25 +47,18 @@ public class ConsoleInterface {
     private void parseStringForWorkoutList(String s) throws InterruptedException {
         if (s.length() > 0) {
             switch (s) {
-                case QUIT_COMMAND:
-                    quitProgram();
-                case ADD_WORKOUT_COMMAND:
-                    addWorkout();
+                case QUIT_COMMAND:  quitProgram();
+                case ADD_WORKOUT_COMMAND: addWorkout();
                     break;
-                case REMOVE_WORKOUT_COMMAND:
-                    removeWorkout();
+                case REMOVE_WORKOUT_COMMAND: removeWorkout();
                     break;
-                case BACK_COMMAND:
-                    dealUserInput(workoutList);
+                case BACK_COMMAND: dealUserInput(workoutList);
                     break;
-                case ADD_TO_FAVOURITE:
-                    addWorkoutToFavourite();
+                case ADD_TO_FAVOURITE: addWorkoutToFavourite();
                     break;
-                case REMOVE_FROM_FAVOURITE:
-                    removeWorkoutFromFavourite();
+                case REMOVE_FROM_FAVOURITE: removeWorkoutFromFavourite();
                     break;
-                default:
-                    if (checkStringMatchesAWorkout(s)) {
+                default: if (checkStringMatchesAWorkout(s)) {
                         return;
                     }
                     System.out.println("Sorry, can you please try typing that in again?");
