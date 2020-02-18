@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="915642e1-a515-4426-967f-4d6f4d6ea05c" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="141" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\Anthony\Desktop" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1X8vJPODMa912NrKi7Jt1oU0saM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
+  </component>
+  <component name="RunManager" selected="JUnit.All in Project-Starter">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.Main" />
+      <module name="Project-Starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in Project-Starter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project-Starter" />
+      <extension name="coverage" sample_coverage="false">
+        <pattern>
+          <option name="PATTERN" value="model.Exercise" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="model.Workout" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="model.WorkoutList" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExerciseTest.testAddMultipleNotes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project-Starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.ExerciseTest" />
+      <option name="METHOD_NAME" value="testAddMultipleNotes" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExerciseTest.testAddNote" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project-Starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.ExerciseTest" />
+      <option name="METHOD_NAME" value="testAddNote" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExerciseTest.testRemoveNote" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project-Starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.ExerciseTest" />
+      <option name="METHOD_NAME" value="testRemoveNote" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.All in Project-Starter" />
+      <item itemvalue="JUnit.ExerciseTest.testAddMultipleNotes" />
+      <item itemvalue="JUnit.ExerciseTest.testAddNote" />
+      <item itemvalue="JUnit.ExerciseTest.testRemoveNote" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in Project-Starter" />
+        <item itemvalue="JUnit.ExerciseTest.testRemoveNote" />
+        <item itemvalue="JUnit.ExerciseTest.testAddNote" />
+        <item itemvalue="JUnit.ExerciseTest.testAddMultipleNotes" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="915642e1-a515-4426-967f-4d6f4d6ea05c" name="Default Changelist" comment="" />
+      <created>1580440463936</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580440463936</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Completed the first draft of the markdown document.&#10;It is comprised of:&#10;- What the application will do&#10;- Who will use it&#10;- Why the project is important to me">
+      <created>1580936631423</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1580936631423</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added four different user stories to the md document for phase 1 of the project">
+      <created>1580937595069</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580937595069</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added a few new classes and some stubs and fields for those classes">
+      <created>1580943706144</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580943706144</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added implementations for the ExerciseTest class">
+      <created>1581021253520</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1581021253521</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added some more stubs to the Exercise class&#10;Added some more tests to ExerciseTest&#10;Added a few test implementations to WorkoutListTest">
+      <created>1581022220294</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1581022220294</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Finished the test implementations for the ExerciseTest class">
+      <created>1581023988740</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1581023988740</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Implementaion for Exercise are complete and all ExerciseTest tests are passing">
+      <created>1581025929558</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1581025929558</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Implementation and tests completed for all current model classes">
+      <created>1581050949266</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1581050949266</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fixed some of the tests after making class fields private for model in Main&#10;Started working on the UI">
+      <created>1581120993277</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1581120993277</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Improved code coverage">
+      <created>1581122260358</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1581122260358</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Worked on the Console Interface:&#10;- console can display, add and remove workouts&#10;&#10;Started working on the exercise portion of the inteface">
+      <created>1581132443659</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1581132443659</updated>
+    </task>
+    <task id="LOCAL-00012" summary="First iteration of ConsoleInterface is complete and working">
+      <created>1581184470845</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1581184470845</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added in the back option to the ConsoleInterface">
+      <created>1581186696371</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1581186696371</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Created the option to add workouts to favourites">
+      <created>1581189582789</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1581189582789</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Made the comparison of strings more handle change in case between input and comparison">
+      <created>1581190410181</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1581190410181</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added some specification statements to ConsoleInterface; not completed yet">
+      <created>1581192458262</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1581192458262</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Full code coverage, can add notes to workouts via ConsoleInterface,&#10;ConsoleInterface now prints notes for exercises">
+      <created>1581235234497</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1581235234497</updated>
+    </task>
+    <task id="LOCAL-00018" summary="added bullet points to print note; tests for that function are no longer passing&#10;added areThereAnyExercisesInWorkout function to test for workoutList contents in addToFavourites&#10;and removeFromFavourites methods">
+      <created>1581237520867</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1581237520867</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Debugged tests in ExerciseTest&#10;Still one test not passing">
+      <created>1581238230265</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1581238230265</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Debugged last test in ExerciseTest">
+      <created>1581238359401</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1581238359401</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Completed the first draft of the markdown document.&#10;It is comprised of:&#10;- What the application will do&#10;- Who will use it&#10;- Why the project is important to me" />
+    <MESSAGE value="Added four different user stories to the md document for phase 1 of the project" />
+    <MESSAGE value="Added a few new classes and some stubs and fields for those classes" />
+    <MESSAGE value="Added implementations for the ExerciseTest class" />
+    <MESSAGE value="Added some more stubs to the Exercise class&#10;Added some more tests to ExerciseTest&#10;Added a few test implementations to WorkoutListTest" />
+    <MESSAGE value="Finished the test implementations for the ExerciseTest class" />
+    <MESSAGE value="Implementaion for Exercise are complete and all ExerciseTest tests are passing" />
+    <MESSAGE value="Implementation and tests completed for all current model classes" />
+    <MESSAGE value="Fixed some of the tests after making class fields private for model in Main&#10;Started working on the UI" />
+    <MESSAGE value="Improved code coverage" />
+    <MESSAGE value="Worked on the Console Interface:&#10;- console can display, add and remove workouts&#10;&#10;Started working on the exercise portion of the inteface" />
+    <MESSAGE value="First iteration of ConsoleInterface is complete and working" />
+    <MESSAGE value="Added in the back option to the ConsoleInterface" />
+    <MESSAGE value="Created the option to add workouts to favourites" />
+    <MESSAGE value="Made the comparison of strings more handle change in case between input and comparison" />
+    <MESSAGE value="Added some specification statements to ConsoleInterface; not completed yet" />
+    <MESSAGE value="Full code coverage, can add notes to workouts via ConsoleInterface,&#10;ConsoleInterface now prints notes for exercises" />
+    <MESSAGE value="added bullet points to print note; tests for that function are no longer passing&#10;added areThereAnyExercisesInWorkout function to test for workoutList contents in addToFavourites&#10;and removeFromFavourites methods" />
+    <MESSAGE value="Debugged tests in ExerciseTest&#10;Still one test not passing" />
+    <MESSAGE value="Debugged last test in ExerciseTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debugged last test in ExerciseTest" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="96" y="17" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581235099337">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="96" y="17" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.720@0.0.1280.720" timestamp="1581235099337" />
+    <state x="54" y="255" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1581235095922">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="54" y="255" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.720@0.0.1280.720" timestamp="1581235095922" />
+    <state x="272" y="0" key="CommitChangelistDialog2" timestamp="1581238358700">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="272" y="0" key="CommitChangelistDialog2/0.0.1280.720@0.0.1280.720" timestamp="1581238358700" />
+    <state x="2382" y="135" key="CommitChangelistDialog2/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1581025927742" />
+    <state x="242" y="60" key="DiffContextDialog" timestamp="1581237456714">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="242" y="60" key="DiffContextDialog/0.0.1280.720@0.0.1280.720" timestamp="1581237456714" />
+    <state x="421" y="104" key="FileChooserDialogImpl" timestamp="1581234535431">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="421" y="104" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1581234535431" />
+    <state width="1237" height="178" key="GridCell.Tab.0.bottom" timestamp="1581307487988">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="178" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1581307487988" />
+    <state width="1899" height="363" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1581109807064" />
+    <state width="1237" height="178" key="GridCell.Tab.0.center" timestamp="1581307487988">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="178" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1581307487988" />
+    <state width="1899" height="363" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1581109807064" />
+    <state width="1237" height="178" key="GridCell.Tab.0.left" timestamp="1581307487988">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="178" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1581307487988" />
+    <state width="1899" height="363" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1581109807064" />
+    <state width="1237" height="178" key="GridCell.Tab.0.right" timestamp="1581307487988">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="178" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1581307487988" />
+    <state width="1899" height="363" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1581109807064" />
+    <state width="1237" height="220" key="GridCell.Tab.1.bottom" timestamp="1581307487983">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="220" key="GridCell.Tab.1.bottom/0.0.1280.720@0.0.1280.720" timestamp="1581307487983" />
+    <state width="1899" height="363" key="GridCell.Tab.1.bottom/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1581109807064" />
+    <state width="1237" height="220" key="GridCell.Tab.1.center" timestamp="1581307487983">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="220" key="GridCell.Tab.1.center/0.0.1280.720@0.0.1280.720" timestamp="1581307487983" />
+    <state width="1899" height="363" key="GridCell.Tab.1.center/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1581109807064" />
+    <state width="1237" height="220" key="GridCell.Tab.1.left" timestamp="1581307487983">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="220" key="GridCell.Tab.1.left/0.0.1280.720@0.0.1280.720" timestamp="1581307487983" />
+    <state width="1899" height="363" key="GridCell.Tab.1.left/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1581109807064" />
+    <state width="1237" height="220" key="GridCell.Tab.1.right" timestamp="1581307487983">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="220" key="GridCell.Tab.1.right/0.0.1280.720@0.0.1280.720" timestamp="1581307487983" />
+    <state width="1899" height="363" key="GridCell.Tab.1.right/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1581109807064" />
+    <state x="456" y="296" key="ReplaceDuplicatesPrompt" timestamp="1581153485857">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="456" y="296" key="ReplaceDuplicatesPrompt/0.0.1280.720@0.0.1280.720" timestamp="1581153485857" />
+    <state width="600" height="424" key="ShowTestsPopup" timestamp="1581121259836">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="600" height="424" key="ShowTestsPopup/0.0.1280.720@0.0.1280.720" timestamp="1581121259836" />
+    <state x="368" y="183" key="Vcs.Push.Dialog.v2" timestamp="1581238361392">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="368" y="183" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1581238361392" />
+    <state x="2472" y="274" key="Vcs.Push.Dialog.v2/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1581025931204" />
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1581112654600">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1280.720@0.0.1280.720" timestamp="1581112654600" />
+    <state x="1920" y="0" key="com.intellij.ide.util.TipDialog/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1581020648621" />
+    <state x="2689" y="458" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581023959998">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2689" y="458" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1581023959998" />
+    <state x="267" y="225" width="538" height="495" key="extract.method.dialog" timestamp="1581153994116">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="267" y="225" width="538" height="495" key="extract.method.dialog/0.0.1280.720@0.0.1280.720" timestamp="1581153994116" />
+    <state x="2536" y="250" key="run.anything.popup" timestamp="1581025198816">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2536" y="250" key="run.anything.popup/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1581025198816" />
+    <state x="303" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1581127754744">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="303" y="41" width="672" height="678" key="search.everywhere.popup/0.0.1280.720@0.0.1280.720" timestamp="1581127754744" />
+    <state x="2375" y="62" width="1008" height="1017" key="search.everywhere.popup/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1581023050729" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Project_Starter$All_in_Project_Starter.ic" NAME="All in Project-Starter Coverage Results" MODIFIED="1581238300233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>model.Exercise</FILTER>
+      <FILTER>model.Workout</FILTER>
+      <FILTER>model.WorkoutList</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Project_Starter$model_in_Project_Starter.ic" NAME="model in Project-Starter Coverage Results" MODIFIED="1581234804833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>model.Workout</FILTER>
+      <FILTER>model.WorkoutList</FILTER>
+      <FILTER>model.Exercise</FILTER>
+    </SUITE>
+  </component>
+</project>

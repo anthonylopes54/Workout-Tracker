@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="915642e1-a515-4426-967f-4d6f4d6ea05c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/test/model/WorkoutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/model/WorkoutTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1X8vJPODMa912NrKi7Jt1oU0saM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="915642e1-a515-4426-967f-4d6f4d6ea05c" name="Default Changelist" comment="" />
+      <created>1580440463936</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580440463936</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Completed the first draft of the markdown document.&#10;It is comprised of:&#10;- What the application will do&#10;- Who will use it&#10;- Why the project is important to me">
+      <created>1580936631423</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1580936631423</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added four different user stories to the md document for phase 1 of the project">
+      <created>1580937595069</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580937595069</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added a few new classes and some stubs and fields for those classes">
+      <created>1580943706144</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580943706144</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added test stubs for all the test classes">
+      <created>1580950202663</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1580950202663</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Completed the first draft of the markdown document.&#10;It is comprised of:&#10;- What the application will do&#10;- Who will use it&#10;- Why the project is important to me" />
+    <MESSAGE value="Added four different user stories to the md document for phase 1 of the project" />
+    <MESSAGE value="Added a few new classes and some stubs and fields for those classes" />
+    <MESSAGE value="Added test stubs for all the test classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added test stubs for all the test classes" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="272" y="0" key="CommitChangelistDialog2" timestamp="1580950201893">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="272" y="0" key="CommitChangelistDialog2/0.0.1280.720@0.0.1280.720" timestamp="1580950201893" />
+    <state x="2382" y="135" key="CommitChangelistDialog2/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580937593367" />
+    <state x="368" y="183" key="Vcs.Push.Dialog.v2" timestamp="1580950204807">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="368" y="183" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1580950204807" />
+    <state x="2472" y="274" key="Vcs.Push.Dialog.v2/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580937600072" />
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1580944093312">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1280.720@0.0.1280.720" timestamp="1580944093312" />
+    <state x="303" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1580940612240">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="303" y="41" width="672" height="678" key="search.everywhere.popup/0.0.1280.720@0.0.1280.720" timestamp="1580940612240" />
+  </component>
+</project>

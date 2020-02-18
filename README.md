@@ -23,9 +23,18 @@ after the course of the term by making it more personalized to exercise professi
  
  ## User Stories
  
+ ### Phase 1
+ 
  - As a user, I want to be able to classify workouts as my favourite workouts
  - As a user, I want to be able to view the exercises within the workout I created
  - As a user, I want to be able to add exercises to a workout I am creating
  - As a user, I want to be able to modify sets and repetitions assigned to each exercise within a workout
  - As a user, I want to be able to delete exercises from a workout
  - As a user, I want to be able to add notes to exercises
+ 
+ ### Phase 2
+ 
+ - As a user, I want to be able to save my workouts and associated exercises to file
+ - As a user, I want to be able to load my workouts and associated exercises from file when the program starts
+ 
+ 
