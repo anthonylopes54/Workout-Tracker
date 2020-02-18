@@ -130,6 +130,9 @@ public class WorkoutListTest {
     @Test
     public void testSaveWorkoutList() {
         addWorkouts();
+        Exercise testExercise = (new Exercise("chest exercise", 4, 12));
+        testExercise.addNote("I hope this works");
+        testWorkout2.addExercise(testExercise);
         testWorkoutList.saveWorkoutList("test");
         testWorkoutList.removeWorkout(testWorkout1.getName());
         testWorkoutList.removeWorkout(testWorkout2.getName());

@@ -110,11 +110,11 @@ public class WorkoutList {
         JSONArray objectToSave = new JSONArray();
         for (Workout next : listOfWorkout) {
             JSONObject obj = new JSONObject();
-            JSONArray listOfExercise = new JSONArray();
+            JSONArray listOfExercise;
             obj.put("name", next.getName());
             obj.put("description", next.getDescription());
             obj.put("favourite", next.getFavourite());
-            encodeListOfExercises(next.getListOfExercise());
+            listOfExercise = encodeListOfExercises(next.getListOfExercise());
             obj.put("listOfExercise", listOfExercise);
             objectToSave.add(obj);
         }
@@ -165,8 +165,8 @@ public class WorkoutList {
             JSONObject exercise = (JSONObject) obj;
 
             String name = (String) exercise.get("name");
-            int sets = (int) exercise.get("sets");
-            int reps = (int) exercise.get("reps");
+            int sets = ((Long) exercise.get("sets")).intValue();
+            int reps = ((Long) exercise.get("reps")).intValue();
             ArrayList<String> listOfNote = (ArrayList<String>) exercise.get("listOfNote");
             Exercise thisExercise = new Exercise(name, sets, reps, listOfNote);
             output.add(thisExercise);
