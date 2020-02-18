@@ -1,7 +1,11 @@
 package model;
 
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.FileWriter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,10 +13,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class WorkoutListTest {
 
-    WorkoutList testWorkoutList;
+    private static final String ACCOUNT_LOCATION = "./data/testAccounts.txt";
+
+    private WorkoutList testWorkoutList;
     Workout testWorkout1;
     Workout testWorkout2;
     Workout testWorkout3;
+
+
 
     @BeforeEach
     public void runBefore() {
@@ -20,6 +28,7 @@ public class WorkoutListTest {
         testWorkout1 = new Workout("Back Blast", "Hypertrophy-based", false);
         testWorkout2 = new Workout("Chest Blast", "Strength-Based", true);
         testWorkout3 = new Workout("HIIT", "Non-Traditional Cardio", false);
+
     }
 
     @Test
@@ -39,7 +48,7 @@ public class WorkoutListTest {
     public void testPrintListOfWorkoutsMultipleWorkout() {
         addWorkouts();
         String workout = "Workout: " + testWorkout2.getName() + "*" + "\n         Description: " + testWorkout2.getDescription()
-               + "\n" + "Workout: " + testWorkout1.getName() + "\n         Description: " + testWorkout1.getDescription() + "\n"
+                + "\n" + "Workout: " + testWorkout1.getName() + "\n         Description: " + testWorkout1.getDescription() + "\n"
                 + "Workout: " + testWorkout3.getName() + "\n         Description: " + testWorkout3.getDescription() + "\n";
         String testOutcome = testWorkoutList.printListOfWorkouts();
 
@@ -104,7 +113,6 @@ public class WorkoutListTest {
         assertEquals(0, testWorkoutList.getSize());
     }
 
-    //TODO: check why we have to test assertNull for checkstyle
     @Test
     public void testGetWorkout() {
         addWorkouts();
@@ -117,6 +125,15 @@ public class WorkoutListTest {
         addWorkouts();
         assertTrue(testWorkoutList.containsName(testWorkout2.getName()));
         assertFalse(testWorkoutList.containsName("hello"));
+    }
+
+    @Test
+    public void testSaveWorkoutList() {
+        FileWriter testFileWriter = new FileWriter(ACCOUNT_LOCATION);
+        addWorkouts();
+        testWorkoutList.saveWorkoutList();
+
+
     }
 
     // HELPERS
