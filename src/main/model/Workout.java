@@ -19,6 +19,13 @@ public class Workout {
         favourite = fav;
     }
 
+    public Workout(String name, String description, ArrayList<Exercise> listOfExercise, boolean fav) {
+        this.name = name;
+        this.description = description;
+        this.listOfExercise = listOfExercise;
+        favourite = fav;
+    }
+
     // EFFECTS: returns the name of the workout
 
     public String getName() {

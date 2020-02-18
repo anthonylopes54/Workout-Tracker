@@ -17,6 +17,13 @@ public class Exercise {
         listOfNote = new ArrayList<>();
     }
 
+    public Exercise(String name, int sets, int reps, ArrayList<String> listOfNote) {
+        this.name = name;
+        this.sets = sets;
+        this.reps = reps;
+        this.listOfNote = listOfNote;
+    }
+
     // EFFECTS: returns the number of sets for the given exercise
 
     public int getSets() {

@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class WorkoutListTest {
 
-    private static final String ACCOUNT_LOCATION = "./data/testAccounts.txt";
+    private static final String ACCOUNT_LOCATION = "./data/";
 
     private WorkoutList testWorkoutList;
     Workout testWorkout1;
@@ -129,11 +129,14 @@ public class WorkoutListTest {
 
     @Test
     public void testSaveWorkoutList() {
-        FileWriter testFileWriter = new FileWriter(ACCOUNT_LOCATION);
         addWorkouts();
-        testWorkoutList.saveWorkoutList();
-
-
+        testWorkoutList.saveWorkoutList("test");
+        testWorkoutList.removeWorkout(testWorkout1.getName());
+        testWorkoutList.removeWorkout(testWorkout2.getName());
+        testWorkoutList.removeWorkout(testWorkout3.getName());
+        System.out.println(testWorkoutList.getSize());
+        testWorkoutList.readWorkoutList("test");
+        System.out.println(testWorkoutList.getSize());
     }
 
     // HELPERS

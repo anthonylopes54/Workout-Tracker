@@ -1,9 +1,12 @@
 package model;
 
 
+import com.sun.corba.se.spi.orbutil.threadpool.Work;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -11,7 +14,7 @@ import java.util.ArrayList;
 // This class holds the list of workouts a user can make. It can also hold preset workouts
 
 public class WorkoutList {
-    private static final String ACCOUNT_LOCATION = "./data/accounts.txt";
+    private static final String ACCOUNT_LOCATION = "./data/";
     private ArrayList<Workout> listOfWorkout;
 
     public WorkoutList() {
@@ -20,7 +23,7 @@ public class WorkoutList {
 
     // REQUIRES: listOfWorkouts must have >0 elements
     // EFFECTS: returns and prints a list of workouts currently in listOfWorkouts
-    // TODO: fix checkstyle
+
     public String printListOfWorkouts() {
         String workout = "";
         for (Workout next : listOfWorkout) {
@@ -103,7 +106,7 @@ public class WorkoutList {
 
     // EFFECTS: save state of workoutList and associated objects to ACCOUNTS_FILE
 
-    public void saveWorkoutList() {
+    public void saveWorkoutList(String nameOfFile) {
         JSONArray objectToSave = new JSONArray();
         for (Workout next : listOfWorkout) {
             JSONObject obj = new JSONObject();
@@ -116,15 +119,59 @@ public class WorkoutList {
             objectToSave.add(obj);
         }
         try {
-            FileWriter myFile = new FileWriter(ACCOUNT_LOCATION);
+            FileWriter myFile = new FileWriter(ACCOUNT_LOCATION + nameOfFile + ".json");
             String encodedJson = objectToSave.toJSONString();
             myFile.write(encodedJson);
-            myFile.flush();
+            myFile.close();
             System.out.println("File now contains json object");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+    }
+
+    public void readWorkoutList(String fileName) {
+        JSONParser jsonParser = new JSONParser();
+
+        try {
+            Reader reader = new FileReader(ACCOUNT_LOCATION + fileName + ".json");
+            JSONArray jsonArray = (JSONArray) jsonParser.parse(reader);
+            for (Object obj : jsonArray) {
+                JSONObject workout = (JSONObject) obj;
+
+
+                String name = (String) workout.get("name");
+                String description = (String) workout.get("description");
+                JSONArray listOfExercise = (JSONArray) workout.get("listOfExercise");
+                ArrayList<Exercise> listOfExerciseParsed = parseListOfExercise(listOfExercise);
+                Boolean favourite = (Boolean) workout.get("favourite");
+                Workout thisWorkout = new Workout(name, description, listOfExerciseParsed, favourite);
+                this.listOfWorkout.add(thisWorkout);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private ArrayList<Exercise> parseListOfExercise(JSONArray listOfExercise) {
+        ArrayList<Exercise> output = new ArrayList<>();
+
+        for (Object obj: listOfExercise) {
+            JSONObject exercise = (JSONObject) obj;
+
+            String name = (String) exercise.get("name");
+            int sets = (int) exercise.get("sets");
+            int reps = (int) exercise.get("reps");
+            ArrayList<String> listOfNote = (ArrayList<String>) exercise.get("listOfNote");
+            Exercise thisExercise = new Exercise(name, sets, reps, listOfNote);
+            output.add(thisExercise);
+        }
+        return output;
     }
 
     // EFFECTS: encodes the given list of exercises into JSON
