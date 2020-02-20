@@ -1,11 +1,9 @@
 package model;
 
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
+import persistence.Read;
+import persistence.Write;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.FileWriter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -133,12 +131,12 @@ public class WorkoutListTest {
         Exercise testExercise = (new Exercise("chest exercise", 4, 12));
         testExercise.addNote("I hope this works");
         testWorkout2.addExercise(testExercise);
-        testWorkoutList.saveWorkoutList("test");
+        Write.saveWorkoutList("test", testWorkoutList);
         testWorkoutList.removeWorkout(testWorkout1.getName());
         testWorkoutList.removeWorkout(testWorkout2.getName());
         testWorkoutList.removeWorkout(testWorkout3.getName());
         System.out.println(testWorkoutList.getSize());
-        testWorkoutList.readWorkoutList("test");
+        Read.readWorkoutList("test", testWorkoutList);
         System.out.println(testWorkoutList.getSize());
     }
 
