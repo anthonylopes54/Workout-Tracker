@@ -8,11 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 // Tests all the methods in the Workout class
 
 public class WorkoutTest {
-    Workout testWorkout;
-    Exercise exercise1;
-    Exercise exercise2;
-    Exercise exercise3;
-    Exercise exercise4;
+    private Workout testWorkout;
+    private Exercise exercise1;
+    private Exercise exercise2;
+    private Exercise exercise3;
+    private Exercise exercise4;
 
     @BeforeEach
     public void runBefore() {

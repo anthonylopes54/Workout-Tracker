@@ -20,40 +20,32 @@ public class Read {
 
     // EFFECTS: instantiates a list of workouts parsed from a JSON file
 
-    public static void readWorkoutList(String fileName, WorkoutList workoutList) {
+    public static void readWorkoutList(String fileName, WorkoutList workoutList) throws IOException, ParseException {
         JSONParser jsonParser = new JSONParser();
-
-        try {
-            Reader reader = new FileReader(ACCOUNT_LOCATION + fileName + ".json");
-            JSONArray jsonArray = (JSONArray) jsonParser.parse(reader);
-            for (Object obj : jsonArray) {
-                JSONObject workout = (JSONObject) obj;
+        Reader reader = new FileReader(ACCOUNT_LOCATION + fileName + ".json");
+        JSONArray jsonArray = (JSONArray) jsonParser.parse(reader);
+        for (Object obj : jsonArray) {
+            JSONObject workout = (JSONObject) obj;
 
 
-                String name = (String) workout.get("name");
-                String description = (String) workout.get("description");
-                JSONArray listOfExercise = (JSONArray) workout.get("listOfExercise");
-                ArrayList<Exercise> listOfExerciseParsed = parseListOfExercise(listOfExercise);
-                Boolean favourite = (Boolean) workout.get("favourite");
-                Workout thisWorkout = new Workout(name, description, listOfExerciseParsed, favourite);
-                workoutList.getListOfWorkout().add(thisWorkout);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            String name = (String) workout.get("name");
+            String description = (String) workout.get("description");
+            JSONArray listOfExercise = (JSONArray) workout.get("listOfExercise");
+            ArrayList<Exercise> listOfExerciseParsed = parseListOfExercise(listOfExercise);
+            Boolean favourite = (Boolean) workout.get("favourite");
+            Workout thisWorkout = new Workout(name, description, listOfExerciseParsed, favourite);
+            workoutList.getListOfWorkout().add(thisWorkout);
         }
 
     }
+
 
     // EFFECTS: parses the given JSONArray int an ArrayList of exercises
 
     private static ArrayList<Exercise> parseListOfExercise(JSONArray listOfExercise) {
         ArrayList<Exercise> output = new ArrayList<>();
 
-        for (Object obj: listOfExercise) {
+        for (Object obj : listOfExercise) {
             JSONObject exercise = (JSONObject) obj;
 
             String name = (String) exercise.get("name");

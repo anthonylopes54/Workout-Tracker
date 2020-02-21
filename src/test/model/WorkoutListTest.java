@@ -13,10 +13,10 @@ public class WorkoutListTest {
 
     private static final String ACCOUNT_LOCATION = "./data/";
 
-    private WorkoutList testWorkoutList;
-    Workout testWorkout1;
-    Workout testWorkout2;
-    Workout testWorkout3;
+    protected WorkoutList testWorkoutList;
+    protected Workout testWorkout1;
+    protected Workout testWorkout2;
+    protected Workout testWorkout3;
 
 
 
@@ -125,26 +125,11 @@ public class WorkoutListTest {
         assertFalse(testWorkoutList.containsName("hello"));
     }
 
-    @Test
-    public void testSaveWorkoutList() {
-        addWorkouts();
-        Exercise testExercise = (new Exercise("chest exercise", 4, 12));
-        testExercise.addNote("I hope this works");
-        testWorkout2.addExercise(testExercise);
-        Write.saveWorkoutList("test", testWorkoutList);
-        testWorkoutList.removeWorkout(testWorkout1.getName());
-        testWorkoutList.removeWorkout(testWorkout2.getName());
-        testWorkoutList.removeWorkout(testWorkout3.getName());
-        System.out.println(testWorkoutList.getSize());
-        Read.readWorkoutList("test", testWorkoutList);
-        System.out.println(testWorkoutList.getSize());
-    }
-
     // HELPERS
 
     // EFFECTS: adds workouts 1 through 3
 
-    private void addWorkouts() {
+    protected void addWorkouts() {
         testWorkoutList.addWorkout(testWorkout1);
         testWorkoutList.addWorkout(testWorkout2);
         testWorkoutList.addWorkout(testWorkout3);

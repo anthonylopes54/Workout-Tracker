@@ -19,7 +19,7 @@ public class Write {
 
     // EFFECTS: save state of workoutList and associated objects to ACCOUNTS_FILE
 
-    public static void saveWorkoutList(String nameOfFile, WorkoutList listOfWorkout) {
+    public static void saveWorkoutList(String nameOfFile, WorkoutList listOfWorkout) throws IOException {
         JSONArray objectToSave = new JSONArray();
         for (Workout next : listOfWorkout.getListOfWorkout()) {
             JSONObject obj = new JSONObject();
@@ -31,16 +31,13 @@ public class Write {
             obj.put("listOfExercise", listOfExercise);
             objectToSave.add(obj);
         }
-        try {
-            FileWriter myFile = new FileWriter(ACCOUNT_LOCATION + nameOfFile + ".json");
-            String encodedJson = objectToSave.toJSONString();
-            myFile.write(encodedJson);
-            myFile.close();
-            System.out.println("File now contains json object");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        FileWriter myFile = new FileWriter(ACCOUNT_LOCATION + nameOfFile + ".json");
+        String encodedJson = objectToSave.toJSONString();
+        myFile.write(encodedJson);
+        myFile.close();
+        System.out.println("File now contains json object");
     }
+
 
     // EFFECTS: encodes the given list of exercises into JSON
 

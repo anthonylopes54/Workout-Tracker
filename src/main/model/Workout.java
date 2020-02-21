@@ -1,6 +1,8 @@
 package model;
 
 
+import model.exceptions.ExerciseNotPresent;
+
 import java.util.ArrayList;
 // This class represents each workout a user can make and/or access. It is comprised of a list of exercises that
 // comprise the workout as well as the name, description and status of the workout (i.e., is it a favourite workout or
@@ -36,6 +38,29 @@ public class Workout {
 
     public String getDescription() {
         return description;
+    }
+
+    public Exercise checkExercise(Exercise exercise) {
+        try {
+            for (Exercise next : listOfExercise) {
+                if (next == exercise) {
+                    return next;
+                }
+            }
+            throw new ExerciseNotPresent();
+        } catch (ExerciseNotPresent e) {
+            System.out.println("exercise is not in list!");
+        }
+        return null;
+    }
+
+    public Boolean checkExercise(String exercise) {
+        for (Exercise next : listOfExercise) {
+            if (next.getName().equals(exercise)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // MODIFIES: this

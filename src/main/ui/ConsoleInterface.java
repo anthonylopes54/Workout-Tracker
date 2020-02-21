@@ -3,7 +3,11 @@ package ui;
 import model.Exercise;
 import model.Workout;
 import model.WorkoutList;
+import org.json.simple.parser.ParseException;
+import persistence.Read;
+import persistence.Write;
 
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -32,7 +36,28 @@ public class ConsoleInterface {
         this.workoutList = new WorkoutList();
         input = new Scanner(System.in);
         runProgram = true;
+        askUserToLoad();
         dealUserInput(workoutList);
+    }
+
+    private void askUserToLoad() {
+        System.out.println("Would you like to load your last list of workouts?\nPlease type 'yes' or 'no'.");
+        String command = input.nextLine();
+        if (command.equalsIgnoreCase("yes")) {
+            System.out.println("What is the name of the file you would like to load?");
+            String fileName = input.nextLine();
+            try {
+                Read.readWorkoutList(fileName, this.workoutList);
+            } catch (IOException | ParseException e) {
+                System.out.println("Sorry, I couldn't load the file. Can you try typing in the file name again?");
+                askUserToLoad();
+                return;
+            }
+        } else if (!command.equalsIgnoreCase("no")) {
+            System.out.println("Sorry, I didn't get that");
+            askUserToLoad();
+            return;
+        }
     }
 
     // EFFECTS: parses user input until user quits
@@ -47,7 +72,8 @@ public class ConsoleInterface {
     private void parseStringForWorkoutList(String s) throws InterruptedException {
         if (s.length() > 0) {
             switch (s) {
-                case QUIT_COMMAND:  quitProgram();
+                case QUIT_COMMAND: quitProgram();
+                break;
                 case ADD_WORKOUT_COMMAND: addWorkout();
                     break;
                 case REMOVE_WORKOUT_COMMAND: removeWorkout();
@@ -169,19 +195,26 @@ public class ConsoleInterface {
     private void parseStringForWorkout(String s, Workout workout) throws InterruptedException {
         if (s.length() > 0) {
             switch (s) {
-                case ADD_EXERCISE_COMMAND: addExercise(workout);
+                case ADD_EXERCISE_COMMAND:
+                    addExercise(workout);
                     break;
-                case REMOVE_EXERCISE_COMMAND: removeExercise(workout);
+                case REMOVE_EXERCISE_COMMAND:
+                    removeExercise(workout);
                     break;
-                case MODIFY_EXERCISE_COMMAND: modifyExercise(workout);
+                case MODIFY_EXERCISE_COMMAND:
+                    modifyExercise(workout);
                     break;
-                case QUIT_COMMAND: quitProgram();
+                case QUIT_COMMAND:
+                    quitProgram();
                     break;
-                case BACK_COMMAND: dealUserInput(workoutList);
+                case BACK_COMMAND:
+                    dealUserInput(workoutList);
                     break;
-                case ADD_NOTE: addNote(workout);
+                case ADD_NOTE:
+                    addNote(workout);
                     break;
-                default: invalidInputForWorkout(workout);
+                default:
+                    invalidInputForWorkout(workout);
                     break;
             }
         }
@@ -197,9 +230,29 @@ public class ConsoleInterface {
     // EFFECTS: prints a goodbye message before ending program
 
     private void quitProgram() throws InterruptedException {
+        askUserToSave();
         System.out.println("Have a great day! Goodbye!");
         TimeUnit.SECONDS.sleep(3);
         runProgram = false;
+    }
+
+    private void askUserToSave() {
+        System.out.println("Would you like to save the current state of your workout list?");
+        String command = input.nextLine();
+        if (command.equalsIgnoreCase("yes")) {
+            System.out.println("What would you like to name your file?");
+            String nameOfFile = input.nextLine();
+            try {
+                Write.saveWorkoutList(nameOfFile, this.workoutList);
+            } catch (IOException e) {
+                System.out.println("Sorry, I could not save the file. "
+                        + "Maybe try using a different file name next time!");
+                askUserToSave();
+            }
+        } else if (!command.equalsIgnoreCase("no")) {
+            System.out.println("Sorry, I don't understand...");
+            askUserToSave();
+        }
     }
 
     // MODIFIES: Exercise within Workout within this

@@ -68,6 +68,16 @@ public class WorkoutList {
         return false;
     }
 
+    public void removeWorkout(Workout workout) {
+        Workout workoutToRemove = null;
+        for (Workout next : listOfWorkout) {
+            if (next == workout) {
+                workoutToRemove = next;
+            }
+        }
+        listOfWorkout.remove(workoutToRemove);
+    }
+
 
     // REQUIRES: given name of workout must be in listOfWorkout
     // EFFECTS: returns given workout
@@ -80,6 +90,16 @@ public class WorkoutList {
             }
         }
         return returnValue;
+    }
+
+    public Workout getWorkout(Workout workout) {
+        Workout returnValue = null;
+        for (Workout next : listOfWorkout) {
+            if (next == workout) {
+                return workout;
+            }
+        }
+        return null;
     }
 
     // EFFECTS: returns true if given workout is in listOfWorkout;
