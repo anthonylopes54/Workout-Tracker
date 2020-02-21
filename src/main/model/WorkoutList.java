@@ -92,6 +92,8 @@ public class WorkoutList {
         return returnValue;
     }
 
+    // EFFECTS: returns given workout if it is in listOfWorkout; else return null
+
     public Workout getWorkout(Workout workout) {
         Workout returnValue = null;
         for (Workout next : listOfWorkout) {

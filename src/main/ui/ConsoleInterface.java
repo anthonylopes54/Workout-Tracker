@@ -195,17 +195,13 @@ public class ConsoleInterface {
     private void parseStringForWorkout(String s, Workout workout) throws InterruptedException {
         if (s.length() > 0) {
             switch (s) {
-                case ADD_EXERCISE_COMMAND:
-                    addExercise(workout);
+                case ADD_EXERCISE_COMMAND: addExercise(workout);
                     break;
-                case REMOVE_EXERCISE_COMMAND:
-                    removeExercise(workout);
+                case REMOVE_EXERCISE_COMMAND: removeExercise(workout);
                     break;
-                case MODIFY_EXERCISE_COMMAND:
-                    modifyExercise(workout);
+                case MODIFY_EXERCISE_COMMAND: modifyExercise(workout);
                     break;
-                case QUIT_COMMAND:
-                    quitProgram();
+                case QUIT_COMMAND: quitProgram();
                     break;
                 case BACK_COMMAND:
                     dealUserInput(workoutList);
