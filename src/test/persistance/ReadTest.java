@@ -31,6 +31,12 @@ public class ReadTest {
     }
 
     @Test
+    public void testConstructor() {
+        Read test = new Read();
+        assertTrue(test instanceof Read);
+    }
+
+    @Test
     public void testSaveWorkoutListNoExceptionThrown() {
         testWorkoutList.addWorkout(testWorkout1);
         testWorkoutList.addWorkout(testWorkout2);

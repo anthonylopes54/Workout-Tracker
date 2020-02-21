@@ -18,6 +18,8 @@ public class Read {
 
     private static final String ACCOUNT_LOCATION = "./data/";
 
+    public Read(){}
+
     // EFFECTS: instantiates a list of workouts parsed from a JSON file
 
     public static void readWorkoutList(String fileName, WorkoutList workoutList) throws IOException, ParseException {

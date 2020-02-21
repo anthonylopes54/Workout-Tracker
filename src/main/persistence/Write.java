@@ -17,6 +17,8 @@ public class Write {
 
     private static final String ACCOUNT_LOCATION = "./data/";
 
+    public Write() {}
+
     // EFFECTS: save state of workoutList and associated objects to ACCOUNTS_FILE
 
     public static void saveWorkoutList(String nameOfFile, WorkoutList listOfWorkout) throws IOException {

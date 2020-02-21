@@ -38,6 +38,12 @@ public class WriteTest {
     }
 
     @Test
+    public void testConstructor() {
+        Write test = new Write();
+        assertTrue(test instanceof Write);
+    }
+
+    @Test
     public void testSaveWorkoutListNoExceptionThrown() {
         testWorkoutList.addWorkout(testWorkout1);
         testWorkoutList.addWorkout(testWorkout2);
