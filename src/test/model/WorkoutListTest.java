@@ -1,5 +1,6 @@
 package model;
 
+import com.sun.corba.se.spi.orbutil.threadpool.Work;
 import persistence.Read;
 import persistence.Write;
 import org.junit.jupiter.api.BeforeEach;
@@ -112,10 +113,18 @@ public class WorkoutListTest {
     }
 
     @Test
-    public void testGetWorkout() {
+    public void testGetWorkoutStringParam() {
         addWorkouts();
         assertEquals(testWorkout2, testWorkoutList.getWorkout(testWorkout2.getName()));
         assertNull(testWorkoutList.getWorkout("hello"));
+    }
+
+    @Test
+    public void testGetWorkoutWorkoutParam() {
+        Workout test = new Workout("test","the best", false);
+        addWorkouts();
+        assertEquals(testWorkout2, testWorkoutList.getWorkout(testWorkout2));
+        assertNull(testWorkoutList.getWorkout(test));
     }
 
     @Test

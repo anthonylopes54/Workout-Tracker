@@ -144,6 +144,21 @@ public class WorkoutTest {
         assertFalse(testWorkout.containsName("hello"));
     }
 
+    @Test
+    public void testCheckExerciseWithExerciseParameter() {
+        Exercise exercise5 = new Exercise("chest", 5, 3);
+        addExercises();
+        assertEquals(exercise2, testWorkout.checkExercise(exercise2));
+        assertNull(testWorkout.checkExercise(exercise5));
+    }
+
+    @Test
+    public void testCheckExerciseWithStringParameter() {
+        addExercises();
+        assertTrue(testWorkout.checkExercise(exercise2.getName()));
+        assertFalse(testWorkout.checkExercise("chest"));
+    }
+
 
 
     // HELPERS

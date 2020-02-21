@@ -70,7 +70,7 @@ public class Exercise {
         if (!listOfNote.contains(note)) {
             return false;
         } else {
-            for (String next: listOfNote) {
+            for (String next : listOfNote) {
                 if (next.equals(note)) {
                     listOfNote.remove(next);
                 }
@@ -89,7 +89,6 @@ public class Exercise {
         } else {
             reps = r;
         }
-
     }
 
     // MODIFIES: this
