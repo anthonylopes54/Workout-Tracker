@@ -37,13 +37,12 @@ public class Write {
         String encodedJson = objectToSave.toJSONString();
         myFile.write(encodedJson);
         myFile.close();
-        System.out.println("File now contains json object");
     }
 
 
     // EFFECTS: encodes the given list of exercises into JSON
 
-    public static JSONArray encodeListOfExercises(ArrayList<Exercise> listOfExercise) {
+    private static JSONArray encodeListOfExercises(ArrayList<Exercise> listOfExercise) {
         JSONArray outputOfExercises = new JSONArray();
         for (Exercise next : listOfExercise) {
             JSONObject obj = new JSONObject();

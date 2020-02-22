@@ -68,6 +68,9 @@ public class WorkoutList {
         return false;
     }
 
+    // MODIFIES: this
+    // EFFECTS: removes given workout from listOfWorkout if it is present; otherwise, do nothing
+
     public void removeWorkout(Workout workout) {
         Workout workoutToRemove = null;
         for (Workout next : listOfWorkout) {
@@ -116,6 +119,8 @@ public class WorkoutList {
     public ArrayList<Workout> getListOfWorkout() {
         return listOfWorkout;
     }
+
+    // EFFECTS: returns true if given string is a name of a workout within listOfWorkout; otherwise, return false
 
     public boolean containsName(String name) {
         for (Workout next : listOfWorkout) {

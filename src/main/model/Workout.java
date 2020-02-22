@@ -50,6 +50,8 @@ public class Workout {
         return null;
     }
 
+    // EFFECTS: returns true if the given string matches the name of an exercise withing listOfExercise
+
     public Boolean checkExercise(String exercise) {
         for (Exercise next : listOfExercise) {
             if (next.getName().equals(exercise)) {
@@ -135,10 +137,4 @@ public class Workout {
         return false;
     }
 
-//    // REQUIRES: exercise must already be in listOfExercise
-//    // EFFECTS: returns the given exercise
-//
-//    public Exercise getExercise(Exercise exercise) {
-//        return null;
-//    }
 }

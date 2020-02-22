@@ -14,6 +14,8 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Tests the functionality of the methods in the Write class
+
 public class WriteTest {
     WorkoutList testWorkoutList;
     private Exercise exercise1;

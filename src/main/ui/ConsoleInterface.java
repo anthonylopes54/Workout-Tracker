@@ -31,6 +31,9 @@ public class ConsoleInterface {
     private WorkoutList workoutList;
     private Scanner input;
 
+    // EFFECTS: Greets user, instantiates new workout list, asks user if they want to load workouts, instantiates
+    //          scanner, and prints workout list
+
     public ConsoleInterface() {
         System.out.println("Welcome to the Lifestyle Tracker!");
         this.workoutList = new WorkoutList();
@@ -39,6 +42,9 @@ public class ConsoleInterface {
         askUserToLoad();
         dealUserInput(workoutList);
     }
+
+    // MODIFIES: WorkoutList, Workout, Exercise
+    // EFFECTS: asks user if they want to load their last workout list
 
     private void askUserToLoad() {
         System.out.println("Would you like to load your last list of workouts?\nPlease type 'yes' or 'no'.");
@@ -223,7 +229,7 @@ public class ConsoleInterface {
         checkInputForWorkout(workout);
     }
 
-    // EFFECTS: prints a goodbye message before ending program
+    // EFFECTS: Asks if user wants to save the program and later prints a goodbye message before ending program
 
     private void quitProgram() throws InterruptedException {
         askUserToSave();
@@ -231,6 +237,8 @@ public class ConsoleInterface {
         TimeUnit.SECONDS.sleep(3);
         runProgram = false;
     }
+
+    // EFFECTS: asks user if they want to save their current workout list and does so if they respond with yes
 
     private void askUserToSave() {
         System.out.println("Would you like to save the current state of your workout list?");
@@ -327,6 +335,8 @@ public class ConsoleInterface {
             openWorkout(workout);
         }
     }
+
+    // EFFECTS: redirects user to the woroutList menu if there are no workouts in the listOfWorkout
 
     private void areThereAnyExercisesInWorkoutList() {
         if (workoutList.getListOfWorkout().size() <= 0) {

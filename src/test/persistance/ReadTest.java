@@ -11,6 +11,8 @@ import persistence.Write;
 import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.*;
 
+// Tests the functionality of the methods in the Read class
+
 public class ReadTest {
     WorkoutList testWorkoutList;
     private Workout testWorkout1;

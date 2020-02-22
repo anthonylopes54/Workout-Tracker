@@ -20,6 +20,7 @@ public class Read {
 
     public Read(){}
 
+    // MODIFIES: WorkoutList, Workout, Exercise
     // EFFECTS: instantiates a list of workouts parsed from a JSON file
 
     public static void readWorkoutList(String fileName, WorkoutList workoutList) throws IOException, ParseException {
@@ -41,7 +42,7 @@ public class Read {
 
     }
 
-
+    // MODIFIES: Exercise
     // EFFECTS: parses the given JSONArray int an ArrayList of exercises
 
     private static ArrayList<Exercise> parseListOfExercise(JSONArray listOfExercise) {
