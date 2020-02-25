@@ -39,7 +39,7 @@ public class ReadTest {
     }
 
     @Test
-    public void testSaveWorkoutListNoExceptionThrown() {
+    public void testLoadWorkoutListNoExceptionThrown() {
         testWorkoutList.addWorkout(testWorkout1);
         testWorkoutList.addWorkout(testWorkout2);
         testWorkoutList.addWorkout(testWorkout3);
