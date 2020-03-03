@@ -8,4 +8,5 @@ public class WorkoutListGUI {
     private JList list1;
     private JTextArea textArea1;
     private JTextField NOTESTextField;
+    private JButton button1;
 }
