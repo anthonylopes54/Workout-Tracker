@@ -1,4 +1,4 @@
-package ui;
+package ui.GForms;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
