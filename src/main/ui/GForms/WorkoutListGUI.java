@@ -7,16 +7,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class WorkoutListGUI {
-    private JPanel PanelMain;
+    private JPanel panelMain;
     private JTextField LISTOFEXERCISETextField;
     private JList list1;
     private JTextArea textArea1;
     private JTextField NOTESTextField;
     private JButton saveButton;
     private JButton addWorkoutButton;
-;
 
-    public WorkoutListGUI() {
+
+    public WorkoutListGUI(JFrame recentFrame) {
 
         saveButton.addActionListener(new ActionListener() {
             @Override
@@ -34,8 +34,19 @@ public class WorkoutListGUI {
         addWorkoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                JFrame thisFrame = new JFrame("Add a Workout");
+                AddWorkoutGUI thisGUI = new AddWorkoutGUI(thisFrame);
+                thisFrame.setContentPane(thisGUI.getPanel());
+                thisFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                thisFrame.pack();
+                thisFrame.setVisible(true);
+                panelMain.setVisible(false);
+                recentFrame.dispose();
             }
         });
+    }
+
+    public JPanel getPanel() {
+        return this.panelMain;
     }
 }
