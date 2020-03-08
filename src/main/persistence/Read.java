@@ -42,6 +42,14 @@ public class Read {
 
     }
 
+    // MODIFIES: WorkoutList, Workout, Exercise
+    // EFFECTS: removes workouts from workoutList and instantiates a list of workouts parsed from a JSON file
+
+    public static void readWorkoutListGUI(String fileName, WorkoutList workoutList) throws IOException, ParseException {
+        workoutList.removeAll();
+        readWorkoutList(fileName, workoutList);
+    }
+
     // MODIFIES: Exercise
     // EFFECTS: parses the given JSONArray int an ArrayList of exercises
 

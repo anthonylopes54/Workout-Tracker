@@ -12,8 +12,7 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         JFrame thisFrame = new JFrame("Your Workouts");
-                WorkoutList workoutList = new WorkoutList();
-                workoutList.addWorkout(new Workout("anthony", "the best", false));
+        WorkoutList workoutList = new WorkoutList();
         WorkoutListGUI thisGUI = new WorkoutListGUI(thisFrame, workoutList);
         thisFrame.setContentPane(thisGUI.getPanel());
         thisFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -1,5 +1,6 @@
 package ui.GForms;
 
+import model.Exercise;
 import model.Workout;
 import model.WorkoutList;
 
@@ -21,10 +22,13 @@ public class AddExerciseGUI extends GUI{
 
     public AddExerciseGUI(JFrame recentFrame, WorkoutList workoutList, Workout workout) {
         addExerciseButton.addActionListener(new ActionListener() {
-            //TODO: back end
             @Override
             public void actionPerformed(ActionEvent e) {
-            moveBackToExerciseListForm(recentFrame, panelMain, workoutList, workout);
+                int sets = Integer.valueOf(textArea2.getText());
+                int reps = Integer.valueOf(textArea3.getText());
+                Exercise newExercise = new Exercise(textArea1.getText(), sets, reps);
+                workout.addExercise(newExercise);
+                moveBackToExerciseListForm(recentFrame, panelMain, workoutList, workout);
             }
         });
         goBackButton.addActionListener(new ActionListener() {

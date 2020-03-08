@@ -56,21 +56,9 @@ public class ExerciseListGUI extends GUI{
             }
         });
         addNoteButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
-                int exerciseIndex = list1.getSelectedIndex();
-                if (exerciseIndex >= 0) {
-                    Exercise exercise = populatedList.get(exerciseIndex);
-                    JFrame thisFrame = new JFrame("Add a note");
-                    AddNoteGUI thisGUI = new AddNoteGUI(thisFrame, workoutList, workout, exercise);
-                    thisFrame.setContentPane(thisGUI.getPanel());
-                    thisFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    thisFrame.pack();
-                    thisFrame.setVisible(true);
-                    panelMain.setVisible(false);
-                    recentFrame.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Please select an Exercise!");
-                }
+                moveToAddNoteForm(workoutList, workout, recentFrame);
             }
         });
         list1.addMouseListener(new MouseAdapter() {
@@ -81,21 +69,50 @@ public class ExerciseListGUI extends GUI{
                     if (lastIndex >= 0) {
                         super.mouseClicked(e);
                         Exercise nextExercise = populatedList.get(lastIndex);
-                        String nextExerciseNote = nextExercise.getNotes();
+                        String nextExerciseNote = nextExercise.getNotesGUI();
                         textArea1.setText(nextExerciseNote);
                     }
                 }
                 if (e.getClickCount() >= 2) {
                     if (lastIndex >= 0) {
                         Exercise nextExercise = populatedList.get(lastIndex);
-                        goToExercise(recentFrame, workoutList, nextExercise);
+                        moveToModifyExerciseForm(recentFrame, workoutList, workout, nextExercise);
                     }
                 }
             }
         });
     }
 
+    private void moveToAddNoteForm(WorkoutList workoutList, Workout workout, JFrame recentFrame) {
+        int exerciseIndex = list1.getSelectedIndex();
+        if (exerciseIndex >= 0) {
+            Exercise exercise = populatedList.get(exerciseIndex);
+            JFrame thisFrame = new JFrame("Add a note");
+            AddNoteGUI thisGUI = new AddNoteGUI(thisFrame, workoutList, workout, exercise);
+            thisFrame.setContentPane(thisGUI.getPanel());
+            thisFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            thisFrame.pack();
+            thisFrame.setVisible(true);
+            panelMain.setVisible(false);
+            recentFrame.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select an Exercise!");
+        }
+    }
+
+
     // HELPERS
+
+    private void moveToModifyExerciseForm(JFrame recentFrame, WorkoutList workoutList, Workout workout, Exercise nextExercise) {
+        JFrame thisFrame = new JFrame("ModifyExercise");
+        ModifyExerciseGUI thisGUI = new ModifyExerciseGUI(thisFrame, workoutList, workout, nextExercise);
+        thisFrame.setContentPane(thisGUI.getPanel());
+        thisFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        thisFrame.pack();
+        thisFrame.setVisible(true);
+        panelMain.setVisible(false);
+        recentFrame.dispose();
+    }
 
     private void moveToAddExerciseForm(WorkoutList workoutList, Workout workout, JFrame recentFrame) {
         JFrame thisFrame = new JFrame("Add an exercise");
@@ -113,7 +130,7 @@ public class ExerciseListGUI extends GUI{
         populatedList.clear();
         int index = 0;
         for (Exercise next : workout.getListOfExercise()) {
-            listModel.addElement(next.getName());
+            listModel.addElement((next.getName() + " S: " + next.getSets() + " R: " + next.getReps()));
             populatedList.put(index, next);
             index++;
         }

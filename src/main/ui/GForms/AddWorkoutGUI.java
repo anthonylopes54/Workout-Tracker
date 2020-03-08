@@ -1,5 +1,6 @@
 package ui.GForms;
 
+import model.Workout;
 import model.WorkoutList;
 
 import javax.swing.*;
@@ -22,6 +23,8 @@ public class AddWorkoutGUI extends GUI{
             // TODO: Back end
             @Override
             public void actionPerformed(ActionEvent e) {
+                Workout newWorkout = new Workout(textArea1.getText(), textArea2.getText(), false);
+                workoutList.addWorkout(newWorkout);
                 moveBackToWorkoutListForm(recentFrame, panelMain, workoutList);
             }
         });

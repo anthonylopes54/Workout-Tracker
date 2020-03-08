@@ -12,11 +12,12 @@ import java.awt.event.ActionListener;
 public class AddNoteGUI extends GUI{
     private JPanel panelMain;
     private JTextField LISTOFEXERCISETextField;
-    private JTextArea list1;
     private JButton backButton;
     private JButton submitButton;
+    private JTextArea textArea1;
 
     public AddNoteGUI(JFrame recentFrame, WorkoutList workoutList, Workout workout, Exercise thisExercise) {
+
         submitButton.addActionListener(new ActionListener() { //TODO: backend
             @Override
             public void actionPerformed(ActionEvent e) {

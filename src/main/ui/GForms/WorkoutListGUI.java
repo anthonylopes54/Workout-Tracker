@@ -2,11 +2,11 @@ package ui.GForms;
 
 import model.Workout;
 import model.WorkoutList;
+import org.json.simple.parser.ParseException;
+import persistence.Read;
 import persistence.Write;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -24,6 +24,7 @@ public class WorkoutListGUI {
     private JButton addWorkoutButton;
     private JTextField descriptionTextField;
     private JButton removeWorkoutButton;
+    private JButton loadLastWorkoutButton;
     private DefaultListModel listModel;
     private Map<Integer, Workout> populatedList;
 
@@ -88,6 +89,20 @@ public class WorkoutListGUI {
                     workoutList.removeWorkout(removeThisWorkout);
                     textArea1.setText("");
                     populateList(workoutList);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please select the workout you would like to remove!");
+                }
+            }
+        });
+        loadLastWorkoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Read.readWorkoutListGUI("default", workoutList);
+                    populateList(workoutList);
+                    JOptionPane.showMessageDialog(null, "Loading the workout list was successful!");
+                } catch (IOException | ParseException ex) {
+                    JOptionPane.showMessageDialog(null, "Loading the workout list was unsuccessful!");
                 }
             }
         });

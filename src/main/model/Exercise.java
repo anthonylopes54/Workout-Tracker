@@ -54,6 +54,18 @@ public class Exercise {
         return notes;
     }
 
+    // EFFECTS: returns all the elements in listOfNote
+    public String getNotesGUI() {
+        if (listOfNote.size() == 0) {
+            return "";
+        }
+        String notes = "The notes are as follows:\n";
+        for (String next : listOfNote) {
+            notes += "- " + next + "\n";
+        }
+        return notes;
+    }
+
     // MODIFIES: this
     // EFFECTS: adds given String to listOfNote
 
