@@ -17,23 +17,22 @@ import java.util.Map;
 
 public class WorkoutListGUI {
     private JPanel panelMain;
-    private JTextField listOfExerciseTextField;
+    private JTextField header;
     private JList list1;
-    private JTextArea textArea1;
+    private JTextArea descriptionTextArea;
     private JButton saveButton;
     private JButton addWorkoutButton;
     private JTextField descriptionTextField;
     private JButton removeWorkoutButton;
     private JButton loadLastWorkoutButton;
+    private JButton toggleFavButton;
+    private JLabel dumbbell;
     private DefaultListModel listModel;
     private Map<Integer, Workout> populatedList;
 
 
     public WorkoutListGUI(JFrame recentFrame, WorkoutList workoutList) {
-        populatedList = new HashMap<>();
-        listModel = new DefaultListModel();
-        populateList(workoutList);
-        list1.setModel(listModel);
+        setup(workoutList);
 
         saveButton.addActionListener(new ActionListener() {
             @Override
@@ -69,7 +68,7 @@ public class WorkoutListGUI {
                         super.mouseClicked(e);
                         Workout nextWorkout = populatedList.get(lastIndex);
                         String nextWorkoutDescription = nextWorkout.getDescription();
-                        textArea1.setText(nextWorkoutDescription);
+                        descriptionTextArea.setText(nextWorkoutDescription);
                     }
                 }
                 if (e.getClickCount() >= 2) {
@@ -87,7 +86,7 @@ public class WorkoutListGUI {
                 if (lastIndex >= 0) {
                     Workout removeThisWorkout = populatedList.get(lastIndex);
                     workoutList.removeWorkout(removeThisWorkout);
-                    textArea1.setText("");
+                    descriptionTextArea.setText("");
                     populateList(workoutList);
                 } else {
                     JOptionPane.showMessageDialog(null, "Please select the workout you would like to remove!");
@@ -106,6 +105,21 @@ public class WorkoutListGUI {
                 }
             }
         });
+        list1.addMouseListener(new MouseAdapter() {
+        });
+        toggleFavButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int lastIndex = list1.getSelectedIndex();
+                if (lastIndex >= 0) {                               // if nothing is selected, return value will be -1
+                    Workout workout = populatedList.get(lastIndex); // find workout
+                    workout.toggleFavourite();
+                    populateList(workoutList);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please select the workout you would like to toggle!");
+                }
+            }
+        });
     }
 
     // HELPERS
@@ -121,12 +135,28 @@ public class WorkoutListGUI {
         recentFrame.dispose();
     }
 
+    private void setup(WorkoutList workoutList) {
+        descriptionTextArea.setWrapStyleWord(true);
+        descriptionTextArea.setLineWrap(true);
+        header.setEditable(false);
+        descriptionTextField.setEditable(false);
+        populatedList = new HashMap<>();
+        listModel = new DefaultListModel();
+        populateList(workoutList);
+        list1.setModel(listModel);
+        dumbbell.setIcon(new ImageIcon("data/dumbbell.png"));
+    }
+
     private void populateList(WorkoutList workoutList) {
         listModel.clear();
         populatedList.clear();
         int index = 0;
         for (Workout next : workoutList.getListOfWorkout()) {
-            listModel.addElement(next.getName());
+            if (next.getFavourite()) {
+                listModel.addElement((next.getName() + "*"));
+            } else {
+                listModel.addElement(next.getName());
+            }
             populatedList.put(index, next);
             index++;
         }

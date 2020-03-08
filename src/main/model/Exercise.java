@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 
 // This class holds all the info pertaining to an exercise (name, sets, reps, and a list of notes)
 
@@ -59,7 +60,7 @@ public class Exercise {
         if (listOfNote.size() == 0) {
             return "";
         }
-        String notes = "The notes are as follows:\n";
+        String notes = "";
         for (String next : listOfNote) {
             notes += "- " + next + "\n";
         }
@@ -84,11 +85,16 @@ public class Exercise {
         } else {
             for (String next : listOfNote) {
                 if (next.equals(note)) {
-                    listOfNote.remove(next);
+                    try {
+                        listOfNote.remove(next);
+                        return true;
+                    } catch (ConcurrentModificationException e) {
+                        return true;
+                    }
                 }
             }
         }
-        return true;
+        return false;
     }
 
     // MODIFIES: this

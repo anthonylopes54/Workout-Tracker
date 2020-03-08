@@ -114,6 +114,17 @@ public class Workout {
         favourite = false;
     }
 
+    // MODIFIES: this
+    // EFFECTS: toggle value of this.favorite
+
+    public void toggleFavourite() {
+        if (favourite) {
+            favourite = false;
+        } else {
+            favourite = true;
+        }
+    }
+
     // EFFECTS: return value of this.favourite
 
     public boolean getFavourite() {

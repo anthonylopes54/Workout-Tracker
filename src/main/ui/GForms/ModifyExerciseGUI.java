@@ -11,21 +11,22 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class ModifyExerciseGUI extends GUI{
+public class ModifyExerciseGUI extends GUI {
     private JPanel panelMain;
-    private JTextField LISTOFEXERCISETextField;
+    private JTextField header;
     private JTextField textArea1;
     private JTextField textArea2;
     private JTextField textArea3;
     private JButton goBackButton;
-    private JButton ModifyExerciseButton;
+    private JButton modifyExerciseButton;
 
     public ModifyExerciseGUI(JFrame recentFrame, WorkoutList workoutList, Workout workout, Exercise exercise) {
+        header.setEditable(false);
         textArea1.setText(exercise.getName());
         textArea2.setText(Integer.toString(exercise.getSets()));
         textArea3.setText(Integer.toString(exercise.getReps()));
 
-        ModifyExerciseButton.addActionListener(new ActionListener() {
+        modifyExerciseButton.addActionListener(new ActionListener() {
             //TODO: back end
             @Override
             public void actionPerformed(ActionEvent e) {

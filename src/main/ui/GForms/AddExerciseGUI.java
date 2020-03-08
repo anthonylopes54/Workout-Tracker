@@ -13,7 +13,7 @@ import java.awt.event.KeyEvent;
 
 public class AddExerciseGUI extends GUI{
     private JPanel panelMain;
-    private JTextField LISTOFEXERCISETextField;
+    private JTextField header;
     private JTextField textArea1;
     private JTextField textArea2;
     private JTextField textArea3;
@@ -21,6 +21,7 @@ public class AddExerciseGUI extends GUI{
     private JButton addExerciseButton;
 
     public AddExerciseGUI(JFrame recentFrame, WorkoutList workoutList, Workout workout) {
+        header.setEditable(false);
         addExerciseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -14,19 +14,21 @@ import java.util.Map;
 
 public class ExerciseListGUI extends GUI{
     private JPanel panelMain;
-    private JTextField LISTOFEXERCISETextField;
+    private JTextField header;
     private JList list1;
-    private JTextArea textArea1;
-    private JTextField NOTESTextField;
+    private JTextArea notesTextArea;
+    private JTextField notesHeader;
     private JButton backButton;
     private JButton addNoteButton;
     private JButton addExerciseButton;
     private JButton removeExerciseButton;
-    private Map<Integer, Exercise> populatedList;
+    private Map<Integer, Exercise> mapForList;
     private DefaultListModel listModel;
 
     public ExerciseListGUI(JFrame recentFrame, WorkoutList workoutList, Workout workout) {
-        populatedList = new HashMap<>();
+        header.setEditable(false);
+        notesHeader.setEditable(false);
+        mapForList = new HashMap<>();
         listModel = new DefaultListModel();
         populateList(workout);
         list1.setModel(listModel);
@@ -46,9 +48,9 @@ public class ExerciseListGUI extends GUI{
             public void actionPerformed(ActionEvent e) {
                 int lastIndex = list1.getSelectedIndex();
                 if (lastIndex >= 0) {
-                    Exercise removeThisExercise = populatedList.get(lastIndex);
+                    Exercise removeThisExercise = mapForList.get(lastIndex);
                     workout.removeExercise(removeThisExercise);
-                    textArea1.setText("");
+                    notesTextArea.setText("");
                     populateList(workout);
                 } else {
                     JOptionPane.showMessageDialog(null, "Please select an Exercise");
@@ -68,14 +70,14 @@ public class ExerciseListGUI extends GUI{
                 if (e.getClickCount() == 1) {
                     if (lastIndex >= 0) {
                         super.mouseClicked(e);
-                        Exercise nextExercise = populatedList.get(lastIndex);
+                        Exercise nextExercise = mapForList.get(lastIndex);
                         String nextExerciseNote = nextExercise.getNotesGUI();
-                        textArea1.setText(nextExerciseNote);
+                        notesTextArea.setText(nextExerciseNote);
                     }
                 }
                 if (e.getClickCount() >= 2) {
                     if (lastIndex >= 0) {
-                        Exercise nextExercise = populatedList.get(lastIndex);
+                        Exercise nextExercise = mapForList.get(lastIndex);
                         moveToModifyExerciseForm(recentFrame, workoutList, workout, nextExercise);
                     }
                 }
@@ -86,7 +88,7 @@ public class ExerciseListGUI extends GUI{
     private void moveToAddNoteForm(WorkoutList workoutList, Workout workout, JFrame recentFrame) {
         int exerciseIndex = list1.getSelectedIndex();
         if (exerciseIndex >= 0) {
-            Exercise exercise = populatedList.get(exerciseIndex);
+            Exercise exercise = mapForList.get(exerciseIndex);
             JFrame thisFrame = new JFrame("Add a note");
             AddNoteGUI thisGUI = new AddNoteGUI(thisFrame, workoutList, workout, exercise);
             thisFrame.setContentPane(thisGUI.getPanel());
@@ -127,11 +129,11 @@ public class ExerciseListGUI extends GUI{
 
     private void populateList(Workout workout) {
         listModel.clear();
-        populatedList.clear();
+        mapForList.clear();
         int index = 0;
         for (Exercise next : workout.getListOfExercise()) {
             listModel.addElement((next.getName() + " S: " + next.getSets() + " R: " + next.getReps()));
-            populatedList.put(index, next);
+            mapForList.put(index, next);
             index++;
         }
     }
