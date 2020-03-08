@@ -1,28 +1,36 @@
 package ui.GForms;
 
+import model.Exercise;
+import model.Workout;
+import model.WorkoutList;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AddNoteGUI {
-    private JPanel PanelMain;
+public class AddNoteGUI extends GUI{
+    private JPanel panelMain;
     private JTextField LISTOFEXERCISETextField;
     private JTextArea list1;
     private JButton backButton;
     private JButton submitButton;
 
-    public AddNoteGUI() {
-        submitButton.addActionListener(new ActionListener() {
+    public AddNoteGUI(JFrame recentFrame, WorkoutList workoutList, Workout workout, Exercise thisExercise) {
+        submitButton.addActionListener(new ActionListener() { //TODO: backend
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                moveBackToExerciseListForm(recentFrame, panelMain, workoutList, workout);
             }
         });
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                moveBackToExerciseListForm(recentFrame, panelMain, workoutList, workout);
             }
         });
+    }
+    public Container getPanel() {
+        return this.panelMain;
     }
 }
