@@ -80,6 +80,13 @@ public class Exercise {
     }
 
     // MODIFIES: this
+    // EFFECTS: changes this name to the given name
+
+    public void changeName(String name) {
+        this.name = name;
+    }
+
+    // MODIFIES: this
     // EFFECTS: changes the value of the reps field with given parameter;
     //          if r <= 0, change value of reps to 0
 
