@@ -1,4 +1,4 @@
-package ui.GForms;
+package ui.gforms;
 
 import model.Exercise;
 import model.Workout;
@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class AddExerciseGUI extends GUI{
+public class AddExerciseGUI extends GUI {
     private JPanel panelMain;
     private JTextField header;
     private JTextField textArea1;
@@ -22,22 +22,8 @@ public class AddExerciseGUI extends GUI{
 
     public AddExerciseGUI(JFrame recentFrame, WorkoutList workoutList, Workout workout) {
         header.setEditable(false);
-        addExerciseButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int sets = Integer.valueOf(textArea2.getText());
-                int reps = Integer.valueOf(textArea3.getText());
-                Exercise newExercise = new Exercise(textArea1.getText(), sets, reps);
-                workout.addExercise(newExercise);
-                moveBackToExerciseListForm(recentFrame, panelMain, workoutList, workout);
-            }
-        });
-        goBackButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            moveBackToExerciseListForm(recentFrame, panelMain, workoutList, workout);
-            }
-        });
+        createAddExerciseButtonFunctionality(recentFrame, workoutList, workout);
+        createBackButtonFunctionality(recentFrame, workoutList, workout);
         textArea2.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -61,6 +47,29 @@ public class AddExerciseGUI extends GUI{
             }
         });
     }
+
+    private void createBackButtonFunctionality(JFrame recentFrame, WorkoutList workoutList, Workout workout) {
+        goBackButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                moveBackToExerciseListForm(recentFrame, panelMain, workoutList, workout);
+            }
+        });
+    }
+
+    private void createAddExerciseButtonFunctionality(JFrame recentFrame, WorkoutList workoutList, Workout workout) {
+        addExerciseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int sets = Integer.valueOf(textArea2.getText());
+                int reps = Integer.valueOf(textArea3.getText());
+                Exercise newExercise = new Exercise(textArea1.getText(), sets, reps);
+                workout.addExercise(newExercise);
+                moveBackToExerciseListForm(recentFrame, panelMain, workoutList, workout);
+            }
+        });
+    }
+
     public Container getPanel() {
         return this.panelMain;
     }

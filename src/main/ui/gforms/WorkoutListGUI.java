@@ -1,4 +1,4 @@
-package ui.GForms;
+package ui.gforms;
 
 import model.Workout;
 import model.WorkoutList;
@@ -33,32 +33,63 @@ public class WorkoutListGUI {
 
     public WorkoutListGUI(JFrame recentFrame, WorkoutList workoutList) {
         setup(workoutList);
+        createSaveButtonFunctionality(workoutList);
+        createAddWorkoutButtonFunctionality(recentFrame, workoutList);
+        createListSelectFunctionality(recentFrame, workoutList);
+        createRemoveWorkoutButtonFunctionality(workoutList);
+        createLoadButtonFunctionality(workoutList);
+        createFavouriteButtonFunctionality(workoutList);
+    }
 
-        saveButton.addActionListener(new ActionListener() {
+    private void createFavouriteButtonFunctionality(WorkoutList workoutList) {
+        toggleFavButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    Write.saveWorkoutList("default", workoutList);
-                    JOptionPane.showMessageDialog(null, "The workout list was saved successfully!");
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(null, "The save was unsuccessful");
+                int lastIndex = list1.getSelectedIndex();
+                if (lastIndex >= 0) {                               // if nothing is selected, return value will be -1
+                    Workout workout = populatedList.get(lastIndex); // find workout
+                    workout.toggleFavourite();
+                    populateList(workoutList);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please select the workout you would like to toggle!");
                 }
             }
         });
+    }
 
-        addWorkoutButton.addActionListener(new ActionListener() {
+    private void createLoadButtonFunctionality(WorkoutList workoutList) {
+        loadLastWorkoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame thisFrame = new JFrame("Add a Workout");
-                AddWorkoutGUI thisGUI = new AddWorkoutGUI(thisFrame, workoutList);
-                thisFrame.setContentPane(thisGUI.getPanel());
-                thisFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                thisFrame.pack();
-                thisFrame.setVisible(true);
-                panelMain.setVisible(false);
-                recentFrame.dispose();
+                try {
+                    Read.readWorkoutListGUI("default", workoutList);
+                    populateList(workoutList);
+                    JOptionPane.showMessageDialog(null, "Loading the workout list was successful!");
+                } catch (IOException | ParseException ex) {
+                    JOptionPane.showMessageDialog(null, "Loading the workout list was unsuccessful!");
+                }
             }
         });
+    }
+
+    private void createRemoveWorkoutButtonFunctionality(WorkoutList workoutList) {
+        removeWorkoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int lastIndex = list1.getSelectedIndex();
+                if (lastIndex >= 0) {
+                    Workout removeThisWorkout = populatedList.get(lastIndex);
+                    workoutList.removeWorkout(removeThisWorkout);
+                    descriptionTextArea.setText("");
+                    populateList(workoutList);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please select the workout you would like to remove!");
+                }
+            }
+        });
+    }
+
+    private void createListSelectFunctionality(JFrame recentFrame, WorkoutList workoutList) {
         list1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -79,44 +110,33 @@ public class WorkoutListGUI {
                 }
             }
         });
-        removeWorkoutButton.addActionListener(new ActionListener() {
+    }
+
+    private void createAddWorkoutButtonFunctionality(JFrame recentFrame, WorkoutList workoutList) {
+        addWorkoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int lastIndex = list1.getSelectedIndex();
-                if (lastIndex >= 0) {
-                    Workout removeThisWorkout = populatedList.get(lastIndex);
-                    workoutList.removeWorkout(removeThisWorkout);
-                    descriptionTextArea.setText("");
-                    populateList(workoutList);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Please select the workout you would like to remove!");
-                }
+                JFrame thisFrame = new JFrame("Add a Workout");
+                AddWorkoutGUI thisGUI = new AddWorkoutGUI(thisFrame, workoutList);
+                thisFrame.setContentPane(thisGUI.getPanel());
+                thisFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                thisFrame.pack();
+                thisFrame.setVisible(true);
+                panelMain.setVisible(false);
+                recentFrame.dispose();
             }
         });
-        loadLastWorkoutButton.addActionListener(new ActionListener() {
+    }
+
+    private void createSaveButtonFunctionality(WorkoutList workoutList) {
+        saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Read.readWorkoutListGUI("default", workoutList);
-                    populateList(workoutList);
-                    JOptionPane.showMessageDialog(null, "Loading the workout list was successful!");
-                } catch (IOException | ParseException ex) {
-                    JOptionPane.showMessageDialog(null, "Loading the workout list was unsuccessful!");
-                }
-            }
-        });
-        list1.addMouseListener(new MouseAdapter() {
-        });
-        toggleFavButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int lastIndex = list1.getSelectedIndex();
-                if (lastIndex >= 0) {                               // if nothing is selected, return value will be -1
-                    Workout workout = populatedList.get(lastIndex); // find workout
-                    workout.toggleFavourite();
-                    populateList(workoutList);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Please select the workout you would like to toggle!");
+                    Write.saveWorkoutList("default", workoutList);
+                    JOptionPane.showMessageDialog(null, "The workout list was saved successfully!");
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null, "The save was unsuccessful");
                 }
             }
         });

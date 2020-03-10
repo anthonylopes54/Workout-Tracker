@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ui.GForms.AddWorkoutGUI">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ui.gforms.ModifyExerciseGUI">
   <grid id="27dc6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="4e4a5" binding="panelMain" layout-manager="GridLayoutManager" row-count="7" column-count="11" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="a1e03" binding="panelMain" layout-manager="GridLayoutManager" row-count="9" column-count="11" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -20,7 +20,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="ae3d5" class="javax.swing.JTextField" binding="header">
+          <component id="fecd0" class="javax.swing.JTextField" binding="header">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="11" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="25"/>
@@ -32,7 +32,7 @@
               <text value="Please fill out the details below"/>
             </properties>
           </component>
-          <component id="a661d" class="javax.swing.JTextField" binding="textArea1" default-binding="true">
+          <component id="4890d" class="javax.swing.JTextField" binding="textArea1" default-binding="true">
             <constraints>
               <grid row="3" column="0" row-span="2" col-span="11" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="25"/>
@@ -42,16 +42,16 @@
               <font size="14"/>
             </properties>
           </component>
-          <component id="7a99d" class="javax.swing.JLabel">
+          <component id="e0f1f" class="javax.swing.JLabel">
             <constraints>
               <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Droid Sans Mono" size="16" style="1"/>
-              <text value="How would you describe this workout?"/>
+              <text value="How many Sets does this exercise have?"/>
             </properties>
           </component>
-          <component id="6b6ad" class="javax.swing.JTextField" binding="textArea2" default-binding="true">
+          <component id="23c99" class="javax.swing.JTextField" binding="textArea2" default-binding="true">
             <constraints>
               <grid row="6" column="0" row-span="1" col-span="11" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="25"/>
@@ -62,16 +62,35 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="6855a" class="javax.swing.JLabel">
+          <component id="245b1" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Droid Sans Mono" size="16" style="1"/>
+              <text value="How many reps does this exercise have?"/>
+            </properties>
+          </component>
+          <component id="e27ad" class="javax.swing.JTextField" binding="textArea3" default-binding="true">
+            <constraints>
+              <grid row="8" column="0" row-span="1" col-span="11" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="25"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font size="14"/>
+            </properties>
+          </component>
+          <component id="8dc57" class="javax.swing.JLabel">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Droid Sans Mono" size="16" style="1"/>
-              <text value="What is the name of this workout?"/>
+              <text value="What is the name of this exercise?"/>
             </properties>
           </component>
-          <component id="21781" class="javax.swing.JButton" binding="goBackButton" default-binding="true">
+          <component id="38dbf" class="javax.swing.JButton" binding="goBackButton" default-binding="true">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -79,12 +98,12 @@
               <text value="Go back"/>
             </properties>
           </component>
-          <component id="1cab1" class="javax.swing.JButton" binding="addExerciseButton" default-binding="true">
+          <component id="98856" class="javax.swing.JButton" binding="modifyExerciseButton">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="10" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Add workout"/>
+              <text value="Modify exercise"/>
             </properties>
           </component>
         </children>

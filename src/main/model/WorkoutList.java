@@ -69,13 +69,6 @@ public class WorkoutList {
     }
 
     // MODIFIES: this
-    // EFFECTS: removes all the workouts in listOfWorkout
-
-    public void removeAll() {
-        listOfWorkout.clear();
-    }
-
-    // MODIFIES: this
     // EFFECTS: removes given workout from listOfWorkout if it is present; otherwise, do nothing
 
     public void removeWorkout(Workout workout) {
@@ -86,6 +79,13 @@ public class WorkoutList {
             }
         }
         listOfWorkout.remove(workoutToRemove);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: removes all the workouts in listOfWorkout
+
+    public void removeAll() {
+        listOfWorkout.clear();
     }
 
 

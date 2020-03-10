@@ -2,10 +2,8 @@ package ui;
 
 // Begins  program with the instantiation of a new ConsoleInterface object
 
-import com.sun.corba.se.spi.orbutil.threadpool.Work;
-import model.Workout;
 import model.WorkoutList;
-import ui.GForms.WorkoutListGUI;
+import ui.gforms.WorkoutListGUI;
 
 import javax.swing.*;
 

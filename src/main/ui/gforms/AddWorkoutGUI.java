@@ -1,4 +1,4 @@
-package ui.GForms;
+package ui.gforms;
 
 import model.Workout;
 import model.WorkoutList;
@@ -7,10 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
-public class AddWorkoutGUI extends GUI{
+public class AddWorkoutGUI extends GUI {
     private JPanel panelMain;
     private JTextField header;
     private JTextField textArea1;

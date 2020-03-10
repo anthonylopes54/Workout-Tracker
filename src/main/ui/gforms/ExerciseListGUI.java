@@ -1,4 +1,4 @@
-package ui.GForms;
+package ui.gforms;
 
 import model.Exercise;
 import model.Workout;
@@ -12,7 +12,7 @@ import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ExerciseListGUI extends GUI{
+public class ExerciseListGUI extends GUI {
     private JPanel panelMain;
     private JTextField header;
     private JList list1;
@@ -26,18 +26,8 @@ public class ExerciseListGUI extends GUI{
     private DefaultListModel listModel;
 
     public ExerciseListGUI(JFrame recentFrame, WorkoutList workoutList, Workout workout) {
-        header.setEditable(false);
-        notesHeader.setEditable(false);
-        mapForList = new HashMap<>();
-        listModel = new DefaultListModel();
-        populateList(workout);
-        list1.setModel(listModel);
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            moveBackToWorkoutListForm(recentFrame, panelMain, workoutList);
-            }
-        });
+        setup(workout);
+        createBackButtonFunctionality(recentFrame, workoutList);
         addExerciseButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 moveToAddExerciseForm(workoutList, workout, recentFrame);
@@ -46,15 +36,7 @@ public class ExerciseListGUI extends GUI{
         removeExerciseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int lastIndex = list1.getSelectedIndex();
-                if (lastIndex >= 0) {
-                    Exercise removeThisExercise = mapForList.get(lastIndex);
-                    workout.removeExercise(removeThisExercise);
-                    notesTextArea.setText("");
-                    populateList(workout);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Please select an Exercise");
-                }
+                removeExerciseButtonFunctionality(workout);
             }
         });
         addNoteButton.addActionListener(new ActionListener() {
@@ -63,6 +45,19 @@ public class ExerciseListGUI extends GUI{
                 moveToAddNoteForm(workoutList, workout, recentFrame);
             }
         });
+        createListFunctionaility(recentFrame, workoutList, workout);
+    }
+
+    private void createBackButtonFunctionality(JFrame recentFrame, WorkoutList workoutList) {
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                moveBackToWorkoutListForm(recentFrame, panelMain, workoutList);
+            }
+        });
+    }
+
+    private void createListFunctionaility(JFrame recentFrame, WorkoutList workoutList, Workout workout) {
         list1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -85,6 +80,29 @@ public class ExerciseListGUI extends GUI{
         });
     }
 
+    private void removeExerciseButtonFunctionality(Workout workout) {
+        int lastIndex = list1.getSelectedIndex();
+        if (lastIndex >= 0) {
+            Exercise removeThisExercise = mapForList.get(lastIndex);
+            workout.removeExercise(removeThisExercise);
+            notesTextArea.setText("");
+            populateList(workout);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select an Exercise");
+        }
+    }
+
+    private void setup(Workout workout) {
+        header.setEditable(false);
+        notesHeader.setEditable(false);
+        mapForList = new HashMap<>();
+        listModel = new DefaultListModel();
+        notesTextArea.setLineWrap(true);
+        notesTextArea.setWrapStyleWord(true);
+        populateList(workout);
+        list1.setModel(listModel);
+    }
+
     private void moveToAddNoteForm(WorkoutList workoutList, Workout workout, JFrame recentFrame) {
         int exerciseIndex = list1.getSelectedIndex();
         if (exerciseIndex >= 0) {
@@ -105,7 +123,8 @@ public class ExerciseListGUI extends GUI{
 
     // HELPERS
 
-    private void moveToModifyExerciseForm(JFrame recentFrame, WorkoutList workoutList, Workout workout, Exercise nextExercise) {
+    private void moveToModifyExerciseForm(JFrame recentFrame,
+                                          WorkoutList workoutList, Workout workout, Exercise nextExercise) {
         JFrame thisFrame = new JFrame("ModifyExercise");
         ModifyExerciseGUI thisGUI = new ModifyExerciseGUI(thisFrame, workoutList, workout, nextExercise);
         thisFrame.setContentPane(thisGUI.getPanel());

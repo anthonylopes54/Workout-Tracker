@@ -1,4 +1,4 @@
-package ui.GForms;
+package ui.gforms;
 
 import model.Workout;
 import model.WorkoutList;
@@ -25,7 +25,7 @@ public abstract class GUI {
     }
 
     protected void moveBackToWorkoutListForm(JFrame recentFrame, JPanel panelMain, WorkoutList workoutList) {
-        JFrame thisFrame = new JFrame("Add a Workout");
+        JFrame thisFrame = new JFrame("Workout List");
         WorkoutListGUI thisGUI = new WorkoutListGUI(thisFrame, workoutList);
         thisFrame.setContentPane(thisGUI.getPanel());
         thisFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,8 +35,9 @@ public abstract class GUI {
         recentFrame.dispose();
     }
 
-    protected void moveBackToExerciseListForm(JFrame recentFrame, JPanel panelMain,WorkoutList workoutList, Workout workout) {
-        JFrame thisFrame = new JFrame("Add a Workout");
+    protected void moveBackToExerciseListForm(JFrame recentFrame,
+                                              JPanel panelMain,WorkoutList workoutList, Workout workout) {
+        JFrame thisFrame = new JFrame("Exercise List");
         ExerciseListGUI thisGUI = new ExerciseListGUI(thisFrame, workoutList, workout);
         thisFrame.setContentPane(thisGUI.getPanel());
         thisFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
