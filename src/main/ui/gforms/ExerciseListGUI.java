@@ -11,7 +11,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Map;
-
+//TODO: class comment
 public class ExerciseListGUI extends GUI {
     private JPanel panelMain;
     private JTextField header;
@@ -48,6 +48,8 @@ public class ExerciseListGUI extends GUI {
         createListFunctionaility(recentFrame, workoutList, workout);
     }
 
+    // EFFECTS: adds back button functionality; navigates users back to ListOfWorkoutGUI form if pressed.
+
     private void createBackButtonFunctionality(JFrame recentFrame, WorkoutList workoutList) {
         backButton.addActionListener(new ActionListener() {
             @Override
@@ -56,6 +58,9 @@ public class ExerciseListGUI extends GUI {
             }
         });
     }
+
+    // EFFECTS: allows user to select items in the jlist object. If an item is clicked twice, it take the user into
+    //          ModifyExerciseGUI form. If the item is clicked once, the notes for the exercises are shown.
 
     private void createListFunctionaility(JFrame recentFrame, WorkoutList workoutList, Workout workout) {
         list1.addMouseListener(new MouseAdapter() {
@@ -80,6 +85,10 @@ public class ExerciseListGUI extends GUI {
         });
     }
 
+    // MODIFIES: this, Workout
+    // EFFECTS: adds functionality to the remove exercise button;
+    //          removes exercise from listOfExercise and repopulates Jlist
+
     private void removeExerciseButtonFunctionality(Workout workout) {
         int lastIndex = list1.getSelectedIndex();
         if (lastIndex >= 0) {
@@ -92,6 +101,9 @@ public class ExerciseListGUI extends GUI {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: instantiates fields and sets the characteristics of the panel objects
+
     private void setup(Workout workout) {
         header.setEditable(false);
         notesHeader.setEditable(false);
@@ -102,6 +114,9 @@ public class ExerciseListGUI extends GUI {
         populateList(workout);
         list1.setModel(listModel);
     }
+
+    // EFFECTS: navigates user to AddNoteGUI form if an exercise is selected; otherwise, show a message dialog asking
+    //          user to select an exercise
 
     private void moveToAddNoteForm(WorkoutList workoutList, Workout workout, JFrame recentFrame) {
         int exerciseIndex = list1.getSelectedIndex();
@@ -121,7 +136,7 @@ public class ExerciseListGUI extends GUI {
     }
 
 
-    // HELPERS
+    // EFFECTS: navigates user to ModifyExerciseGUI form
 
     private void moveToModifyExerciseForm(JFrame recentFrame,
                                           WorkoutList workoutList, Workout workout, Exercise nextExercise) {
@@ -135,6 +150,8 @@ public class ExerciseListGUI extends GUI {
         recentFrame.dispose();
     }
 
+    // EFFECTS: navigates user to AddExerciseGUI form
+
     private void moveToAddExerciseForm(WorkoutList workoutList, Workout workout, JFrame recentFrame) {
         JFrame thisFrame = new JFrame("Add an exercise");
         AddExerciseGUI thisGUI = new AddExerciseGUI(thisFrame, workoutList, workout);
@@ -145,6 +162,9 @@ public class ExerciseListGUI extends GUI {
         panelMain.setVisible(false);
         recentFrame.dispose();
     }
+
+    // MODIFIES: this
+    // EFFECTS: Deletes all the elements in the Jlist and repopulates the list with exercises from list of exercises
 
     private void populateList(Workout workout) {
         listModel.clear();

@@ -30,6 +30,8 @@ public class AddNoteGUI extends GUI {
         createRemoveNoteButtonFunctionality(thisExercise);
     }
 
+    // EFFECTS: instantiates fields and sets characteristics of some panel objects
+
     private void setup(Exercise thisExercise) {
         mapForList = new HashMap<>();
         listModel = new DefaultListModel();
@@ -37,6 +39,10 @@ public class AddNoteGUI extends GUI {
         listOfNotes.setModel(listModel);
         header.setEditable(false);
     }
+
+    // MODFIES: this, Exercise
+    // EFFECTS: adds functionality to the remove note button functionality; removes note from list;
+    //          if the user has not selected a note, a message dialog pops up asking user to select a note
 
     private void createRemoveNoteButtonFunctionality(Exercise thisExercise) {
         removeNoteButton.addActionListener(new ActionListener() {
@@ -54,6 +60,8 @@ public class AddNoteGUI extends GUI {
         });
     }
 
+    // EFFECTS: adds functionality to the back button; takes users to the ExerciseListGUI form
+
     private void createBackButtonFunctionality(JFrame recentFrame, WorkoutList workoutList, Workout workout) {
         backButton.addActionListener(new ActionListener() {
             @Override
@@ -62,6 +70,9 @@ public class AddNoteGUI extends GUI {
             }
         });
     }
+
+    // MODIFIES: this, Exercise
+    // EFFECTS: add functionality to the add note button; adds user's not to list of notes
 
     private void createAddNoteButtonFunctionality(JFrame recentFrame,
                                                   WorkoutList workoutList, Workout workout, Exercise thisExercise) {
@@ -78,6 +89,8 @@ public class AddNoteGUI extends GUI {
         });
     }
 
+    // EFFECTS: Deletes all the elements in the Jlist and repopulates the list with notes from exercise's list of notes
+
     private void populateList(Exercise exercise) {
         listModel.clear();
         mapForList.clear();
@@ -88,6 +101,8 @@ public class AddNoteGUI extends GUI {
             index++;
         }
     }
+
+    // Getters
 
     public Container getPanel() {
         return this.panelMain;

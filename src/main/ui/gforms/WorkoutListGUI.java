@@ -158,8 +158,6 @@ public class WorkoutListGUI {
         });
     }
 
-    // HELPERS
-
     // EFFECTS: disposes of the current Fram and opens the ExerciseListGUI form
 
     private void goToWorkout(JFrame recentFrame, WorkoutList workoutList, Workout nextWorkout) {
@@ -173,6 +171,7 @@ public class WorkoutListGUI {
         recentFrame.dispose();
     }
 
+    // MODIFIES: this
     // EFFECTS: instantiates fields and sets the characteristics of the panel objects
 
     private void setup(WorkoutList workoutList) {
@@ -187,7 +186,8 @@ public class WorkoutListGUI {
         dumbbell.setIcon(new ImageIcon("data/dumbbell.png"));
     }
 
-    // EFFECTS: Deletes all the elements in a list and repopulates the list with workouts
+    // MODIFIES: this
+    // EFFECTS: Deletes all the elements in the Jlist and repopulates the list with workouts from list of workouts
 
     private void populateList(WorkoutList workoutList) {
         listModel.clear();

@@ -24,6 +24,13 @@ public class AddExerciseGUI extends GUI {
         header.setEditable(false);
         createAddExerciseButtonFunctionality(recentFrame, workoutList, workout);
         createBackButtonFunctionality(recentFrame, workoutList, workout);
+        restrictUserInput();
+    }
+
+    // EFFECTS: restricts user input to numbers for textArea 2 and 3;
+    //          lets users delete input with backspace and delete button
+
+    private void restrictUserInput() {
         textArea2.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -48,6 +55,8 @@ public class AddExerciseGUI extends GUI {
         });
     }
 
+    // EFFECTS: creates back button functionality; if pressed, user is navigated back to exercise list
+
     private void createBackButtonFunctionality(JFrame recentFrame, WorkoutList workoutList, Workout workout) {
         goBackButton.addActionListener(new ActionListener() {
             @Override
@@ -56,6 +65,8 @@ public class AddExerciseGUI extends GUI {
             }
         });
     }
+
+    // EFFECTS: add functionality to the add exercise button; directs users to the AddExerciseGUI form
 
     private void createAddExerciseButtonFunctionality(JFrame recentFrame, WorkoutList workoutList, Workout workout) {
         addExerciseButton.addActionListener(new ActionListener() {
@@ -69,6 +80,8 @@ public class AddExerciseGUI extends GUI {
             }
         });
     }
+
+    // GETTERS
 
     public Container getPanel() {
         return this.panelMain;

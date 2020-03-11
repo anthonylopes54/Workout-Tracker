@@ -25,6 +25,10 @@ public class ModifyExerciseGUI extends GUI {
         setup(exercise);
         createModifyExerciseButtonFunctionality(recentFrame, workoutList, workout, exercise);
         createBackButtonFunctionality(recentFrame, workoutList, workout);
+        constrainUserInput();
+    }
+
+    private void constrainUserInput() {
         textArea2.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
