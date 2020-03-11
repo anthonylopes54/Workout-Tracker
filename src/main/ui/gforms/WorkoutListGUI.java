@@ -41,6 +41,9 @@ public class WorkoutListGUI {
         createFavouriteButtonFunctionality(workoutList);
     }
 
+    //EFFECTS: Adds functionality to the favorite button so users can toggle favourite status for workouts.
+    //         If no workout is selected, show message dialog asking user to select a workout
+
     private void createFavouriteButtonFunctionality(WorkoutList workoutList) {
         toggleFavButton.addActionListener(new ActionListener() {
             @Override
@@ -57,6 +60,8 @@ public class WorkoutListGUI {
         });
     }
 
+    // EFFECTS: Adds functionality to the load button so that users can load their last workout.
+
     private void createLoadButtonFunctionality(WorkoutList workoutList) {
         loadLastWorkoutButton.addActionListener(new ActionListener() {
             @Override
@@ -71,6 +76,10 @@ public class WorkoutListGUI {
             }
         });
     }
+
+    // MODIFIES: this, workoutList
+    // EFFECTS: creates functionality for the remove workout button so that users can remove and delete a workout they
+    // selected last. If no workout is chosen, show message dialog asking to select workout.
 
     private void createRemoveWorkoutButtonFunctionality(WorkoutList workoutList) {
         removeWorkoutButton.addActionListener(new ActionListener() {
@@ -88,6 +97,9 @@ public class WorkoutListGUI {
             }
         });
     }
+
+    // EFFECTS: allows user to select items in the list object. If an item is clicked twice, it take the user into
+    //          the workout. if the item is clicked once, the description of the item is shown
 
     private void createListSelectFunctionality(JFrame recentFrame, WorkoutList workoutList) {
         list1.addMouseListener(new MouseAdapter() {
@@ -112,6 +124,8 @@ public class WorkoutListGUI {
         });
     }
 
+    // EFFECTS: Adds functionality to the add workout button so that users can add custom workouts
+
     private void createAddWorkoutButtonFunctionality(JFrame recentFrame, WorkoutList workoutList) {
         addWorkoutButton.addActionListener(new ActionListener() {
             @Override
@@ -127,6 +141,8 @@ public class WorkoutListGUI {
             }
         });
     }
+
+    // EFFECTS: adds functionality to the save button so users can save the current state of their workout list
 
     private void createSaveButtonFunctionality(WorkoutList workoutList) {
         saveButton.addActionListener(new ActionListener() {
@@ -144,6 +160,8 @@ public class WorkoutListGUI {
 
     // HELPERS
 
+    // EFFECTS: disposes of the current Fram and opens the ExerciseListGUI form
+
     private void goToWorkout(JFrame recentFrame, WorkoutList workoutList, Workout nextWorkout) {
         JFrame thisFrame = new JFrame("Exercise");
         ExerciseListGUI thisGUI = new ExerciseListGUI(thisFrame, workoutList, nextWorkout);
@@ -154,6 +172,8 @@ public class WorkoutListGUI {
         panelMain.setVisible(false);
         recentFrame.dispose();
     }
+
+    // EFFECTS: instantiates fields and sets the characteristics of the panel objects
 
     private void setup(WorkoutList workoutList) {
         descriptionTextArea.setWrapStyleWord(true);
@@ -166,6 +186,8 @@ public class WorkoutListGUI {
         list1.setModel(listModel);
         dumbbell.setIcon(new ImageIcon("data/dumbbell.png"));
     }
+
+    // EFFECTS: Deletes all the elements in a list and repopulates the list with workouts
 
     private void populateList(WorkoutList workoutList) {
         listModel.clear();
