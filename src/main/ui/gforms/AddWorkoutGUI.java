@@ -8,6 +8,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// A class for adding a workout to a workout list via the associated GUI
+
 public class AddWorkoutGUI extends GUI {
     private JPanel panelMain;
     private JTextField header;

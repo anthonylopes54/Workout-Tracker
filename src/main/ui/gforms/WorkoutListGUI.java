@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+// A class that shows the current list of workouts with options to modify the workouts in the list,
+// save the workout list and load the last saved workout list via the associated GUI.
+
 public class WorkoutListGUI {
     private JPanel panelMain;
     private JTextField header;
@@ -41,8 +44,9 @@ public class WorkoutListGUI {
         createFavouriteButtonFunctionality(workoutList);
     }
 
-    //EFFECTS: Adds functionality to the favorite button so users can toggle favourite status for workouts.
-    //         If no workout is selected, show message dialog asking user to select a workout
+    // MODIFIES: this
+    // EFFECTS: Adds functionality to the favorite button so users can toggle favourite status for workouts.
+    //          If no workout is selected, show message dialog asking user to select a workout
 
     private void createFavouriteButtonFunctionality(WorkoutList workoutList) {
         toggleFavButton.addActionListener(new ActionListener() {

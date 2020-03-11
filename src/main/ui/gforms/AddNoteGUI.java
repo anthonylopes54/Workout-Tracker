@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 
+// A class for adding a note to an exercise via the associated GUI
+
 public class AddNoteGUI extends GUI {
     private JPanel panelMain;
     private JTextField header;

@@ -11,7 +11,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Map;
-//TODO: class comment
+
+// A class that shows the current list of exercises with options to modify the exercises in the list
+// via the associated GUI
+
 public class ExerciseListGUI extends GUI {
     private JPanel panelMain;
     private JTextField header;

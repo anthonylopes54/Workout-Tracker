@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+// A class for adding an exercise to a workout via the associated GUI
+
 public class AddExerciseGUI extends GUI {
     private JPanel panelMain;
     private JTextField header;
