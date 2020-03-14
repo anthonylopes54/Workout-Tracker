@@ -159,6 +159,13 @@ public class WorkoutTest {
         assertFalse(testWorkout.checkExercise("chest"));
     }
 
+    @Test
+    public void testToggleFavourite() {
+        testWorkout.toggleFavourite();
+        assertTrue(testWorkout.getFavourite());
+        testWorkout.toggleFavourite();
+        assertFalse(testWorkout.getFavourite());
+    }
 
 
     // HELPERS

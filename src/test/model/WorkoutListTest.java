@@ -134,6 +134,13 @@ public class WorkoutListTest {
         assertFalse(testWorkoutList.containsName("hello"));
     }
 
+    @Test
+    public void testRemoveAll() {
+        addWorkouts();
+        testWorkoutList.removeAll();
+        assertEquals(0, testWorkoutList.getSize());
+    }
+
     // HELPERS
 
     // EFFECTS: adds workouts 1 through 3

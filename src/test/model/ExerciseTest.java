@@ -82,6 +82,22 @@ class ExerciseTest {
     }
 
     @Test
+    public void testGetNotesGUI() {
+        for (int i=0; i<10; i++) {
+            testExercise.addNote("slow-eccentric" + i);
+        }
+        String notes = "";
+
+        for (String next : testExercise.getListOfNote()) {
+            notes += "- " + next + "\n";
+        }
+
+        assertEquals(10, testExercise.getListOfNote().size());
+        String comparisonTest = testExercise.getNotesGUI();
+        assertTrue((notes.equals(comparisonTest)));
+    }
+
+    @Test
     public void testAddMultipleNotes() {
         for (int i=0; i<10; i++) {
             testExercise.addNote("slow-eccentric" + i);
@@ -121,6 +137,12 @@ class ExerciseTest {
     public void testRemoveNoteWithNoteNotInList() {
         testExercise.addNote("another note");
         assertFalse(testExercise.removeNote("hello"));
+    }
+
+    @Test
+    public void testChangeName() {
+        testExercise.changeName("anthony");
+        assertTrue(testExercise.getName().equals("anthony"));
     }
 
     // HELPERS

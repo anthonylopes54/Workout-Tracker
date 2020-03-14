@@ -93,8 +93,8 @@ public class Exercise {
                     }
                 }
             }
+            return false;
         }
-        return false;
     }
 
     // MODIFIES: this
