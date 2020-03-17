@@ -82,19 +82,18 @@ public class Exercise {
     public boolean removeNote(String note) {
         if (!listOfNote.contains(note)) {
             return false;
-        } else {
-            for (String next : listOfNote) {
-                if (next.equals(note)) {
-                    try {
-                        listOfNote.remove(next);
-                        return true;
-                    } catch (ConcurrentModificationException e) {
-                        return true;
-                    }
+        }
+        for (String next : listOfNote) {
+            if (next.equals(note)) {
+                try {
+                    listOfNote.remove(next);
+                    return true;
+                } catch (ConcurrentModificationException e) {
+                    return true;
                 }
             }
-            return false;
         }
+        return false;
     }
 
     // MODIFIES: this

@@ -82,7 +82,7 @@ class ExerciseTest {
     }
 
     @Test
-    public void testGetNotesGUI() {
+    public void testGetNotesGUINotEmpty() {
         for (int i=0; i<10; i++) {
             testExercise.addNote("slow-eccentric" + i);
         }
@@ -95,6 +95,11 @@ class ExerciseTest {
         assertEquals(10, testExercise.getListOfNote().size());
         String comparisonTest = testExercise.getNotesGUI();
         assertTrue((notes.equals(comparisonTest)));
+    }
+
+    @Test
+    public void testGetNotesGIOEmpty() {
+        assertTrue(testExercise.getNotesGUI().equals(""));
     }
 
     @Test
