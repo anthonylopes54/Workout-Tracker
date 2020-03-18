@@ -130,12 +130,12 @@ class ExerciseTest {
         testExercise.addNote("another note");
         assertEquals(3, testExercise.getListOfNote().size());
 
-        assertTrue(testExercise.removeNote("tempo"));
+        assertTrue(testExercise.removeNote("another note"));
         assertEquals(2, testExercise.getListOfNote().size());
 
         assertTrue(testExercise.removeNote("slow-eccentric"));
         assertEquals(1,testExercise.getListOfNote().size());
-        assertTrue(testExercise.getNotes().equals("The notes are as follows:\n- another note" + "\n"));
+        assertTrue(testExercise.getNotes().equals("The notes are as follows:\n- tempo" + "\n"));
     }
 
     @Test
