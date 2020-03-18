@@ -8,6 +8,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import persistence.Read;
 import persistence.Write;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -39,13 +41,8 @@ public class ReadTest {
     }
 
     @Test
-    public void testLoadWorkoutListNoExceptionThrown() {
-        testWorkoutList.addWorkout(testWorkout1);
-        testWorkoutList.addWorkout(testWorkout2);
-        testWorkoutList.addWorkout(testWorkout3);
-
-        testWorkoutList.getWorkout(testWorkout1).addExercise(exercise1);
-        testWorkoutList.getWorkout(testWorkout1).addExercise(exercise2);
+    public void testLoadWorkoutListExceptionThrown() {
+        createWorkoutsAndExercises();
 
         try {
             Write.saveWorkoutList("testread", testWorkoutList);
@@ -63,6 +60,39 @@ public class ReadTest {
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
-
     }
+
+    @Test
+    public void testReadWorkoutListGUI() {
+        createWorkoutsAndExercises();
+
+        try {
+            Write.saveWorkoutList("testreadGUI", testWorkoutList);
+        } catch (IOException e) {
+            fail();
+        }
+        try {
+            Read.readWorkoutListGUI("testreadGUI", testWorkoutList);
+        } catch (ParseException | IOException e) {
+            e.printStackTrace();
+            fail();
+        }
+        assertEquals(3, testWorkoutList.getSize());
+        assertEquals(2, testWorkout1.getListOfExercise().size());
+    }
+
+    // HELPERS
+
+    // EFFECTS: Creates and adds 3 workouts to testWorkoutList as well as 2 exercises to testWorkout1
+
+    private void createWorkoutsAndExercises() {
+        testWorkoutList.addWorkout(testWorkout1);
+        testWorkoutList.addWorkout(testWorkout2);
+        testWorkoutList.addWorkout(testWorkout3);
+
+        testWorkoutList.getWorkout(testWorkout1).addExercise(exercise1);
+        testWorkoutList.getWorkout(testWorkout1).addExercise(exercise2);
+    }
+
+
 }
