@@ -37,12 +37,18 @@ after the course of the term by making it more personalized to exercise professi
  - As a user, I want to be able to save my workouts and associated exercises to file
  - As a user, I want to be able to load my workouts and associated exercises from file when the program starts
  
- ### Phase 3
+ ### Instructions for Grader
  
-Please read below for instructions on how to run phase 3 of this project:
+- You can generate the first required event by clicking the "Add Workout" button. You will be asked to name and describe the workout. Please click add workout when you are done. You will then see the name of the workout you added on the left of the application.
+- You can generate the second required event by double clicking the workout you just made. That will take you to the workouts list of exercises (it will be empty). You can add an exercise by clicking the "Add Exercise" button. The application will ask you to enter the name of the exercise, its sets and its reps. When you are done, click "Add Exercise". You will be redirected to the list of exercises and you should be able to see the exercise you added on the left of the application with its sets and reps displayed.
+- You can locate my visual component on the first frame seen when you open the program. It is a dumbbell icon in the bottom right corner of the application. If you are still on the exercise list screen, you can press the back button to get back to the list of workouts (i.e., where you will find the image).
+- You can save the state of my application by clicking the save button on the "List of workouts" frame.
+- You can reload the state of my application by clicking the load button on the "List of workouts" frame. Please note that it will delete all the current data you have if you have yet to save it. If you click the load button without saving anything, a popup box will appear stating that the loading operation was unsuccessful.
+ 
+Please read below for more detailed instructions on how to use the app that were not included in the template provided to us on edX:
 - To start the program, please run the Main class from the UI package
 - After running, an empty workout list will pop up. If you have a previous workout saved, you can load it; Otherwise, the load button will load an empty workout list (i.e., no content).
-- Please not the dumbbell picture I have in the lower right corner for the audiovisual component
+- Please note the dumbbell picture I have in the lower right corner for the audiovisual component
 - To add a workout, please click the add workout button. You will be asked to name and describe the workout. Please click add workout when you are done.
 - Now you should be able to see the name of the workout you created (this is the adding X to Y component).
 - If you press the toggle fav button after clicking a workout, it will star or un-star the selected workout to indicate whether that workout is a favourite.
