@@ -98,6 +98,8 @@ public class ModifyExerciseGUI extends GUI {
 
     // Getters
 
+    // EFFECTS: returns this.panelMain
+
     public Container getPanel() {
         return this.panelMain;
     }

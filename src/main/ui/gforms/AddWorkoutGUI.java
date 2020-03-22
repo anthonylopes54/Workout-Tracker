@@ -52,6 +52,8 @@ public class AddWorkoutGUI extends GUI {
 
     // GETTERS
 
+    // EFFECTS: returns this.panelMain
+
     public Container getPanel() {
         return this.panelMain;
     }

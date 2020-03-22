@@ -210,6 +210,8 @@ public class WorkoutListGUI {
 
     // GETTERS
 
+    // EFFECTS: returns this.panelMain
+
     public JPanel getPanel() {
         return this.panelMain;
     }

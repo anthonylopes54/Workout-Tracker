@@ -45,7 +45,7 @@ after the course of the term by making it more personalized to exercise professi
 - You can save the state of my application by clicking the save button on the "List of workouts" frame.
 - You can reload the state of my application by clicking the load button on the "List of workouts" frame. Please note that it will delete all the current data you have if you have yet to save it. If you click the load button without saving anything, a popup box will appear stating that the loading operation was unsuccessful.
  
-Please read below for more detailed instructions on how to use the app that were not included in the template provided to us on edX:
+Please read below for more detailed instructions on how to use the app that were not included in the template provided to us on edX. The following instructions will guide you through each of the user stories:
 - To start the program, please run the Main class from the UI package
 - After running, an empty workout list will pop up. If you have a previous workout saved, you can load it; Otherwise, the load button will load an empty workout list (i.e., no content).
 - Please note the dumbbell picture I have in the lower right corner for the audiovisual component

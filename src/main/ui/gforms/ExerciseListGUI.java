@@ -182,6 +182,8 @@ public class ExerciseListGUI extends GUI {
 
     // GETTERS
 
+    // EFFECTS: returns this.panelMain
+
     public JPanel getPanel() {
         return this.panelMain;
     }

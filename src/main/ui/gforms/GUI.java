@@ -20,6 +20,7 @@ public abstract class GUI {
         }
     }
 
+    // MODIFIES: this
     // EFFECTS: allows user to delete all of what they have typed thus far using the backspace or delete keys
 
     protected void removeAllText(KeyEvent e, JTextField textArea) {
@@ -30,6 +31,7 @@ public abstract class GUI {
         }
     }
 
+    // MODIFIES: this
     // EFFECTS: navigates user back to WorkoutListGUI form.
 
     protected void moveBackToWorkoutListForm(JFrame recentFrame, JPanel panelMain, WorkoutList workoutList) {
@@ -43,6 +45,7 @@ public abstract class GUI {
         recentFrame.dispose();
     }
 
+    // MODIFIES: this
     // EFFECTS: navigates user back to the ExerciseListGUI form
 
     protected void moveBackToExerciseListForm(JFrame recentFrame,
