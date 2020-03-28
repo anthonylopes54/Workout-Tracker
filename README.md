@@ -66,3 +66,14 @@ Please read below for more detailed instructions on how to use the app that were
 - Now after adding your note, if you click on the exercise associated with that note, you should see the note pop up on the right side of the window.
 - That describes all the functionality of the program. You can navigate back to the opening frame by using the back button.
 
+### Phase 4: Task 2
+
+I have already made appropriate use of the map interface in my code. One example can be found in the *WorkoutListGUI* class.
+There is a private Map field called *populatedList* that has Integers for keys and Workouts for values. This Map interface is 
+used in the method called *populateList* which has the responsibility of clearing the JList associated with the *WorkoutListGUI* form 
+and repopulating it. The *populatedList* map is used to bind the workouts associated with the workout list to the JList. The key 
+value serves as an index for each workout in the list (i.e., it stores the position of the workout in the JList). This was used to 
+help implement the item selection functionality in the JList. The method *createListSelectFunctionality* finds the last selected 
+object and returns that objects index within the JList. I then take that index and find its associated workout using the map. 
+This allows the program to perform specific functions with the last selected object in the JList.
+
