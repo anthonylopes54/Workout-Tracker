@@ -1,6 +1,9 @@
 package model;
 
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import java.util.ArrayList;
 // This class represents each workout a user can make and/or access. It is comprised of a list of exercises that
 // comprise the workout as well as the name, description and status of the workout (i.e., is it a favourite workout or
@@ -147,5 +150,43 @@ public class Workout {
         }
         return false;
     }
+
+    // EFFECTS: encodes the given list of workouts into the given JSONArray
+
+    public static void save(WorkoutList listOfWorkout, JSONArray objectToEncodeIn) {
+        for (Workout next : listOfWorkout.getListOfWorkout()) {
+            JSONObject obj = new JSONObject();
+            obj.put("name", next.getName());
+            obj.put("description", next.getDescription());
+            obj.put("favourite", next.getFavourite());
+
+            JSONArray listOfExercise = new JSONArray();
+            Exercise.save(next.getListOfExercise(), listOfExercise);
+
+            obj.put("listOfExercise", listOfExercise);
+            objectToEncodeIn.add(obj);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: parses the given JSONArray into an ArrayList of workouts
+
+    public static void read(JSONArray jsonWorkoutList, WorkoutList workoutList) {
+        for (Object obj : jsonWorkoutList) {
+            JSONObject workout = (JSONObject) obj;
+
+            String name = (String) workout.get("name");
+            String description = (String) workout.get("description");
+            JSONArray listOfExercise = (JSONArray) workout.get("listOfExercise");
+
+            ArrayList<Exercise> listOfExerciseParsed = new ArrayList<>();
+            Exercise.read(listOfExercise, listOfExerciseParsed);
+
+            Boolean favourite = (Boolean) workout.get("favourite");
+            Workout thisWorkout = new Workout(name, description, listOfExerciseParsed, favourite);
+            workoutList.getListOfWorkout().add(thisWorkout);
+        }
+    }
+
 
 }

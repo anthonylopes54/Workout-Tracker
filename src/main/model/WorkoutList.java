@@ -1,14 +1,8 @@
 package model;
 
-
-import com.sun.corba.se.spi.orbutil.threadpool.Work;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
-import java.io.*;
 import java.util.ArrayList;
 
 // This class holds the list of workouts a user can make. It can also hold preset workouts
@@ -137,7 +131,6 @@ public class WorkoutList {
         }
         return false;
     }
-
 
 }
 

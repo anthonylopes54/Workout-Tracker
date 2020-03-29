@@ -1,5 +1,8 @@
 package model;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 
@@ -24,6 +27,8 @@ public class Exercise {
         this.reps = reps;
         this.listOfNote = listOfNote;
     }
+
+
 
     // EFFECTS: returns the number of sets for the given exercise
 
@@ -129,5 +134,34 @@ public class Exercise {
 
     public ArrayList<String> getListOfNote() {
         return listOfNote;
+    }
+
+    // EFFECTS: encodes the given list of exercises into the given JSONArray
+
+    public static void save(ArrayList<Exercise> listOfExercise, JSONArray objectToEncodeIn) {
+        for (Exercise next : listOfExercise) {
+            JSONObject obj = new JSONObject();
+            obj.put("name", next.getName());
+            obj.put("sets", next.getSets());
+            obj.put("reps", next.getReps());
+            obj.put("listOfNote", next.getListOfNote());
+            objectToEncodeIn.add(obj);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: parses the given JSONArray into an ArrayList of exercises
+
+    public static void read(JSONArray jsonExercises, ArrayList<Exercise> listOfExercise) {
+        for (Object obj : jsonExercises) {
+            JSONObject exercise = (JSONObject) obj;
+
+            String name = (String) exercise.get("name");
+            int sets = ((Long) exercise.get("sets")).intValue();
+            int reps = ((Long) exercise.get("reps")).intValue();
+            ArrayList<String> listOfNote = (ArrayList<String>) exercise.get("listOfNote");
+            Exercise thisExercise = new Exercise(name, sets, reps, listOfNote);
+            listOfExercise.add(thisExercise);
+        }
     }
 }
