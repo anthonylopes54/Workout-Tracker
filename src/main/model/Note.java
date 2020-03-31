@@ -45,22 +45,22 @@ public class Note {
 
     // EFFECTS: overrides equals so that it compares the note field
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        Note note1 = (Note) o;
-
-        return note != null ? note.equals(note1.note) : note1.note == null;
-    }
-
-    @Override
-    public int hashCode() {
-        return note != null ? note.hashCode() : 0;
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) {
+//            return true;
+//        }
+//        if (o == null || getClass() != o.getClass()) {
+//            return false;
+//        }
+//
+//        Note note1 = (Note) o;
+//
+//        return note != null ? note.equals(note1.note) : note1.note == null;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return note != null ? note.hashCode() : 0;
+//    }
 }

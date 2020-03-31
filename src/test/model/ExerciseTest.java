@@ -139,9 +139,37 @@ class ExerciseTest {
     }
 
     @Test
+    public void testRemoveNoteWithNoteParameter() {
+        testExercise.addNote("slow-eccentric");
+        String notes = testExercise.getNotes();
+        assertTrue(notes.equals("The notes are as follows:\n- slow-eccentric" + "\n"));
+        assertEquals(1, testExercise.getListOfNote().size());
+
+        testExercise.addNote("tempo");
+        testExercise.addNote("another note");
+        assertEquals(3, testExercise.getListOfNote().size());
+
+        Note newNote1 = new Note("another note");
+        assertTrue(testExercise.removeNote(newNote1));
+        assertEquals(2, testExercise.getListOfNote().size());
+
+        Note newNote2 = new Note("slow-eccentric");
+        assertTrue(testExercise.removeNote(newNote2));
+        assertEquals(1,testExercise.getListOfNote().size());
+        assertTrue(testExercise.getNotes().equals("The notes are as follows:\n- tempo" + "\n"));
+    }
+
+    @Test
     public void testRemoveNoteWithNoteNotInList() {
         testExercise.addNote("another note");
         assertFalse(testExercise.removeNote("hello"));
+    }
+
+    @Test
+    public void testRemoveNoteWithNoteNotInListWithNoteParameter() {
+        Note newNote = new Note("another noe");
+        testExercise.addNote("another note");
+        assertFalse(testExercise.removeNote(newNote));
     }
 
     @Test

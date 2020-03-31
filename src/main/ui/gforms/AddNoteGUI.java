@@ -99,7 +99,7 @@ public class AddNoteGUI extends GUI {
         mapForList.clear();
         int index = 0;
         for (Note next : exercise.getListOfNote()) {
-            listModel.addElement(next);
+            listModel.addElement(next.getNote());
             mapForList.put(index, next);
             index++;
         }
