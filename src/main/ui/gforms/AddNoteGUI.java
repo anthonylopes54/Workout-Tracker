@@ -1,6 +1,7 @@
 package ui.gforms;
 
 import model.Exercise;
+import model.Note;
 import model.Workout;
 import model.WorkoutList;
 
@@ -22,7 +23,7 @@ public class AddNoteGUI extends GUI {
     private JTextArea userTextField;
     private JButton removeNoteButton;
     private JTextField askUserToTypeNoteLabel;
-    private Map<Integer, String> mapForList;
+    private Map<Integer, Note> mapForList;
     private DefaultListModel listModel;
 
     public AddNoteGUI(JFrame recentFrame, WorkoutList workoutList, Workout workout, Exercise thisExercise) {
@@ -52,7 +53,7 @@ public class AddNoteGUI extends GUI {
             public void actionPerformed(ActionEvent e) {
                 int lastIndex = listOfNotes.getSelectedIndex();
                 if (lastIndex >= 0) {
-                    String removeThisNote = mapForList.get(lastIndex);
+                    Note removeThisNote = mapForList.get(lastIndex);
                     thisExercise.removeNote(removeThisNote);
                     populateList(thisExercise);
                 } else {
@@ -97,7 +98,7 @@ public class AddNoteGUI extends GUI {
         listModel.clear();
         mapForList.clear();
         int index = 0;
-        for (String next : exercise.getListOfNote()) {
+        for (Note next : exercise.getListOfNote()) {
             listModel.addElement(next);
             mapForList.put(index, next);
             index++;

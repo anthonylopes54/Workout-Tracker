@@ -11,7 +11,7 @@ public class Exercise {
     private String name;
     private int sets;
     private int reps;
-    private ArrayList<String> listOfNote;
+    private ArrayList<Note> listOfNote;
 
     public Exercise(String name, int sets, int reps) {
         this.name = name;
@@ -20,7 +20,7 @@ public class Exercise {
         listOfNote = new ArrayList<>();
     }
 
-    public Exercise(String name, int sets, int reps, ArrayList<String> listOfNote) {
+    public Exercise(String name, int sets, int reps, ArrayList<Note> listOfNote) {
         this.name = name;
         this.sets = sets;
         this.reps = reps;
@@ -53,8 +53,8 @@ public class Exercise {
             return "There are no notes for this exercise.";
         }
         String notes = "The notes are as follows:\n";
-        for (String next : listOfNote) {
-            notes += "- " + next + "\n";
+        for (Note next : listOfNote) {
+            notes += next.returnFormattedNote();
         }
         return notes;
     }
@@ -65,8 +65,8 @@ public class Exercise {
             return "";
         }
         String notes = "";
-        for (String next : listOfNote) {
-            notes += "- " + next + "\n";
+        for (Note next : listOfNote) {
+            notes += next.returnFormattedNote();
         }
         return notes;
     }
@@ -75,7 +75,8 @@ public class Exercise {
     // EFFECTS: adds given String to listOfNote
 
     public void addNote(String note) {
-        listOfNote.add(note);
+        Note newNote = new Note(note);
+        listOfNote.add(newNote);
 
     }
 
@@ -84,9 +85,28 @@ public class Exercise {
     //          otherwise return false
 
     public boolean removeNote(String note) {
-        String noteToRemove = "";
-        for (String next : listOfNote) {
-            if (next.equals(note)) {
+        Note noteToRemove = new Note(note);
+        for (Note next : listOfNote) {
+            if (next == noteToRemove) {
+                noteToRemove = next;
+                break;
+            }
+        }
+        if (!listOfNote.contains(noteToRemove)) {
+            return false;
+        }
+        listOfNote.remove(noteToRemove);
+        return true;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: removes given string from listOfNote and returns true;
+    //          otherwise return false
+
+    public boolean removeNote(Note note) {
+        Note noteToRemove = null;
+        for (Note next : listOfNote) {
+            if (next == note) {
                 noteToRemove = next;
                 break;
             }
@@ -131,7 +151,7 @@ public class Exercise {
 
     // EFFECTS: returns listOfNote
 
-    public ArrayList<String> getListOfNote() {
+    public ArrayList<Note> getListOfNote() {
         return listOfNote;
     }
 
@@ -143,7 +163,12 @@ public class Exercise {
             obj.put("name", next.getName());
             obj.put("sets", next.getSets());
             obj.put("reps", next.getReps());
-            obj.put("listOfNote", next.getListOfNote());
+
+            JSONArray listOfNoteEncoded = new JSONArray();
+            for (Note note: next.getListOfNote()) {
+                note.save(note, listOfNoteEncoded);
+            }
+            obj.put("listOfNote", listOfNoteEncoded);
             objectToEncodeIn.add(obj);
         }
     }
@@ -158,7 +183,12 @@ public class Exercise {
             String name = (String) exercise.get("name");
             int sets = ((Long) exercise.get("sets")).intValue();
             int reps = ((Long) exercise.get("reps")).intValue();
-            ArrayList<String> listOfNote = (ArrayList<String>) exercise.get("listOfNote");
+            JSONArray listOfEncodedNote = (JSONArray) exercise.get("listOfNote");
+
+            ArrayList<Note> listOfNote = new ArrayList<>();
+            for (Object encodedNote: listOfEncodedNote) {
+                Note.read(encodedNote, listOfNote);
+            }
             Exercise thisExercise = new Exercise(name, sets, reps, listOfNote);
             listOfExercise.add(thisExercise);
         }

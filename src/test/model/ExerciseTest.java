@@ -88,8 +88,8 @@ class ExerciseTest {
         }
         String notes = "";
 
-        for (String next : testExercise.getListOfNote()) {
-            notes += "- " + next + "\n";
+        for (Note next : testExercise.getListOfNote()) {
+            notes += "- " + next.getNote() + "\n";
         }
 
         assertEquals(10, testExercise.getListOfNote().size());
@@ -109,8 +109,8 @@ class ExerciseTest {
         }
         String notes = "The notes are as follows:\n";
 
-        for (String next : testExercise.getListOfNote()) {
-            notes += "- " + next + "\n";
+        for (Note next : testExercise.getListOfNote()) {
+            notes += "- " + next.getNote() + "\n";
         }
 
         assertEquals(10, testExercise.getListOfNote().size());

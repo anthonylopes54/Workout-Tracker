@@ -78,6 +78,7 @@ public class WriteTest {
             Read.readWorkoutList("testwrite", testWorkoutList);
         } catch (IOException | ParseException e) {
             e.printStackTrace();
+            fail("Not supposed to throw an exception");
         }
 
         assertEquals(3, testWorkoutList.getSize());
