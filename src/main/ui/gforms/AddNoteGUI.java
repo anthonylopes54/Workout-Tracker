@@ -42,7 +42,7 @@ public class AddNoteGUI extends GUI {
         header.setEditable(false);
     }
 
-    // MODFIES: this, Exercise
+    // MODIFIES: this, Exercise
     // EFFECTS: adds functionality to the remove note button functionality; removes note from list;
     //          if the user has not selected a note, a message dialog pops up asking user to select a note
 

@@ -4,7 +4,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
 
 // This class holds all the info pertaining to an exercise (name, sets, reps, and a list of notes)
 

@@ -1,14 +1,11 @@
 package model;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 
 // This class holds the list of workouts a user can make. It can also hold preset workouts
 
 public class WorkoutList {
-    private static final String ACCOUNT_LOCATION = "./data/";
     private ArrayList<Workout> listOfWorkout;
 
     public WorkoutList() {
@@ -99,7 +96,7 @@ public class WorkoutList {
     // EFFECTS: returns given workout if it is in listOfWorkout; else return null
 
     public Workout getWorkout(Workout workout) {
-        Workout returnValue = null;
+        //Workout returnValue = null;
         for (Workout next : listOfWorkout) {
             if (next == workout) {
                 return workout;

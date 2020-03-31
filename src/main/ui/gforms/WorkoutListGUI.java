@@ -162,7 +162,7 @@ public class WorkoutListGUI {
         });
     }
 
-    // EFFECTS: disposes of the current Fram and opens the ExerciseListGUI form
+    // EFFECTS: disposes of the current Frame and opens the ExerciseListGUI form
 
     private void goToWorkout(JFrame recentFrame, WorkoutList workoutList, Workout nextWorkout) {
         JFrame thisFrame = new JFrame("Exercise");

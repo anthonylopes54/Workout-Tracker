@@ -3,8 +3,8 @@ package model;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
 import java.util.ArrayList;
+
 // This class represents each workout a user can make and/or access. It is comprised of a list of exercises that
 // comprise the workout as well as the name, description and status of the workout (i.e., is it a favourite workout or
 // not).
@@ -121,11 +121,7 @@ public class Workout {
     // EFFECTS: toggle value of this.favorite
 
     public void toggleFavourite() {
-        if (favourite) {
-            favourite = false;
-        } else {
-            favourite = true;
-        }
+        favourite = !favourite;
     }
 
     // EFFECTS: return value of this.favourite
