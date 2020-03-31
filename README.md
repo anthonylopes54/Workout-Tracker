@@ -79,26 +79,19 @@ This allows the program to perform specific functions with the last selected obj
 
 ### Phase 4: Task 3
 
-One spot in my code where there was too much coupling was between the *Write* class and the *Workout* and *Exercise* classes. 
-All the save functionality in my application was in the *Write* class. Thus, if I added new fields to either the *Workout* 
-or *Exercise* class, I would have to make changes in the *Write* class. I refactored the code to reduce this coupling. 
-Currently, the *saveWorkoutList* method in the *Write* class calls on the new *save* method situated in the *Workout* class 
-before implementing the functionality that writes a JSONArray to a file. The *save* function in the *Workout* class creates 
-JSON objects for each of the Workout objects. If a change occurs in the *Workout* class, the *save* method is the only 
-method that needs to be altered to reflect that change. In addition, the *Workout.save* method calls the *Exercise.save* 
-method which creates JSON objects for each of the Exercise objects. Similarly, if a change occurs in the *Exercise* class 
-(e.g., adding a new field) the *Exercise.save* is the only method that requires a change; thus, reducing the coupling 
-between the *Write*, *Workout* and *Exercise* classes.
+One spot in my code where there was not enough cohesion was in the *Read* and *Write* Classes. All the applications 
+functionality for both reading and writing was located in these classes. To improve cohesion, I implemented *save* and 
+*read* methods in the *Workout* and *Exercise* classes. Now, the *Write* class specifically writes a given object to file 
+and calls on *Workout.save* to encode the workout objects into JSON. This method in turn, calls on *Exercise.save* to 
+save the given exercise objects within the workouts list of exercises. This improves cohesion because the *Read*, 
+*Write*, *Workout*, and *Exercise* classes are now responsible for one thing (e.g., the write class is responsible for 
+writing an object to file, the Workout class is responsible for encoding a workout into JSON, etc.). The *Read* class
+functions in a similar way.
 
-Another spot in my code where there was too much coupling was between the *Read* class and the *Workout* and *Exercise* 
-classes. Similarly to my write functionality, all  my read functionality was in the *Read* class. If I added new fields 
-to either the *Workout* or *Exercise* class, I would have to make changes in the *Read* class. I refactored the code to 
-reduce this coupling. Currently, the *readWorkoutList* method in the *Read* class reads the file with the given name and parses it 
-prior to calling on the new *read* method situated in the *Workout* class. The *read* function in the *Workout* class parses 
-each workout, creates each workout that was encoded in JSON and adds each workout to the workout list. If a change 
-occurs in the *Workout* class, the *read* method is the only method that needs to be altered to reflect that change. In 
-addition, the *Workout.read* method call the *Exercise.read* method which creates each exercise that was encoded in the 
-given JSON-encoded list of exercises. Similarly, if a change occurs in the *Exercise* class (e.g., adding a new field) 
-*Exercise.read* is the only method that requires a change; thus, reducing the coupling between the *Write*, *Workout* and 
-*Exercise* classes.
+Another spot in my code where there was not enough cohesion was in the Exercise class. The exercise class contained a 
+list of notes and all the functionality pertaining to these notes was living inside the *Exercise* class. To fix this, 
+I made a new *Note* class and the Exercise Class now has a list of Note objects. Furthermore, I implemented read and 
+save function as well as any associated methods to the *Note* class. In the future, if I would like to add 
+more functionality to the Notes (e.g., different types of notes), I am in a better position to do so.
+
 
