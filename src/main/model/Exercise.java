@@ -106,7 +106,7 @@ public class Exercise {
     public boolean removeNote(Note note) {
         Note noteToRemove = null;
         for (Note next : listOfNote) {
-            if (next.getNote() == note.getNote()) {
+            if (next.getNote().equals(note.getNote())) {
                 noteToRemove = next;
                 break;
             }

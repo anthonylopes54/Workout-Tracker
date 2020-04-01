@@ -5,6 +5,7 @@ import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 
+// this class holds all the info pertaining to a note. These notes are currently being used by the exercise class
 
 public class Note {
     private String note;

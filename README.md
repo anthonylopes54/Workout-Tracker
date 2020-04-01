@@ -39,32 +39,52 @@ after the course of the term by making it more personalized to exercise professi
  
  ### Instructions for Grader
  
-- You can generate the first required event by clicking the "Add Workout" button. You will be asked to name and describe the workout. Please click add workout when you are done. You will then see the name of the workout you added on the left of the application.
-- You can generate the second required event by double clicking the workout you just made. That will take you to the workouts list of exercises (it will be empty). You can add an exercise by clicking the "Add Exercise" button. The application will ask you to enter the name of the exercise, its sets and its reps. When you are done, click "Add Exercise". You will be redirected to the list of exercises and you should be able to see the exercise you added on the left of the application with its sets and reps displayed.
-- You can locate my visual component on the first frame seen when you open the program. It is a dumbbell icon in the bottom right corner of the application. If you are still on the exercise list screen, you can press the back button to get back to the list of workouts (i.e., where you will find the image).
+- You can generate the first required event by clicking the "Add Workout" button. You will be asked to name and describe 
+the workout. Please click add workout when you are done. You will then see the name of the workout you added on the left 
+of the application.
+- You can generate the second required event by double clicking the workout you just made. That will take you to the 
+workouts list of exercises (it will be empty). You can add an exercise by clicking the "Add Exercise" button. The 
+application will ask you to enter the name of the exercise, its sets and its reps. When you are done, click "Add 
+Exercise". You will be redirected to the list of exercises and you should be able to see the exercise you added on the 
+left of the application with its sets and reps displayed.
+- You can locate my visual component on the first frame seen when you open the program. It is a dumbbell icon in the 
+bottom right corner of the application. If you are still on the exercise list screen, you can press the back button to 
+get back to the list of workouts (i.e., where you will find the image).
 - You can save the state of my application by clicking the save button on the "List of workouts" frame.
-- You can reload the state of my application by clicking the load button on the "List of workouts" frame. Please note that it will delete all the current data you have if you have yet to save it. If you click the load button without saving anything, a popup box will appear stating that the loading operation was unsuccessful.
+- You can reload the state of my application by clicking the load button on the "List of workouts" frame. Please note 
+that it will delete all the current data you have if you have yet to save it. If you click the load button without 
+saving anything, a popup box will appear stating that the loading operation was unsuccessful.
  
-Please read below for more detailed instructions on how to use the app that were not included in the template provided to us on edX. The following instructions will guide you through each of the user stories:
+Please read below for more detailed instructions on how to use the app that were not included in the template provided 
+to us on edX. The following instructions will guide you through each of the user stories:
 - To start the program, please run the Main class from the UI package
-- After running, an empty workout list will pop up. If you have a previous workout saved, you can load it; Otherwise, the load button will load an empty workout list (i.e., no content).
+- After running, an empty workout list will pop up. If you have a previous workout saved, you can load it; Otherwise, 
+the load button will load an empty workout list (i.e., no content).
 - Please note the dumbbell picture I have in the lower right corner for the audiovisual component
-- To add a workout, please click the add workout button. You will be asked to name and describe the workout. Please click add workout when you are done.
+- To add a workout, please click the add workout button. You will be asked to name and describe the workout. Please 
+click add workout when you are done.
 - Now you should be able to see the name of the workout you created (this is the adding X to Y component).
-- If you press the toggle fav button after clicking a workout, it will star or un-star the selected workout to indicate whether that workout is a favourite.
+- If you press the toggle fav button after clicking a workout, it will star or un-star the selected workout to indicate 
+whether that workout is a favourite.
 - At any time, you can save the current state of the workout list by clicking on the save button.
 - If you click once on the workout, the description of the workout will pop up in the right box.
 - If you double click on the workout, you will be taken into the it (i.e., the workout's list of exercises).
-- From there, you can click 'add exercise' to add an exercise to the workout. You will be asked the name of the exercise as well as its quantity of sets and reps.
-- The set and rep boxes will only take numbers and the button, delete will clear the whole text box. When you are done, click add exercise.
+- From there, you can click 'add exercise' to add an exercise to the workout. You will be asked the name of the exercise 
+as well as its quantity of sets and reps.
+- The set and rep boxes will only take numbers and the button, delete will clear the whole text box. When you are done, 
+click add exercise.
 - You should now see the name of your exercise followed by its sets and reps indicated my "S" and "R", respectively.
 - If you double click the exercise, you can modify its attributes.
-- If you single click the exercise, you can remove it by clicking the remove exercise button and you can add a note to it by clicking the modify note button.
-- After clicking the modify note button, you will be shown a list of your current notes (if you have any) and you will have the option of typing your own note at the bottom of the window.
+- If you single click the exercise, you can remove it by clicking the remove exercise button and you can add a note to 
+it by clicking the modify note button.
+- After clicking the modify note button, you will be shown a list of your current notes (if you have any) and you will 
+have the option of typing your own note at the bottom of the window.
 - If you click on any current notes you have, you can delete it by clicking the remove note button.
 - After typing out your own note, click add note and you will be directed to your list of exercises.
-- Now after adding your note, if you click on the exercise associated with that note, you should see the note pop up on the right side of the window.
-- That describes all the functionality of the program. You can navigate back to the opening frame by using the back button.
+- Now after adding your note, if you click on the exercise associated with that note, you should see the note pop up on 
+the right side of the window.
+- That describes all the functionality of the program. You can navigate back to the opening frame by using the back 
+button.
 
 ### Phase 4: Task 2
 
@@ -74,24 +94,25 @@ used in the method called *populateList* which has the responsibility of clearin
 and repopulating it. The *populatedList* map is used to bind the workouts associated with the workout list to the JList. The key 
 value serves as an index for each workout in the list (i.e., it stores the position of the workout in the JList). This was used to 
 help implement the item selection functionality in the JList. The method *createListSelectFunctionality* finds the last selected 
-object and returns that objects index within the JList. I then take that index and find its associated workout using the map. 
+object and returns that object's index within the JList. I then take that index and find its associated workout using the map. 
 This allows the program to perform specific functions with the last selected object in the JList.
 
 ### Phase 4: Task 3
 
-One spot in my code where there was not enough cohesion was in the *Read* and *Write* Classes. All the applications 
+One spot in my code where there was not enough cohesion was in the *Read* and *Write* classes. All the application's 
 functionality for both reading and writing was located in these classes. To improve cohesion, I implemented *save* and 
 *read* methods in the *Workout* and *Exercise* classes. Now, the *Write* class specifically writes a given object to file 
 and calls on *Workout.save* to encode the workout objects into JSON. This method in turn, calls on *Exercise.save* to 
-save the given exercise objects within the workouts list of exercises. This improves cohesion because the *Read*, 
-*Write*, *Workout*, and *Exercise* classes are now responsible for one thing (e.g., the write class is responsible for 
-writing an object to file, the Workout class is responsible for encoding a workout into JSON, etc.). The *Read* class
-functions in a similar way.
+save the given exercise objects within each workout's list of exercises. This improves cohesion because the *Read*, 
+*Write*, *Workout*, and *Exercise* classes are now responsible for functionality pertaining to their own respective 
+ responsibilities (e.g., the write class is responsible for writing an object to file, the Workout class is responsible 
+ for encoding a workout into JSON, etc.). The *Read* class functions in a similar way.
 
-Another spot in my code where there was not enough cohesion was in the Exercise class. The exercise class contained a 
+Another spot in my code where there was not enough cohesion was in the *Exercise* class. The *Exercise* class contained a 
 list of notes and all the functionality pertaining to these notes was living inside the *Exercise* class. To fix this, 
-I made a new *Note* class and the Exercise Class now has a list of Note objects. Furthermore, I implemented read and 
-save function as well as any associated methods to the *Note* class. In the future, if I would like to add 
-more functionality to the Notes (e.g., different types of notes), I am in a better position to do so.
+I made a new *Note* class and the *Exercise* class now has a list of Note objects. Furthermore, I implemented *read* and 
+*save* methods as well as any other methods associated with the *Note* class. In the future, if I would like to add 
+more functionality to the notes (e.g., different types of notes) or have more classes use notes (e.g., have notes for 
+workouts AND exercises instead of just exercises), I am in a better position to do so because of this improved cohesion.
 
 
